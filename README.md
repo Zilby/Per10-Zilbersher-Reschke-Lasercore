@@ -6,7 +6,7 @@ This project is so far designed to be a hexagon-style game in which the player d
 The name itself is derived from the in-game lasers and the laser-electronic inspired music being the 'core' of the gameplay.
 
 So far: 
--Menu background created\n
+-Menu background created \n
 -Menu music added
 -Names and title fade in after a delay 
 -'Press Space' fades in and out
