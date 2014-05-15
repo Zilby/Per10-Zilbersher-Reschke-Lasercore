@@ -43,7 +43,43 @@ void setup() {
 void draw(){
     //IN BETWEEN LEVELS
     if(advance){ //if advancing to next level, 
-      if(first){ //if first time performing advance
+      nextLevel();
+    }
+    //each level has its own method
+    else if(level==0){
+      levelZero();
+    }
+    else if(level==1){
+      levelOne();
+    }
+    else if(level==2){
+      levelTwo();
+    }
+    else if(level==3){
+      levelThree();
+    }
+    else if(level==4){
+      levelFour();
+    }
+    else if(level==5){
+      levelFive();
+    }
+    else if(level==6){
+      levelSix();
+    }
+}
+
+void keyReleased() {
+    if(level==0){
+        if(key == ' '){
+            advance = true;
+            first = true;
+        }
+    }
+}
+
+void nextLevel(){
+    if(first){ //if first time performing nextLevel
         minim.stop();    //stop the music!
         if(level==0){
           menuG.stop(); //stops main menu gifs
@@ -60,12 +96,12 @@ void draw(){
       if(counter<65){
         background(0);
         if(counter<15){ //all this is just to blur in the 3, 2, 1, GO
-          if(blur1<255&&counter<5){
+          if(blur1<255&&counter<5){ //blurs in for first five frames
              tint(255,blur1);
              image(i3,210,210);
              tint(255,255);
              blur1=blur1+60;
-           }else if(blur1>=0&&counter>10){
+           }else if(blur1>=0&&counter>10){ //blurs out for last five frames
              tint(255,blur1);
              image(i3,210,210);
              tint(255,255);
@@ -116,99 +152,91 @@ void draw(){
              image(igo,130,210);
            }
         } 
-        counter++; //countdown stops here
+        counter++; //countdown stops here, begins to start next level
       }else{
         level++;         //make level higher
         advance=false;   //set advance false
         AP[level] = minim.loadFile(trackTitle[level], 2048); //loads file for corresponding level
         Initial[level]=true; //sets level's initial run to true
-        //AP[level].play(); //**may move to later in draw function where levels are processed rather than the setup
+        //AP[level].play(); //**has been moved to each individual level method
       }
-    }
-    
-    //MAIN MENU
-    else if(level==0){
-       int m = millis();
-       if(I0){
-         if(m>3600){ //after ~3 seconds initializes the background and starts song
-           menuG.loop(); //loops gif
-           M0.loop(); //loops song
-           I0=false; //sets initial to false
-         }
-       }else{
-         background(menuG); //sets background
-         if(m>7800){ //sets of alex & cole on a timer
-           if(!names.isPlaying()){ //if not already initialized the names is initialized
-             names.loop();
-           }
-           if(blur1<255){
-             tint(255,blur1);
-             image(names,30,570);
-             tint(255,255);
-             blur1=blur1+2;
-           }else{
-           image(names,30,570);
-           }
-         }
-         if(m>10800){
-           if(!title.isPlaying()){
-             title.loop();
-           }
-           if(blur2<255){
-             tint(255,blur2);
-             image(title,15,10);
-             tint(255,255);
-             blur2=blur2+2;
-           }else{
-           image(title,15,10);
-           }
-         }
-         if(m>15500){
-           if(!space.isPlaying()){
-             space.loop();
-           }
-           int t = ((frameCount%63)*4); //sets timing for fade in and out
-           if(modulator){ //determines if fading in or out
-             tint(255,t);
-           }else{
-             tint(255,250-t);
-           }
-           if(t==248){ //switches the fade in vs. fade out
-             modulator=!modulator;
-           }
-           image(space,12,80); //draws image
-           tint(255,255); //normalizes transparency
-         }
-       }
-    }
-    
-    //LEVEL 1
-    else if(level==1){
-      if(Initial[level]){ //if initial time...
-        AP[level].play(); //play song 1
-      }
-    }
-    
-    //LEVEL 2
-    else if(level==2){
-    }
-    else if(level==3){
-    }
-    else if(level==4){
-    }
-    else if(level==5){
-    }
-    else if(level==6){
-    }
 }
 
-void keyReleased() {
-    if(level==0){
-        if(key == ' '){
-            advance = true;
-            first = true;
-        }
-    }
+void levelZero(){ //AKA: Menu
+   int m = millis();
+   if(I0){
+     if(m>3600){ //after ~3 seconds initializes the background and starts song
+       menuG.loop(); //loops gif
+       M0.loop(); //loops song
+       I0=false; //sets initial to false
+     }
+   }else{
+    background(menuG); //sets background
+     if(m>7800){ //sets of alex & cole on a timer
+       if(!names.isPlaying()){ //if not already initialized the names is initialized
+         names.loop();
+       }
+       if(blur1<255){
+         tint(255,blur1);
+         image(names,30,570);
+         tint(255,255);
+         blur1=blur1+2;
+       }else{
+         image(names,30,570);
+       }
+     }
+     if(m>10800){
+       if(!title.isPlaying()){
+         title.loop();
+       }
+       if(blur2<255){
+         tint(255,blur2);
+         image(title,15,10);
+         tint(255,255);
+         blur2=blur2+2;
+       }else{
+       image(title,15,10);
+       }
+     }
+     if(m>15500){
+       if(!space.isPlaying()){
+         space.loop();
+       }
+       int t = ((frameCount%63)*4); //sets timing for fade in and out
+       if(modulator){ //determines if fading in or out
+         tint(255,t);
+       }else{
+         tint(255,250-t);
+       }
+       if(t==248){ //switches the fade in vs. fade out
+         modulator=!modulator;
+       }
+       image(space,12,80); //draws image
+       tint(255,255); //normalizes transparency
+     }
+  }
+}
+
+void levelOne(){
+  if(Initial[level]){ //if initial time running this method...
+    AP[level].play(); //play song 1
+    Initial[level]=false; //no longer true
+  }
+}
+
+void levelTwo(){
+}
+
+void levelThree(){
+}
+
+void levelFour(){
+}
+
+void levelFive(){
+}
+
+void levelSix(){
 }
 
 /*class player(){
