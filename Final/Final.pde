@@ -8,18 +8,18 @@ String[] trackTitle = {"M0.mp3","M1.mp3","M2.mp3","M3.mp3","M4.mp3","M5.mp3","M6
 Minim minim; // Audio context (general song player)
 int level; //keeps track of current level
 boolean advance; //ie: level complete, go to next level
-boolean first; //if first time going through the advancement
-int counter; //for counting before levels
-boolean I0,I1,I2,I3,I4,I5,I6; //Initial run (ie: setup) for level 0-6
+boolean first; //if first time going through the nextLevel()
+int counter; //for countdown time before levels
+boolean I0,I1,I2,I3,I4,I5,I6; //tells if first (initial) time running levelZero-Six() for level 0-6
 boolean modulator; //for the space gif transparency
 int blur1,blur2,blur3,blur4;//for the initial fade in of title, names and countdown
-boolean[] Initial = {I0,I1,I2,I3,I4,I5,I6}; //array for all initials
-Gif menuG,names,title,space; //ie: background, alex&cole, Lasercore, Press space to begin
+boolean[] Initial = {I0,I1,I2,I3,I4,I5,I6}; //array for all initials times
+Gif menuG,names,title,space; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
 PImage i1,i2,i3,igo; //creates images for countdown
 
 void setup() {
   size(600, 600);                       //sets screen size
-  frameRate(30);                        //sets framerate to 45 frames/second
+  frameRate(30);                        //sets framerate to 30 frames/second (default is 60)
   minim = new Minim(this);              //creates the new audio context
   level=0;                              //sets level to 0 or home
   counter=0;
