@@ -18,31 +18,31 @@ Gif menuG,names,title,space; //ie: background(menuG or gif), alex&cole(names), L
 PImage i1,i2,i3,igo; //creates images for countdown
 
 void setup() {
-  size(600, 600);                       //sets screen size
-  frameRate(30);                        //sets framerate to 30 frames/second (default is 60)
-  minim = new Minim(this);              //creates the new audio context
-  level=0;                              //sets level to 0 or home
+  size(600, 600); //sets screen size
+  frameRate(30); //sets framerate to 30 frames/second (default is 60)
+  minim = new Minim(this); //creates the new audio context
+  level=0; //sets level to 0 or home
   counter=0;
-  I0=true;                              //sets initial run for lvl 0 to true
-  I1=I2=I3=I4=I5=I6=false;              //sets the other's initials to false
+  I0=true; //sets initial run for lvl 0 to true
+  I1=I2=I3=I4=I5=I6=false; //sets the other's initials to false
   i1=loadImage("1.png");
   i2=loadImage("2.png");
   i3=loadImage("3.png");
   igo=loadImage("Go.png");
-  advance = false;                      //sets advance to its default: false
-  first = false;                        //sets first run through advance to false
-  menuG= new Gif(this, "menuG.gif");    //initializes lvl 0 gifs
+  advance = false; //sets advance to its default: false
+  first = false; //sets first run through advance to false
+  menuG= new Gif(this, "menuG.gif"); //initializes lvl 0 gifs
   names= new Gif(this, "Names.gif");
   title= new Gif(this, "Title.gif");
   space= new Gif(this, "Space.gif");
-  M0 = minim.loadFile("M0.mp3", 2048);  //loads lvl 0 audiofile
-  modulator=true;                       //sets modulator true (used to make space fade in and out)
-  blur1=blur2=blur3=blur4=0;            //sets blurs to 0 (used for fading in)
+  M0 = minim.loadFile("M0.mp3", 2048); //loads lvl 0 audiofile
+  modulator=true; //sets modulator true (used to make space fade in and out)
+  blur1=blur2=blur3=blur4=0; //sets blurs to 0 (used for fading in)
 }
 
 void draw(){
     //IN BETWEEN LEVELS
-    if(advance){ //if advancing to next level, 
+    if(advance){ //if advancing to next level,
       nextLevel();
     }
     //each level has its own method
@@ -80,7 +80,7 @@ void keyReleased() {
 
 void nextLevel(){
     if(first){ //if first time performing nextLevel
-        minim.stop();    //stop the music!
+        minim.stop(); //stop the music!
         if(level==0){
           menuG.stop(); //stops main menu gifs
           title.stop();
@@ -151,11 +151,11 @@ void nextLevel(){
            }else{
              image(igo,130,210);
            }
-        } 
+        }
         counter++; //countdown stops here, begins to start next level
       }else{
-        level++;         //make level higher
-        advance=false;   //set advance false
+        level++; //make level higher
+        advance=false; //set advance false
         AP[level] = minim.loadFile(trackTitle[level], 2048); //loads file for corresponding level
         Initial[level]=true; //sets level's initial run to true
         //AP[level].play(); //**has been moved to each individual level method
@@ -247,5 +247,9 @@ class laser(){
 
 class obstacle(){
 }
-*/
 
+-for way to draw, make arraylist of class objects
+-can have a draw method inside a class
+-tell in the draw method to draw each in the arraylist
+-when want new object, add to the arraylist (can set coordinates)
+*/
