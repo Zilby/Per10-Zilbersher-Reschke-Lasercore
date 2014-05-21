@@ -1,4 +1,4 @@
-Lasercore ALEX I DONT NEED YOUR PERMISSION TO DO WHAT I WANT LEAVE ME ALONE
+Lasercore
 =======
 
 This project is so far designed to be a hexagon-style game in which the player dodges obstacles shot at them by two round bumpers while positioned upon a semicircle AKA: the ball. There will also be a limited number of lasers at the player's disposal to shoot obstacles out of the way. The bumpers will shoot in time to the music, and the player, ball and bumpers will also glow in time with the music. 
