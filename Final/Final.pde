@@ -165,6 +165,7 @@ void nextLevel(){
 void levelZero(){ //AKA: Menu
    int m = millis();
    if(I0){
+     frameRate(30);
      if(m>3600){ //after ~3 seconds initializes the background and starts song
        menuG.loop(); //loops gif
        M0.loop(); //loops song
@@ -198,7 +199,7 @@ void levelZero(){ //AKA: Menu
        image(title,15,10);
        }
      }
-     if(m>16000){
+     if(m>15500){
        if(!space.isPlaying()){
          space.loop();
        }
@@ -219,6 +220,7 @@ void levelZero(){ //AKA: Menu
 
 void levelOne(){
   if(Initial[level]){ //if initial time running this method...
+    frameRate(45);
     AP[level].play(); //play song 1
     ball.loop();
     Initial[level]=false; //no longer true
