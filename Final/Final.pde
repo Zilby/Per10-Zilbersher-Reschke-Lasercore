@@ -1,6 +1,5 @@
 import ddf.minim.*; //imports audio
 import gifAnimation.*; //imports gif processes
-import java.awt.event.KeyEvent; //imports key recognition
 
 AudioPlayer M0,M1,M2,M3,M4,M5,M6; // All these are individual song files
 AudioPlayer[] AP = {M0,M1,M2,M3,M4,M5,M6}; //array for songs
