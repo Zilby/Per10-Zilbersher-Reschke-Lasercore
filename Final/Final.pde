@@ -14,8 +14,8 @@ boolean I0,I1,I2,I3,I4,I5,I6; //tells if first (initial) time running levelZero-
 boolean modulator; //for the space gif transparency
 int blur1,blur2,blur3,blur4;//for the initial fade in of title, names and countdown
 boolean[] Initial = {I0,I1,I2,I3,I4,I5,I6}; //array for all initials times
-Gif menuG,names,title,space,ball; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
-PImage i1,i2,i3,igo; //creates images for countdown
+Gif menuG,names,title,space; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
+PImage i1,i2,i3,igo,ball; //creates images for countdown
 
 void setup() {
   size(600, 600); //sets screen size
@@ -29,13 +29,13 @@ void setup() {
   i2=loadImage("2.png");
   i3=loadImage("3.png");
   igo=loadImage("Go.png");
+  ball=loadImage("Ball.png");
   advance = false; //sets advance to its default: false
   first = false; //sets first run through advance to false
   menuG= new Gif(this, "menuG.gif"); //initializes lvl 0 gifs
   names= new Gif(this, "Names.gif");
   title= new Gif(this, "Title.gif");
   space= new Gif(this, "Space.gif");
-  ball= new Gif(this, "Ball.gif");
   M0 = minim.loadFile("M0.mp3", 2048); //loads lvl 0 audiofile
   modulator=true; //sets modulator true (used to make space fade in and out)
   blur1=blur2=blur3=blur4=0; //sets blurs to 0 (used for fading in)
@@ -222,17 +222,17 @@ void levelOne(){
   if(Initial[level]){ //if initial time running this method...
     frameRate(45);
     AP[level].play(); //play song 1
-    ball.loop();
+    //ball.loop();
     Initial[level]=false; //no longer true
   }
   background(0);
   if(blur1<255){
     tint(255,blur1);
-    image(ball,0,150);
+    image(ball,100,50);
     tint(255,255);
     blur1=blur1+2;
   }else{
-    image(ball,0,150);
+    image(ball,100,50);
   }
 }
 
