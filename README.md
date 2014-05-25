@@ -18,3 +18,5 @@ So far:
 -framework set in place
 
 -Countdown to level 1 finished
+
+-Works on new computer (Alex)
