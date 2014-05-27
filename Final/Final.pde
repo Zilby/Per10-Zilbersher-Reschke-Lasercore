@@ -230,13 +230,13 @@ void levelOne(){
   if(blur1<255){
     tint(255,blur1);
     image(ball,100,50);
-    image(rotatedbumper,-60,480);
+    image(rotatedbumper,-10,420);
     image(bumper,175,500);
     tint(255,255);
     blur1=blur1+2;
   }else{
     image(ball,100,50);
-    image(rotatedbumper,-60,480);
+    image(rotatedbumper,-10,420);
     image(bumper,175,500);
   }
 }
