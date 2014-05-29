@@ -44,6 +44,9 @@ void setup() {
 }
 
 void draw(){
+    if(lives==0){
+      level=-1;
+    }
     //IN BETWEEN LEVELS
     if(advance){ //if advancing to next level,
       nextLevel();
@@ -51,6 +54,9 @@ void draw(){
     //each level has its own method
     else if(level==0){
       levelZero();
+    }
+    else if(level==-1){
+      gameOver();
     }
     else if(level==1){
       levelOne();
@@ -218,6 +224,9 @@ void levelZero(){ //AKA: Menu
        tint(255,255); //normalizes transparency
      }
   }
+}
+
+void gameOver(){
 }
 
 void levelOne(){
