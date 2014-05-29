@@ -227,6 +227,7 @@ void levelZero(){ //AKA: Menu
 }
 
 void gameOver(){
+  lives=5;
 }
 
 void levelOne(){
