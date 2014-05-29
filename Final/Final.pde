@@ -5,7 +5,7 @@ AudioPlayer M0,M1,M2,M3,M4,M5,M6; // All these are individual song files
 AudioPlayer[] AP = {M0,M1,M2,M3,M4,M5,M6}; //array for songs
 String[] trackTitle = {"M0.mp3","M1.mp3","M2.mp3","M3.mp3","M4.mp3","M5.mp3","M6.mp3"}; //arrayfor song names
 Minim minim; // Audio context (general song player)
-int level; //keeps track of current level
+int level,lives; //keeps track of current level & lives
 boolean advance; //ie: level complete, go to next level
 boolean first; //if first time going through the nextLevel()
 int counter; //for countdown time before levels
@@ -21,6 +21,7 @@ void setup() {
   frameRate(30); //sets framerate to 30 frames/second (default is 60)
   minim = new Minim(this); //creates the new audio context
   level=0; //sets level to 0 or home
+  lives=5;
   counter=0;
   I0=true; //sets initial run for lvl 0 to true
   I1=I2=I3=I4=I5=I6=false; //sets the other's initials to false
