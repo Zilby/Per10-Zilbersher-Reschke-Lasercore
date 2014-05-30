@@ -8,7 +8,9 @@ Minim minim; // Audio context (general song player)
 int level,lives; //keeps track of current level & lives
 boolean advance; //ie: level complete, go to next level
 boolean first; //if first time going through the nextLevel()
+boolean restart; //for gameover restart
 int counter; //for countdown time before levels
+boolean gO; //for gameOver (see method)
 boolean I0,I1,I2,I3,I4,I5,I6; //tells if first (initial) time running levelZero-Six() for level 0-6
 boolean modulator; //for the space gif transparency
 int blur1,blur2,blur3,blur4;//for the initial fade in of title, names and countdown
@@ -23,6 +25,7 @@ void setup() {
   level=0; //sets level to 0 or home
   lives=5;
   counter=0;
+  gO=false;//for gameOver (see method)
   I0=true; //sets initial run for lvl 0 to true
   I1=I2=I3=I4=I5=I6=false; //sets the other's initials to false
   i1=loadImage("1.png");
@@ -34,18 +37,20 @@ void setup() {
   rotatedbumper=loadImage("rotatedbumper.png");
   advance = false; //sets advance to its default: false
   first = false; //sets first run through advance to false
+  restart = false; //sets the gameover restart to false
   menuG= new Gif(this, "menuG.gif"); //initializes lvl 0 gifs
   names= new Gif(this, "Names.gif");
   title= new Gif(this, "Title.gif");
   space= new Gif(this, "Space.gif");
-  M0 = minim.loadFile("M0.mp3", 2048); //loads lvl 0 audiofile
+  AP[level] = minim.loadFile(trackTitle[level], 2048); //loads lvl 0 audiofile
   modulator=true; //sets modulator true (used to make space fade in and out)
   blur1=blur2=blur3=blur4=0; //sets blurs to 0 (used for fading in)
 }
 
 void draw(){
-    if(lives==0){
+    if(lives==0&&level!=-1){
       level=-1;
+      first=true;
     }
     //IN BETWEEN LEVELS
     if(advance){ //if advancing to next level,
@@ -83,6 +88,16 @@ void keyReleased() {
         if(key == ' '){
             advance = true;
             first = true;
+        }
+    }
+    //For Testing Only
+    if(key=='g'){
+      lives=0;
+    }
+    //Testing Stops Here
+    if(level==-1){
+        if(key == ' '){
+          restart=true;
         }
     }
 }
@@ -176,7 +191,7 @@ void levelZero(){ //AKA: Menu
      frameRate(30);
      if(m>3600){ //after ~3 seconds initializes the background and starts song
        menuG.loop(); //loops gif
-       M0.loop(); //loops song
+       AP[level].loop(); //loops song
        I0=false; //sets initial to false
      }
    }else{
@@ -208,26 +223,49 @@ void levelZero(){ //AKA: Menu
        }
      }
      if(m>15500){
-       if(!space.isPlaying()){
-         space.loop();
-       }
-       int t = ((frameCount%63)*4); //sets timing for fade in and out
-       if(modulator){ //determines if fading in or out
-         tint(255,t);
-       }else{
-         tint(255,250-t);
-       }
-       if(t==248){ //switches the fade in vs. fade out
-         modulator=!modulator;
-       }
-       image(space,12,80); //draws image
-       tint(255,255); //normalizes transparency
+         if(!space.isPlaying()){
+           space.loop();
+         }
+         int t = ((frameCount%63)*4); //sets timing for fade in and out
+         if(modulator){ //determines if fading in or out
+           tint(255,t);
+         }else{
+           tint(255,250-t);
+         }
+         if(t==248){ //switches the fade in vs. fade out
+           modulator=!modulator;
+         }
+         if(gO){ //for gameOver to make sure fade happens
+           if(t==0&&modulator){
+             image(space,12,80); //draws image
+             gO=false;
+           }
+         }else{
+           image(space,12,80); //draws image
+         }
+         tint(255,255); //normalizes transparency
      }
   }
 }
 
 void gameOver(){
-  lives=5;
+  if(first){
+    first=false;
+    frameRate(30);
+    minim.stop();
+    //AP[level] = minim.loadFile(trackTitle[level], 2048); //loads song file for corresponding level ie: -1
+  }
+  if(restart){
+    restart=false;
+    modulator=true; //sets modulator true (used to make space fade in and out)
+    blur1=blur2=blur3=blur4=0; //sets blurs to 0 (used for fading in)
+    counter=0;
+    lives=5;
+    level=0;
+    I0=true; //sets initial run to true
+    AP[level] = minim.loadFile(trackTitle[level], 2048); //loads song file for corresponding level ie: 0
+    gO=true;//gameOver t setter so that the space doesn't appear at the very start
+  }
 }
 
 void levelOne(){
