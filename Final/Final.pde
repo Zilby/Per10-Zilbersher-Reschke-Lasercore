@@ -255,6 +255,7 @@ void gameOver(){
     minim.stop();
     //AP[level] = minim.loadFile(trackTitle[level], 2048); //loads song file for corresponding level ie: -1
   }
+  background(0);
   if(restart){
     restart=false;
     modulator=true; //sets modulator true (used to make space fade in and out)
