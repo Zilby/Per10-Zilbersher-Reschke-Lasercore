@@ -16,7 +16,7 @@ boolean modulator; //for the space gif transparency
 int blur1,blur2,blur3,blur4;//for the initial fade in of title, names and countdown
 boolean[] Initial = {I0,I1,I2,I3,I4,I5,I6}; //array for all initials times
 Gif menuG,names,title,space,gameOver; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
-PImage i1,i2,i3,igo,ball,bumper,rotatedbumper; //creates images for countdown
+PImage i1,i2,i3,igo,ball,bumper; //creates images for countdown
 
 void setup() {
   size(600, 600); //sets screen size
@@ -34,7 +34,6 @@ void setup() {
   igo=loadImage("Go.png");
   ball=loadImage("Ball.png");
   bumper=loadImage("bumper.png");
-  rotatedbumper=loadImage("rotatedbumper.png");
   advance = false; //sets advance to its default: false
   first = false; //sets first run through advance to false
   restart = false; //sets the gameover restart to false
@@ -282,15 +281,19 @@ void levelOne(){
   background(0);
   if(blur1<255){
     tint(255,blur1);
-    image(ball,100,50);
-    image(rotatedbumper,-10,420);
-    image(bumper,175,500);
+    image(ball,105,50);
+    image(bumper,-170,450);
+    image(bumper,430,450);
+    image(bumper,-170,-180);
+    image(bumper,430,-180);
     tint(255,255);
     blur1=blur1+2;
   }else{
-    image(ball,100,50);
-    image(rotatedbumper,-10,420);
-    image(bumper,175,500);
+    image(ball,105,50);
+    image(bumper,-170,450);
+    image(bumper,430,450);
+    image(bumper,-170,-180);
+    image(bumper,430,-180);
   }
 }
 
