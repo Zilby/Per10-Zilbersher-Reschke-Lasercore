@@ -9,7 +9,7 @@ int level,lives; //keeps track of current level & lives
 boolean advance; //ie: level complete, go to next level
 boolean first; //if first time going through the nextLevel()
 boolean restart; //for gameover restart
-int counter; //for countdown time before levels
+int counter, gCount, gTimer, gcor; //for countdown time before levels and glow counter, timer for glow, gx/y-coordinate
 boolean gO; //for gameOver (see method)
 boolean I0,I1,I2,I3,I4,I5,I6; //tells if first (initial) time running levelZero-Six() for level 0-6
 boolean modulator; //for the space gif transparency
@@ -38,6 +38,7 @@ void setup() {
   for(int i=0;i<Bary.length;i++){ //just used to initialize all the bumper names
     Bary[i]=loadImage(Bname[i]);
   }
+  gCount=gTimer=gcor=0;
   advance = false; //sets advance to its default: false
   first = false; //sets first run through advance to false
   restart = false; //sets the gameover restart to false
@@ -97,6 +98,9 @@ void keyReleased() {
     //For Testing Only
     if(key=='g'){
       lives=0;
+    }
+    if(key=='b'){
+      glow();
     }
     //Testing Stops Here
     if(level==-1){
@@ -285,20 +289,52 @@ void levelOne(){
   background(0);
   if(blur1<255){
     tint(255,blur1);
-    image(ball,105,50);
-    image(Bary[0],-170,450);
-    image(Bary[0],430,450);
-    image(Bary[0],-170,-180);
-    image(Bary[0],430,-180);
+    image(ball,158,115);
+    image(gImage(),-170,450-gcor);
+    image(gImage(),430-gcor,450-gcor);
+    image(gImage(),-170,-180);
+    image(gImage(),430-gcor,-180);
     tint(255,255);
     blur1=blur1+2;
   }else{
-    image(ball,105,50);
-    image(Bary[0],-170,450);
-    image(Bary[0],430,450);
-    image(Bary[0],-170,-180);
-    image(Bary[0],430,-180);
+    image(ball,158,115);
+    image(gImage(),-170,450-gcor);
+    image(gImage(),430-gcor,450-gcor);
+    image(gImage(),-170,-180);
+    image(gImage(),430-gcor,-180);
   }
+}
+
+PImage gImage(){ //ie: glowed image
+  if(gCount!=0&&gTimer%4==0)
+    gCount--;
+  if(gTimer!=0)
+    gTimer--;
+  if(gCount==9||gCount==1){
+    gcor=5;
+    return Bary[1];
+  }else if (gCount==8||gCount==2){
+    gcor=10;
+    return Bary[2];
+  }else if (gCount==7||gCount==3){
+    gcor=15;
+    return Bary[3];
+  }else if (gCount==6||gCount==4){
+    gcor=20;
+    return Bary[4];
+  }else if (gCount==5){
+    gcor=25;
+    return Bary[5];
+  }else{
+    gcor=0;
+    return Bary[0];
+  }
+}
+
+void glow(){
+  gCount=10;
+  gTimer=40;
+  gcor=0;
 }
 
 void levelTwo(){
