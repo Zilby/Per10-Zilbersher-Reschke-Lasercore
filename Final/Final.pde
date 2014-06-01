@@ -25,7 +25,7 @@ void setup() {
   level=0; //sets level to 0 or home
   lives=5;
   counter=0;
-  gO=false;//for gameOver (see method)
+  gO=true;//for gameOver (see method) (works better for intro across the board if just initialized to true
   I0=true; //sets initial run for lvl 0 to true
   I1=I2=I3=I4=I5=I6=false; //sets the other's initials to false
   i1=loadImage("1.png");
