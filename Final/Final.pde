@@ -1,7 +1,7 @@
 import ddf.minim.*; //imports audio
 import gifAnimation.*; //imports gif processes
 
-AudioPlayer M0,M1,M2,M3,M4,M5,M6; // All these are individual song files
+AudioPlayer M0,M1,M2,M3,M4,M5,M6,gOeffect; // All these are individual song files
 AudioPlayer[] AP = {M0,M1,M2,M3,M4,M5,M6}; //array for songs
 String[] trackTitle = {"M0.mp3","M1.mp3","M2.mp3","M3.mp3","M4.mp3","M5.mp3","M6.mp3"}; //arrayfor song names
 Minim minim; // Audio context (general song player)
@@ -9,7 +9,7 @@ int level,lives; //keeps track of current level & lives
 boolean advance; //ie: level complete, go to next level
 boolean first; //if first time going through the nextLevel()
 boolean restart; //for gameover restart
-int counter, gCount, gTimer, gcor; //for countdown time before levels and glow counter, timer for glow, gx/y-coordinate
+int counter, gCount, gTimer, gcor, gcolor; //for countdown time before levels and glow counter, timer for glow, gx/y-coordinate
 boolean gO; //for gameOver (see method)
 boolean I0,I1,I2,I3,I4,I5,I6; //tells if first (initial) time running levelZero-Six() for level 0-6
 boolean modulator; //for the space gif transparency
@@ -38,7 +38,7 @@ void setup() {
   for(int i=0;i<Bary.length;i++){ //just used to initialize all the bumper names
     Bary[i]=loadImage(Bname[i]);
   }
-  gCount=gTimer=gcor=0;
+  gCount=gTimer=gcor=gcolor=0;
   advance = false; //sets advance to its default: false
   first = false; //sets first run through advance to false
   restart = false; //sets the gameover restart to false
@@ -90,7 +90,7 @@ void draw(){
 
 void keyReleased() {
     if(level==0){
-        if(key == ' '){
+        if(key == ' '&&!I0){ //!I0 is to prevent it from calling this during countdown
             advance = true;
             first = true;
         }
@@ -230,7 +230,7 @@ void levelZero(){ //AKA: Menu
        image(title,15,10);
        }
      }
-     if(m>15500){
+     if(m>13500){
          if(!space.isPlaying()){
            space.loop();
          }
@@ -243,7 +243,7 @@ void levelZero(){ //AKA: Menu
          if(t==248){ //switches the fade in vs. fade out
            modulator=!modulator;
          }
-         if(gO){ //for gameOver to make sure fade happens
+         if(gO){ //to make sure space fades in rather than suddenly appearing
            if(t==0&&modulator){
              image(space,12,80); //draws image
              gO=false;
@@ -259,13 +259,21 @@ void levelZero(){ //AKA: Menu
 void gameOver(){
   if(first){
     first=false;
-    frameRate(30);
+    frameRate(60);
+    blur1=0;
     minim.stop();
     gameOver.loop();
-    //AP[level] = minim.loadFile(trackTitle[level], 2048); //loads song file for corresponding level ie: -1
+    gOeffect = minim.loadFile("GameOver.mp3", 2048); 
+    gOeffect.play();
   }
   background(0);
-  image(gameOver,12,440);
+  if(blur1<255){
+    tint(255,blur1);
+    image(gameOver,40,160);
+    noTint();
+    blur1++;
+  }else
+    image(gameOver,40,160);
   if(restart){
     restart=false;
     modulator=true; //sets modulator true (used to make space fade in and out)
@@ -276,6 +284,7 @@ void gameOver(){
     I0=true; //sets initial run to true
     AP[level] = minim.loadFile(trackTitle[level], 2048); //loads song file for corresponding level ie: 0
     gO=true;//gameOver t setter so that the space doesn't appear at the very start
+    frameRate(30);
   }
 }
 
@@ -288,53 +297,19 @@ void levelOne(){
   }
   background(0);
   if(blur1<255){
-    tint(255,blur1);
-    image(ball,158,115);
-    image(gImage(),-170,450-gcor);
-    image(gImage(),430-gcor,450-gcor);
-    image(gImage(),-170,-180);
-    image(gImage(),430-gcor,-180);
-    tint(255,255);
+    tint(125,255,130,blur1);
+    image(ball,160,115);
+    tint(10+gcolor,216+(gcolor/10),15+gcolor,blur1);
+    drawBumpers();
+    noTint();
     blur1=blur1+2;
   }else{
-    image(ball,158,115);
-    image(gImage(),-170,450-gcor);
-    image(gImage(),430-gcor,450-gcor);
-    image(gImage(),-170,-180);
-    image(gImage(),430-gcor,-180);
+    tint(125,255,130);
+    image(ball,160,115);
+    tint(10+gcolor,216+(gcolor/10),15+gcolor);
+    drawBumpers();
+    noTint();
   }
-}
-
-PImage gImage(){ //ie: glowed image
-  if(gCount!=0&&gTimer%4==0)
-    gCount--;
-  if(gTimer!=0)
-    gTimer--;
-  if(gCount==9||gCount==1){
-    gcor=5;
-    return Bary[1];
-  }else if (gCount==8||gCount==2){
-    gcor=10;
-    return Bary[2];
-  }else if (gCount==7||gCount==3){
-    gcor=15;
-    return Bary[3];
-  }else if (gCount==6||gCount==4){
-    gcor=20;
-    return Bary[4];
-  }else if (gCount==5){
-    gcor=25;
-    return Bary[5];
-  }else{
-    gcor=0;
-    return Bary[0];
-  }
-}
-
-void glow(){
-  gCount=10;
-  gTimer=40;
-  gcor=0;
 }
 
 void levelTwo(){
@@ -351,6 +326,53 @@ void levelFive(){
 
 void levelSix(){
 }
+
+void drawBumpers(){
+  image(gImage(),-170,450-gcor);
+  image(gImage(),430-gcor,450-gcor);
+  image(gImage(),-170,-180);
+  image(gImage(),430-gcor,-180);
+}
+
+PImage gImage(){ //ie: glowed image
+  if(gCount!=0&&gTimer%4==0)
+    gCount--;
+  if(gTimer!=0)
+    gTimer--;
+  if(gCount==9||gCount==1){
+    gcor=5;
+    gcolor=50;
+    return Bary[1];
+  }else if (gCount==8||gCount==2){
+    gcor=10;
+    gcolor=100;
+    return Bary[2];
+  }else if (gCount==7||gCount==3){
+    gcor=15;
+    gcolor=150;
+    return Bary[3];
+  }else if (gCount==6||gCount==4){
+    gcor=20;
+    gcolor=200;
+    return Bary[4];
+  }else if (gCount==5){
+    gcor=25;
+    gcolor=250;
+    return Bary[5];
+  }else{
+    gcor=0;
+    gcolor=0;
+    return Bary[0];
+  }
+}
+
+void glow(){
+  gCount=10;
+  gTimer=40;
+  gcor=0;
+  gcolor=0;
+}
+
 
 /*class player(){
 }
