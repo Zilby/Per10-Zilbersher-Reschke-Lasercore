@@ -375,9 +375,43 @@ void glow(){
 
 
 /*class player(){
+    int[] bulletX;
+int[] bulletY;
+boolean alive;
+int thisBullet;
+int px;
+int py;
+boolean shotReleased;
 }
 
-class laser(){
+class enemy(){
+int [] enemyX;
+int [] enemyY;
+int[] enemyBulletX;
+int[] enemyBulletY;
+int[] enemyYspeed;
+int[] enemyXspeed;
+int shootingEnemy;
+int shootingEnemyTimer;
+int deadEnemyCount;
+}
+void enemy1(){
+  implements standard projectile
+}
+void enemy2(){
+   implements certain type of new projectile
+}
+void enemy3(){
+  *same as above
+}
+void enemy4(){
+  *same as above
+}
+void enemy5(){
+  *same as above
+}
+void enemy6(){
+  *same as above
 }
 
 class obstacle(){
