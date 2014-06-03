@@ -20,3 +20,7 @@ So far:
 -Countdown to level 1 finished
 
 -Works on new computer (Alex)
+
+-bumper glow function done
+
+-gameover finished (more or less)
