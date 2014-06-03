@@ -6,7 +6,7 @@ import gifAnimation.*; //imports gif processes
 //also maybe test out some more rotating so we can start on the player and have some sort of idea of how tht works. right now i have some code for the player shooting, and also like if the player is hit
 //and also if you want you can see which enemies we want to add in each level (i was thinking add one new one each level but if u got an idea go for it
 
-
+//working on first obstacle, going to come from the bumpers towards the player, more or less the generic 'dodge this'
 
 AudioPlayer M0,M1,M2,M3,M4,M5,M6,gOeffect; // All these are individual song files
 AudioPlayer[] AP = {M0,M1,M2,M3,M4,M5,M6}; //array for songs
@@ -108,6 +108,18 @@ void keyReleased() {
     }
     if(key=='b'){
       glow();
+    }
+    if(key=='1'){
+      wave(1);
+    }
+    if(key=='2'){
+      wave(2);
+    }
+    if(key=='3'){
+      wave(3);
+    }
+    if(key=='4'){
+      wave(4);
     }
     //Testing Stops Here
     if(level==-1){
@@ -380,6 +392,9 @@ void glow(){
   gcolor=0;
 }
 
+void wave(int b){ //ie:make an obstacle one at b bumper
+  Obstacle1 o = new Obstacle1(b);
+}
 
 /*class player(){
     int[] bulletX;
