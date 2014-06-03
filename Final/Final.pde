@@ -1,6 +1,13 @@
 import ddf.minim.*; //imports audio
 import gifAnimation.*; //imports gif processes
 
+
+//ALEXXXXX!! so today you might wanna see how we would have the player move around the ball, like the circle and the algorithm we'll use to keep the player in that circle.
+//also maybe test out some more rotating so we can start on the player and have some sort of idea of how tht works. right now i have some code for the player shooting, and also like if the player is hit
+//and also if you want you can see which enemies we want to add in each level (i was thinking add one new one each level but if u got an idea go for it
+
+
+
 AudioPlayer M0,M1,M2,M3,M4,M5,M6,gOeffect; // All these are individual song files
 AudioPlayer[] AP = {M0,M1,M2,M3,M4,M5,M6}; //array for songs
 String[] trackTitle = {"M0.mp3","M1.mp3","M2.mp3","M3.mp3","M4.mp3","M5.mp3","M6.mp3"}; //arrayfor song names
