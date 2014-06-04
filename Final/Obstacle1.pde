@@ -2,7 +2,9 @@ import ddf.minim.*; //imports audio
 import gifAnimation.*; //imports gif processes
 
 public class Obstacle1{
-  int xcor,ycor,b,xshift,yshift;//b=bumper number, xcor and ycor are where the objects are centered, xshift and yshift are so that when they are drawn, xcor and ycor aren't the top left
+  int xcor,ycor,b;//b=bumper number, xcor and ycor are where the objects are centered, xshift and yshift are so that when they are drawn, xcor and ycor aren't the top left
+  int xshift=-50;
+  int yshift=-60;
   float rotation;
   PImage c1,c2,c3,c4,c5,c6,c7,current;
   PImage[] image = {c1,c2,c3,c4,c5,c6,c7};
@@ -15,26 +17,18 @@ public class Obstacle1{
       rotation=radians(45);
       xcor=48;
       ycor=40;
-      xshift=-10;
-      yshift=-40;
     }else if(b==2){
       rotation=radians(-45);
       xcor=30;
       ycor=540;
-      xshift=30;
-      yshift=-80;
     }else if(b==3){
       rotation=radians(-135);
       xcor=560;
       ycor=550;
-      xshift=30;
-      yshift=-80;
     }else{
       rotation=radians(135);
       xcor=530;
       ycor=40;
-      xshift=30;
-      yshift=-80;
     }
     for(int i=0;i<image.length;i++){ //just used to initialize all the curve names
     image[i]=loadImage(iname[i]);
