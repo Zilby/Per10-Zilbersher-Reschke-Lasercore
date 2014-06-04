@@ -60,7 +60,7 @@ void draw(){
     translate(xcor,ycor); //this essentially moves the origin
     rotate(rotation); //this rotates ABOUT the ORIGIN
     image(current,xshift,yshift); //current coordinates are a bit off for now
-    image(test,0,0);
+    //image(test,0,0);
     rotate(rotation*(-1.0));
     translate(-xcor,-ycor);
     //image(test,xcor,ycor);
