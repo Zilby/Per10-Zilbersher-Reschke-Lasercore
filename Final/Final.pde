@@ -30,7 +30,6 @@ PImage[] Bary = {bumper,bglow1,bglow2,bglow3,bglow4,bglow5};
 String[] Bname = {"bumper.png","bglow1.png","bglow2.png","bglow3.png","bglow4.png","bglow5.png"};
 ArrayList<Obstacle1> o1s = new ArrayList<Obstacle1>();
 PImage testcor; //used as a test for where the coordinates of something are
-
 void setup() {
   size(600, 600); //sets screen size
   frameRate(30); //sets framerate to 30 frames/second (default is 60)
@@ -335,9 +334,13 @@ void levelOne(){
     drawBumpers();
     noTint();
   }
+  tint(125,255,130);
   for(int i=0;i<o1s.size();i++){
     o1s.get(i).draw();
+    if(!o1s.get(i).getAlive())
+      o1s.remove(i);
   }
+  noTint();
 }
 
 void levelTwo(){

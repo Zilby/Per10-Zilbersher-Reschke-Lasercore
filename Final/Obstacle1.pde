@@ -10,9 +10,11 @@ public class Obstacle1{
   PImage[] image = {c1,c2,c3,c4,c5,c6,c7};
   String[] iname = {"Curve1.png","Curve2.png","Curve3.png","Curve4.png","Curve5.png","Curve6.png","Curve7.png"};
   PImage test;
+  boolean alive;
   
   Obstacle1(int n){
     b=n;
+    alive = true;
     if(b==1){ //all these coordinates were lined up usin test
       rotation=radians(45);
       xcor=48;
@@ -50,7 +52,11 @@ void draw(){
     }else{
       if(ycor>280)
         ycor-=4;
-    } //rotation was screwy before see this http://www.processing.org/tutorials/transform2d/
+    }
+   if(Math.sqrt(Math.pow(abs(xcor-290),2) + Math.pow(abs(ycor - 280),2)) < 60){
+     alive = false;
+   }                  
+    //rotation was screwy before see this http://www.processing.org/tutorials/transform2d/
     translate(xcor,ycor); //this essentially moves the origin
     rotate(rotation); //this rotates ABOUT the ORIGIN
     image(current,xshift,yshift); //current coordinates are a bit off for now
@@ -58,6 +64,9 @@ void draw(){
     rotate(rotation*(-1.0));
     translate(-xcor,-ycor);
     //image(test,xcor,ycor);
+  }
+  boolean getAlive(){
+    return alive;
   }
   /*
   int getX(){
