@@ -1,3 +1,5 @@
+import java.io.*;
+import java.util.*;
 import ddf.minim.*; //imports audio
 import gifAnimation.*; //imports gif processes
 
@@ -26,6 +28,8 @@ Gif menuG,names,title,space,gameOver; //ie: background(menuG or gif), alex&cole(
 PImage i1,i2,i3,igo,ball,bumper,bglow1,bglow2,bglow3,bglow4,bglow5; //creates images for countdown
 PImage[] Bary = {bumper,bglow1,bglow2,bglow3,bglow4,bglow5};
 String[] Bname = {"bumper.png","bglow1.png","bglow2.png","bglow3.png","bglow4.png","bglow5.png"};
+ArrayList<Obstacle1> o1s = new ArrayList<Obstacle1>();
+PImage testcor; //used as a test for where the coordinates of something are
 
 void setup() {
   size(600, 600); //sets screen size
@@ -57,6 +61,7 @@ void setup() {
   AP[level] = minim.loadFile(trackTitle[level], 2048); //loads lvl 0 audiofile
   modulator=true; //sets modulator true (used to make space fade in and out)
   blur1=blur2=blur3=blur4=0; //sets blurs to 0 (used for fading in)
+  testcor=loadImage("Coordinate.png");
 }
 
 void draw(){
@@ -325,9 +330,13 @@ void levelOne(){
   }else{
     tint(125,255,130);
     image(ball,160,115);
+    //image(testcor,290,280); true center of ball (Don't Delete)
     tint(10+gcolor,216+(gcolor/10),15+gcolor);
     drawBumpers();
     noTint();
+  }
+  for(int i=0;i<o1s.size();i++){
+    o1s.get(i).draw();
   }
 }
 
@@ -394,6 +403,7 @@ void glow(){
 
 void wave(int b){ //ie:make an obstacle one at b bumper
   Obstacle1 o = new Obstacle1(b);
+  o1s.add(o);
 }
 
 /*class player(){
