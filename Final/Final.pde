@@ -30,6 +30,7 @@ PImage[] Bary = {bumper,bglow1,bglow2,bglow3,bglow4,bglow5};
 String[] Bname = {"bumper.png","bglow1.png","bglow2.png","bglow3.png","bglow4.png","bglow5.png"};
 ArrayList<Obstacle1> o1s = new ArrayList<Obstacle1>();
 PImage testcor; //used as a test for where the coordinates of something are
+boolean leftPressed, rightPressed;
 void setup() {
   size(600, 600); //sets screen size
   frameRate(30); //sets framerate to 30 frames/second (default is 60)
@@ -99,6 +100,15 @@ void draw(){
     }
 }
 
+void keyPressed(){
+  if (keyCode == LEFT){
+    leftPressed = true;
+  }
+  if (keyCode == RIGHT){
+    rightPressed = true;
+  }
+}
+
 void keyReleased() {
     if(level==0){
         if(key == ' '&&!I0){ //!I0 is to prevent it from calling this during countdown
@@ -124,6 +134,12 @@ void keyReleased() {
     }
     if(key=='4'){
       wave(4);
+    }
+    if(keyCode == LEFT){
+      leftPressed = false;
+    }
+    if (keyCode == RIGHT){
+      rightPressed = false;
     }
     //Testing Stops Here
     if(level==-1){

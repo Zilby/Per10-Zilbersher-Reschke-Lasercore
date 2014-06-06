@@ -68,7 +68,6 @@ void draw(){
   boolean getAlive(){
     return alive;
   }
-  /*
   int getX(){
     return xcor;
   }
@@ -79,6 +78,5 @@ void draw(){
   
   float getRotation(){
     return rotation;
-  }
-  */ 
+  } 
 }
