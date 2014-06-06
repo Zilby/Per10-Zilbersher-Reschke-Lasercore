@@ -328,6 +328,7 @@ void gameOver(){
 }
 
 void levelOne(){
+  Player torment = new Player();
   if(Initial[level]){ //if initial time running this method...
     frameRate(45);
     AP[level].play(); //play song 1
@@ -348,6 +349,7 @@ void levelOne(){
     //image(testcor,290,280); true center of ball (Don't Delete)
     tint(10+gcolor,216+(gcolor/10),15+gcolor);
     drawBumpers();
+    torment.draw();
     noTint();
   }
   tint(125,255,130);

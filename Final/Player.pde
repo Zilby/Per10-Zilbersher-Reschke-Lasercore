@@ -10,8 +10,8 @@ public class Player{
   
   Player(){
     alive = true;
-    px = 290;
-    py = 250;
+    px = 260;
+    py = 160;
     onTop = true;
     arrow = loadImage("arrow.png");
   }
