@@ -22,13 +22,14 @@ boolean I0,I1,I2,I3,I4,I5,I6; //tells if first (initial) time running levelZero-
 boolean modulator; //for the space gif transparency
 int blur1,blur2,blur3,blur4;//for the initial fade in of title, names and countdown
 boolean[] Initial = {I0,I1,I2,I3,I4,I5,I6}; //array for all initials times
-Gif menuG,names,title,space,gameOver; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
+Gif menuG,names,title,space,gameOver,s0,s1,s2; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
 PImage i1,i2,i3,igo,ball,bumper,bglow1,bglow2,bglow3,bglow4,bglow5; //creates images for countdown
 PImage[] Bary = {bumper,bglow1,bglow2,bglow3,bglow4,bglow5};
 String[] Bname = {"bumper.png","bglow1.png","bglow2.png","bglow3.png","bglow4.png","bglow5.png"};
 ArrayList<Obstacle1> o1s = new ArrayList<Obstacle1>();
 PImage testcor; //used as a test for where the coordinates of something are
 boolean leftPressed, rightPressed;
+int score = 0,uno = 0;
 Player torment; //torment?
 
 
@@ -59,6 +60,9 @@ void setup() {
   title= new Gif(this, "Title.gif");
   space= new Gif(this, "Space.gif");
   gameOver= new Gif(this, "gameOver.gif");
+  s0 = new Gif(this, "s0.gif");
+  s1 = new Gif(this, "s1.gif");
+  s2 = new Gif(this, "s2.gif");
   AP[level] = minim.loadFile(trackTitle[level], 2048); //loads lvl 0 audiofile
   modulator=true; //sets modulator true (used to make space fade in and out)
   blur1=blur2=blur3=blur4=0; //sets blurs to 0 (used for fading in)
@@ -331,6 +335,25 @@ void gameOver(){
   }
 }
 
+void score(){
+  if(uno == 0){
+    blur1=0;
+    frameRate(60);
+    s0.loop();
+    uno++;
+  }
+  else{
+    if(score == 0 && blur1 < 225){
+      tint(255,blur1);
+      image(s0,300,0);
+      noTint();
+      blur1++;
+    }
+  //if(blur1<
+  }
+  frameRate(45);
+}
+
 void levelOne(){
   if(Initial[level]){ //if initial time running this method...
     frameRate(45);
@@ -340,6 +363,7 @@ void levelOne(){
   }
   background(0);
   if(blur1<255){
+    score();
     tint(125,255,130,blur1);
     image(ball,163,125);
     //image(testcor,295,295);
@@ -349,6 +373,7 @@ void levelOne(){
     noTint();
     blur1=blur1+2;
   }else{
+    score();
     tint(125,255,130);
     image(ball,163,125);
     //image(testcor,295,295);
