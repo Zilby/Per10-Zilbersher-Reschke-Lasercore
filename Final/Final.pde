@@ -332,7 +332,8 @@ void levelOne(){
   background(0);
   if(blur1<255){
     tint(125,255,130,blur1);
-    image(ball,160,115);
+    image(ball,163,125);
+    //image(testcor,295,295);
     tint(10+gcolor,216+(gcolor/10),15+gcolor,blur1);
     drawBumpers();
     torment.draw();
@@ -340,8 +341,8 @@ void levelOne(){
     blur1=blur1+2;
   }else{
     tint(125,255,130);
-    image(ball,160,115);
-    //image(testcor,290,280); true center of ball (Don't Delete)
+    image(ball,163,125);
+    //image(testcor,295,295);
     tint(10+gcolor,216+(gcolor/10),15+gcolor);
     drawBumpers();
     torment.draw();
@@ -372,10 +373,21 @@ void levelSix(){
 }
 
 void drawBumpers(){
-  image(gImage(),-170,450-gcor);
-  image(gImage(),430-gcor,450-gcor);
-  image(gImage(),-170,-180);
-  image(gImage(),430-gcor,-180);
+  translate(300,300);
+  rotate(radians(45));
+  image(gImage(),270-gcor,-165-(gcor/2));
+  rotate(radians(90));
+  image(gImage(),270-gcor,-165-(gcor/2));
+  rotate(radians(90));
+  image(gImage(),270-gcor,-165-(gcor/2));
+  rotate(radians(90));
+  image(gImage(),270-gcor,-165-(gcor/2));
+  rotate(radians(45));
+  translate(-300,-300);
+//  image(gImage(),-170,450-gcor);
+//  image(gImage(),430-gcor,450-gcor);
+//  image(gImage(),-170,-180);
+//  image(gImage(),430-gcor,-180);
 }
 
 PImage gImage(){ //ie: glowed image
