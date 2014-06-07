@@ -1,12 +1,14 @@
 import ddf.minim.*; //imports audio
 import gifAnimation.*; //imports gif processes
 
+//Cole, I be needin' them comments 
+
 public class Player{
   int px, py;
   PImage arrow;
   boolean alive;
   float rotation;
-  boolean onTop;
+  boolean onTop; //?
   
   Player(){
     alive = true;
