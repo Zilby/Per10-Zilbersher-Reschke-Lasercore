@@ -3,6 +3,11 @@ import java.util.*;
 import ddf.minim.*; //imports audio
 import gifAnimation.*; //imports gif processes
 
+//Cole to put this as easily as possible, we're basically using polar coordinates. no more xcor and ycor, we're using 
+//distance and rotation. To get the origin as the center, use translate(300,300) (i lined up all the bumpers and the ball)
+//Only use regular coordinates if you want to do like horizontal writing for 'lives' or 'level' or something like that
+//or if you need to account for the change in location of an image being drawn (see xshift and yshift in obstacle1.class)
+
 AudioPlayer M0,M1,M2,M3,M4,M5,M6,gOeffect; // All these are individual song files
 AudioPlayer[] AP = {M0,M1,M2,M3,M4,M5,M6}; //array for songs
 String[] trackTitle = {"M0.mp3","M1.mp3","M2.mp3","M3.mp3","M4.mp3","M5.mp3","M6.mp3"}; //arrayfor song names
@@ -24,6 +29,8 @@ String[] Bname = {"bumper.png","bglow1.png","bglow2.png","bglow3.png","bglow4.pn
 ArrayList<Obstacle1> o1s = new ArrayList<Obstacle1>();
 PImage testcor; //used as a test for where the coordinates of something are
 boolean leftPressed, rightPressed;
+Player torment; //torment?
+
 
 void setup() {
   size(600, 600); //sets screen size
@@ -56,6 +63,8 @@ void setup() {
   modulator=true; //sets modulator true (used to make space fade in and out)
   blur1=blur2=blur3=blur4=0; //sets blurs to 0 (used for fading in)
   testcor=loadImage("Coordinate.png");
+  torment = new Player(); //torment?
+  leftPressed=rightPressed=false;
 }
 
 void draw(){
@@ -94,6 +103,7 @@ void draw(){
     }
 }
 
+
 void keyPressed(){
   if (keyCode == LEFT){
     leftPressed = true;
@@ -102,7 +112,7 @@ void keyPressed(){
     rightPressed = true;
   }
 }
-
+  
 void keyReleased() {
     if(level==0){
         if(key == ' '&&!I0){ //!I0 is to prevent it from calling this during countdown
@@ -129,10 +139,10 @@ void keyReleased() {
     if(key=='4'){
       wave(4);
     }
-    if(keyCode == LEFT){
+    if(keyCode == LEFT){ 
       leftPressed = false;
     }
-    if (keyCode == RIGHT){
+    if(keyCode == RIGHT){
       rightPressed = false;
     }
     //Testing Stops Here
@@ -322,7 +332,6 @@ void gameOver(){
 }
 
 void levelOne(){
-  Player torment = new Player(); //torment?
   if(Initial[level]){ //if initial time running this method...
     frameRate(45);
     AP[level].play(); //play song 1
@@ -336,7 +345,7 @@ void levelOne(){
     //image(testcor,295,295);
     tint(10+gcolor,216+(gcolor/10),15+gcolor,blur1);
     drawBumpers();
-    torment.draw();
+    torment.draw(leftPressed,rightPressed);
     noTint();
     blur1=blur1+2;
   }else{
@@ -347,7 +356,7 @@ void levelOne(){
     drawBumpers();
     noTint();
     tint(10,216,15);
-    torment.draw();
+    torment.draw(leftPressed,rightPressed);
     noTint();
   }
   tint(10,216,15);

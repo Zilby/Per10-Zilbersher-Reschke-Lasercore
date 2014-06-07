@@ -47,7 +47,7 @@ public class Obstacle1{
     rotate(rotation*(-1.0)); //undoes rotation
     //image(test,0,0);
     translate(-300,-300); //undoes translation
-    if(distance<50){ //if too close to ball, die
+    if(distance<40){ //if too close to ball, die
       alive=false;
     }
   }
