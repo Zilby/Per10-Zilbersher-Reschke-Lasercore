@@ -345,10 +345,12 @@ void levelOne(){
     //image(testcor,295,295);
     tint(10+gcolor,216+(gcolor/10),15+gcolor);
     drawBumpers();
+    noTint();
+    tint(10,216,15);
     torment.draw();
     noTint();
   }
-  tint(125,255,130);
+  tint(10,216,15);
   for(int i=0;i<o1s.size();i++){
     o1s.get(i).draw();
     if(!o1s.get(i).getAlive())
