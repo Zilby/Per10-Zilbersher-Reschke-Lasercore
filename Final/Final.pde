@@ -20,7 +20,7 @@ int counter, gCount, gTimer, gcor, gcolor; //for countdown time before levels an
 boolean gO; //for gameOver (see method)
 boolean I0,I1,I2,I3,I4,I5,I6; //tells if first (initial) time running levelZero-Six() for level 0-6
 boolean modulator; //for the space gif transparency
-int blur1,blur2,blur3,blur4;//for the initial fade in of title, names and countdown
+int blur1,blur2,blur3,blur4,blur5;//for the initial fade in of title, names, score and countdown
 boolean[] Initial = {I0,I1,I2,I3,I4,I5,I6}; //array for all initials times
 Gif menuG,names,title,space,gameOver,s0,s1,s2; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
 PImage i1,i2,i3,igo,ball,bumper,bglow1,bglow2,bglow3,bglow4,bglow5; //creates images for countdown
@@ -65,7 +65,7 @@ void setup() {
   s2 = new Gif(this, "s2.gif");
   AP[level] = minim.loadFile(trackTitle[level], 2048); //loads lvl 0 audiofile
   modulator=true; //sets modulator true (used to make space fade in and out)
-  blur1=blur2=blur3=blur4=0; //sets blurs to 0 (used for fading in)
+  blur1=blur2=blur3=blur4=blur5=0; //sets blurs to 0 (used for fading in)
   testcor=loadImage("Coordinate.png");
   torment = new Player(); //torment?
   leftPressed=rightPressed=false;
@@ -111,6 +111,8 @@ void draw(){
 void keyPressed(){
   if (keyCode == LEFT){
     leftPressed = true;
+    score ++;
+    blur5 = 40;
   }
   if (keyCode == RIGHT){
     rightPressed = true;
@@ -337,17 +339,38 @@ void gameOver(){
 
 void score(){
   if(uno == 0){
-    blur1=0;
+    blur5=0;
     frameRate(60);
     s0.loop();
     uno++;
   }
   else{
-    if(score == 0 && blur1 < 225){
-      tint(255,blur1);
-      image(s0,300,0);
-      noTint();
-      blur1++;
+    if(score == 0){
+      if (blur5 < 225){
+        tint(255,blur5);
+        image(s0,300,0);
+        noTint();
+        blur5 += 2;
+      }
+      else {
+        image(s0,300,0);
+      }
+    }
+    else{
+      frameRate(90);
+    }
+    if(score == 1){
+      if (blur5 < 225){
+        s1.loop();
+        tint(255,blur5);
+        image(s1,300,0);
+        noTint();
+        blur5 += 4;
+      }
+      else {
+        image(s1,300,0);
+      }
+      //blur1 = 0;
     }
   //if(blur1<
   }
