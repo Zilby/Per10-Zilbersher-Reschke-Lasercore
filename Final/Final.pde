@@ -3,13 +3,6 @@ import java.util.*;
 import ddf.minim.*; //imports audio
 import gifAnimation.*; //imports gif processes
 
-
-//ALEXXXXX!! so today you might wanna see how we would have the player move around the ball, like the circle and the algorithm we'll use to keep the player in that circle.
-//also maybe test out some more rotating so we can start on the player and have some sort of idea of how tht works. right now i have some code for the player shooting, and also like if the player is hit
-//and also if you want you can see which enemies we want to add in each level (i was thinking add one new one each level but if u got an idea go for it
-
-//working on first obstacle, going to come from the bumpers towards the player, more or less the generic 'dodge this'
-
 AudioPlayer M0,M1,M2,M3,M4,M5,M6,gOeffect; // All these are individual song files
 AudioPlayer[] AP = {M0,M1,M2,M3,M4,M5,M6}; //array for songs
 String[] trackTitle = {"M0.mp3","M1.mp3","M2.mp3","M3.mp3","M4.mp3","M5.mp3","M6.mp3"}; //arrayfor song names
@@ -31,6 +24,7 @@ String[] Bname = {"bumper.png","bglow1.png","bglow2.png","bglow3.png","bglow4.pn
 ArrayList<Obstacle1> o1s = new ArrayList<Obstacle1>();
 PImage testcor; //used as a test for where the coordinates of something are
 boolean leftPressed, rightPressed;
+
 void setup() {
   size(600, 600); //sets screen size
   frameRate(30); //sets framerate to 30 frames/second (default is 60)
@@ -328,7 +322,7 @@ void gameOver(){
 }
 
 void levelOne(){
-  Player torment = new Player();
+  Player torment = new Player(); //torment?
   if(Initial[level]){ //if initial time running this method...
     frameRate(45);
     AP[level].play(); //play song 1
@@ -341,6 +335,7 @@ void levelOne(){
     image(ball,160,115);
     tint(10+gcolor,216+(gcolor/10),15+gcolor,blur1);
     drawBumpers();
+    torment.draw();
     noTint();
     blur1=blur1+2;
   }else{

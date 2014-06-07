@@ -6,7 +6,8 @@ public class Obstacle1{
   int xshift=-50;
   int yshift=-60;
   float rotation;
-  PImage c1,c2,c3,c4,c5,c6,c7,current;
+  PImage c1,c2,c3,c4,c5,c6,c7;//,current;
+  int cindex; //current index of arraylist image
   PImage[] image = {c1,c2,c3,c4,c5,c6,c7};
   String[] iname = {"Curve1.png","Curve2.png","Curve3.png","Curve4.png","Curve5.png","Curve6.png","Curve7.png"};
   PImage test;
@@ -35,23 +36,32 @@ public class Obstacle1{
     for(int i=0;i<image.length;i++){ //just used to initialize all the curve names
     image[i]=loadImage(iname[i]);
     }
-    current=image[0]; //NOTE cannot be c1, image[0] and c1 are considered separate entities
+    cindex=0;
+    //current=image[cindex]; //NOTE cannot be c1, image[0] and c1 are considered separate entities
     test=loadImage("Coordinate.png");
   }
   
 void draw(){
     if(b==1||b==2){
       if(xcor<290)
-        xcor+=4;
+        xcor+=8;
     }else{
       if(xcor>290)
-        xcor-=4;
+        xcor-=8;
     }if(b==1||b==4){
       if(ycor<280)
-        ycor+=4;
+        if(ycor>=(30*(cindex+1))+40){
+          cindex++;
+          xshift+=5;
+        }
+        ycor+=8;
     }else{
       if(ycor>280)
-        ycor-=4;
+        if(ycor<=550-(34*(cindex+1))){
+          cindex++;
+          xshift+=5;
+        }
+        ycor-=8;
     }
    if(Math.sqrt(Math.pow(abs(xcor-290),2) + Math.pow(abs(ycor - 280),2)) < 60){
      alive = false;
@@ -59,8 +69,8 @@ void draw(){
     //rotation was screwy before see this http://www.processing.org/tutorials/transform2d/
     translate(xcor,ycor); //this essentially moves the origin
     rotate(rotation); //this rotates ABOUT the ORIGIN
-    image(current,xshift,yshift); //current coordinates are a bit off for now
-    //image(test,0,0);
+    image(image[cindex],xshift,yshift); //current coordinates are a bit off for now
+    image(test,0,0);
     rotate(rotation*(-1.0));
     translate(-xcor,-ycor);
     //image(test,xcor,ycor);
