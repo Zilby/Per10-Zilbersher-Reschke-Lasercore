@@ -617,6 +617,12 @@ void lvlmessage() {
 }
 
 void drawLives(){
+  if(!lifeG.isPlaying()) { 
+        lifeG.loop();
+  }
+  if(!Larray[lives].isPlaying()) {
+        Larray[lives].loop();
+  }
   pushMatrix();
   scale(.6);
   image(lifeG,253,920);
