@@ -534,18 +534,23 @@ void levelOne() {
 }
 
 void levelTwo() {
+  genericLevel(126,159,218,12,98,212,1,1,1);
 }
 
 void levelThree() {
+  genericLevel(235,239,122,233,247,36,1,1,1);
 }
 
 void levelFour() {
+  genericLevel(239,200,122,255,154,0,1,1,1);
 }
 
 void levelFive() {
+  genericLevel(239,138,122,247,64,36,1,1,1);
 }
 
 void levelSix() {
+  genericLevel(181,122,239,156,36,247,1,1,1);
 }
 
 void drawBumpers() {
