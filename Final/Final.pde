@@ -3,6 +3,9 @@ import java.util.*;
 import ddf.minim.*; //imports audio
 import gifAnimation.*; //imports gif processes
 
+//Important, for timing the stuff as they happen in the song
+//AP[level].position() returns how much song has played in milliseconds
+
 //notes for me: tomorrow can do level messages, easy stuff. then shooting, death of enemies, tracking enemies.
 
 //Cole to put this as easily as possible, we're basically using polar coordinates. no more xcor and ycor, we're using 
@@ -25,7 +28,7 @@ boolean modulator; //for the space gif transparency
 int blur1, blur2, blur3, blur4, blur5, blur6;//for the initial fade in of title, names, score, new level and countdown
 boolean[] Initial = {I0, I1, I2, I3, I4, I5, I6}; //array for all initials times
 Gif menuG, names, title, space, gameOver, winner, s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, lvl, lifeG; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
-Gif[] Larray = {s0,s1,s2,s3,s4,s5};
+Gif[] Larray = {s0,s1,s2,s3,s4,s5,s6};
 PImage i1, i2, i3, igo, ball, bumper, bglow1, bglow2, bglow3, bglow4, bglow5; //creates images for countdown
 PImage[] Bary = {bumper, bglow1, bglow2, bglow3, bglow4, bglow5};
 String[] Bname = {"bumper.png", "bglow1.png", "bglow2.png", "bglow3.png", "bglow4.png", "bglow5.png"};
@@ -71,7 +74,7 @@ void setup() {
   Larray[3]=s3 = new Gif(this, "s3.gif");
   Larray[4]=s4 = new Gif(this, "s4.gif");
   Larray[5]=s5 = new Gif(this, "s5.gif");
-  s6 = new Gif(this, "s6.gif");
+  Larray[6]=s6 = new Gif(this, "s6.gif");
   s7 = new Gif(this, "s7.gif");
   s8 = new Gif(this, "s8.gif");
   s9 = new Gif(this, "s9.gif");
@@ -536,10 +539,10 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
     drawBumpers();
     torment.draw(leftPressed, rightPressed);
     tint(r1, g1, b1, blur1);
-    pushMatrix();
-    //scale(2);
-    lvlmessage();
-    popMatrix();
+//    pushMatrix();
+//    //scale(2);
+//    lvlmessage();
+//    popMatrix();
     tint(r1, g1, b1, blur1);
     drawLives();
     noTint();
@@ -550,10 +553,10 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
     score();
     popMatrix();
     tint(r1, g1, b1);
-    pushMatrix();
-    //scale(2);
-    lvlmessage();
-    popMatrix();
+//    pushMatrix();
+//    //scale(2);
+//    lvlmessage();
+//    popMatrix();
     drawLives();
     image(ball, 163, 125);
     //image(testcor,295,295);
@@ -662,35 +665,46 @@ void glow() {
   gcolor=0;
 }
 
-void lvlmessage() {
-  if (level > 0) {
-    if (!keysbegan) {
-      if (blur6 < 225) {
-        tint(225, blur6);
-        image(lvl, 50, 50);
-        image(scores.get(level),480,50);
-        blur6 += 3;
-      } else {
-        image(lvl, 50, 50);
-        image(scores.get(level),480,50);
-      }
-    }
-  } else {
-    blur6 = 0;
-  }
-}
+//void lvlmessage() {
+//  if (level > 0) {
+//    if (!keysbegan) {
+//      if (blur6 < 225) {
+//        tint(225, blur6);
+//        image(lvl, 50, 50);
+//        image(scores.get(level),480,50);
+//        blur6 += 3;
+//      } else {
+//        image(lvl, 50, 50);
+//        image(scores.get(level),480,50);
+//      }
+//    }
+//  } else {
+//    blur6 = 0;
+//  }
+//}
 
 void drawLives(){
   if(!lifeG.isPlaying()) { 
         lifeG.loop();
   }
+  if(!lvl.isPlaying()) { 
+        lvl.loop();
+  }
   if(!Larray[lives].isPlaying()) {
         Larray[lives].loop();
+  }
+  if(!Larray[level].isPlaying()) {
+        Larray[level].loop();
   }
   pushMatrix();
   scale(.6);
   image(lifeG,253,920);
   image(Larray[lives],675,920);
+  popMatrix();
+  pushMatrix();
+  scale(.4);
+  image(lvl,480,1310);
+  image(Larray[level],930,1310);
   popMatrix();
 }
 
