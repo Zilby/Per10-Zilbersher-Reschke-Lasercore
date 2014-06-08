@@ -24,7 +24,8 @@ boolean I0, I1, I2, I3, I4, I5, I6; //tells if first (initial) time running leve
 boolean modulator; //for the space gif transparency
 int blur1, blur2, blur3, blur4, blur5, blur6;//for the initial fade in of title, names, score, new level and countdown
 boolean[] Initial = {I0, I1, I2, I3, I4, I5, I6}; //array for all initials times
-Gif menuG, names, title, space, gameOver, s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, lvl; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
+Gif menuG, names, title, space, gameOver, s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, lvl, lifeG; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
+Gif[] Larray = {s0,s1,s2,s3,s4,s5};
 PImage i1, i2, i3, igo, ball, bumper, bglow1, bglow2, bglow3, bglow4, bglow5; //creates images for countdown
 PImage[] Bary = {bumper, bglow1, bglow2, bglow3, bglow4, bglow5};
 String[] Bname = {"bumper.png", "bglow1.png", "bglow2.png", "bglow3.png", "bglow4.png", "bglow5.png"};
@@ -63,17 +64,19 @@ void setup() {
   title= new Gif(this, "Title.gif");
   space= new Gif(this, "Space.gif");
   gameOver= new Gif(this, "gameOver.gif");
-  s0 = new Gif(this, "s0.gif");
-  s1 = new Gif(this, "s1.gif");
-  s2 = new Gif(this, "s2.gif");
-  s3 = new Gif(this, "s3.gif");
-  s4 = new Gif(this, "s4.gif");
-  s5 = new Gif(this, "s5.gif");
+  Larray[0]=s0 = new Gif(this, "s0.gif");
+  Larray[1]=s1 = new Gif(this, "s1.gif");
+  Larray[2]=s2 = new Gif(this, "s2.gif");
+  Larray[3]=s3 = new Gif(this, "s3.gif");
+  Larray[4]=s4 = new Gif(this, "s4.gif");
+  Larray[5]=s5 = new Gif(this, "s5.gif");
   s6 = new Gif(this, "s6.gif");
   s7 = new Gif(this, "s7.gif");
   s8 = new Gif(this, "s8.gif");
   s9 = new Gif(this, "s9.gif");
+  
   lvl = new Gif(this, "level.gif");
+  lifeG= new Gif(this, "lives.gif");
   scores.add(s0);
   scores.add(s1);
   scores.add(s2);
@@ -481,11 +484,13 @@ void levelOne() {
     tint(10+gcolor, 216+(gcolor/10), 15+gcolor, blur1);
     drawBumpers();
     torment.draw(leftPressed, rightPressed);
-    tint(125, 225, 130);
+    tint(125, 225, 130, blur1);
     pushMatrix();
     //scale(2);
     lvlmessage();
     popMatrix();
+    tint(125, 225, 130, blur1);
+    drawLives();
     noTint();
     blur1=blur1+2;
   } else {
@@ -498,6 +503,7 @@ void levelOne() {
     //scale(2);
     lvlmessage();
     popMatrix();
+    drawLives();
     image(ball, 163, 125);
     //image(testcor,295,295);
     tint(10+gcolor, 216+(gcolor/10), 15+gcolor);
@@ -604,6 +610,14 @@ void lvlmessage() {
   } else {
     blur6 = 0;
   }
+}
+
+void drawLives(){
+  pushMatrix();
+  scale(.6);
+  image(lifeG,253,920);
+  image(Larray[lives],675,920);
+  popMatrix();
 }
 
 
