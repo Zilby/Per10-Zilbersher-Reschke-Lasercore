@@ -27,7 +27,6 @@ int blur1,blur2,blur3,blur4,blur5;//for the initial fade in of title, names, sco
 >>>>>>> 8a6801d74e38138a401a891efec55a8335dc0416
 boolean[] Initial = {I0,I1,I2,I3,I4,I5,I6}; //array for all initials times
 Gif menuG,names,title,space,gameOver,s0,s1,s2,s3,s4,s5,s6,s7,s8,s9; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
-//String[] snums = {"s0.gif","s1.gif","s2.gif"};//,"s3.gif","s4.gif","s5.gif","s6.gif","s7.gif","s8.gif","s9.gif"
 PImage i1,i2,i3,igo,ball,bumper,bglow1,bglow2,bglow3,bglow4,bglow5; //creates images for countdown
 PImage[] Bary = {bumper,bglow1,bglow2,bglow3,bglow4,bglow5};
 String[] Bname = {"bumper.png","bglow1.png","bglow2.png","bglow3.png","bglow4.png","bglow5.png"};
@@ -68,6 +67,13 @@ void setup() {
   s0 = new Gif(this, "s0.gif");
   s1 = new Gif(this, "s1.gif");
   s2 = new Gif(this, "s2.gif");
+  s3 = new Gif(this,"s3.gif");
+  s4 = new Gif(this,"s4.gif");
+  s5 = new Gif(this,"s5.gif");
+  s6 = new Gif(this,"s6.gif");
+  s7 = new Gif(this,"s7.gif");
+  s8 = new Gif(this,"s8.gif");
+  s9 = new Gif(this,"s9.gif");
   AP[level] = minim.loadFile(trackTitle[level], 2048); //loads lvl 0 audiofile
   modulator=true; //sets modulator true (used to make space fade in and out)
   blur1=blur2=blur3=blur4=blur5=0; //sets blurs to 0 (used for fading in)
