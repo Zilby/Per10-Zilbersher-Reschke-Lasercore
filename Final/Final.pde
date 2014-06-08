@@ -22,7 +22,8 @@ boolean I0,I1,I2,I3,I4,I5,I6; //tells if first (initial) time running levelZero-
 boolean modulator; //for the space gif transparency
 int blur1,blur2,blur3,blur4,blur5;//for the initial fade in of title, names, score and countdown
 boolean[] Initial = {I0,I1,I2,I3,I4,I5,I6}; //array for all initials times
-Gif menuG,names,title,space,gameOver,s0,s1,s2; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
+Gif menuG,names,title,space,gameOver,s0,s1,s2,s3,s4,s5,s6,s7,s8,s9; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
+//String[] snums = {"s0.gif","s1.gif","s2.gif"};//,"s3.gif","s4.gif","s5.gif","s6.gif","s7.gif","s8.gif","s9.gif"
 PImage i1,i2,i3,igo,ball,bumper,bglow1,bglow2,bglow3,bglow4,bglow5; //creates images for countdown
 PImage[] Bary = {bumper,bglow1,bglow2,bglow3,bglow4,bglow5};
 String[] Bname = {"bumper.png","bglow1.png","bglow2.png","bglow3.png","bglow4.png","bglow5.png"};
@@ -336,6 +337,13 @@ void gameOver(){
     frameRate(30);
   }
 }
+
+void currscore(int a){
+  if(blur5 < 225){
+    tint(225,blur5);
+  }
+}
+
 
 void score(){
   if(uno == 0){
