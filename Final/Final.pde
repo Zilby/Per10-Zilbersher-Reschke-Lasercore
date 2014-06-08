@@ -97,6 +97,10 @@ void setup() {
 }
 
 void draw() {
+  kill();
+  if(!torment.getAlive()){
+    renew();
+  }
   if (lives==0&&level!=-1) {
     level=-1;
     first=true;
@@ -193,11 +197,26 @@ void keyReleased() {
   }
 }
 
+void renew(){
+  frameRate(30);
+  level--;
+ //  Initial[level]=true;
+ //  minim.stop();
+ //  AP[level] = minim.loadFile(trackTitle[level], 2048); //loads song file for corresponding level
+  o1s.clear(); //removes extra obstacles
+  lives--;
+  torment.rise();
+  if(lives!=0){
+    first=true;
+    advance=true;
+  }
+}
+ 
 void nextLevel() {
   if (first) { //if first time performing nextLevel
     minim.stop(); //stop the music!
     blur1=blur2=blur3=blur4=0; //resets blurs
-    if (level==0) {
+    if (level==0&&lives==5) {
       menuG.stop(); //stops main menu gifs
       title.stop();
       space.stop();
@@ -268,8 +287,10 @@ void nextLevel() {
     }
     counter++; //countdown stops here, begins to start next level
   } else {
+    counter=0;
     level++; //make level higher
     advance=false; //set advance false
+    torment.setRotation(radians(270));
     AP[level] = minim.loadFile(trackTitle[level], 2048); //loads song file for corresponding level
     Initial[level]=true; //sets level's initial run to true
     //AP[level].play(); //**has been moved to each individual level method
@@ -359,6 +380,7 @@ void gameOver() {
   } else
     image(gameOver, 40, 160);
   if (restart) {
+    minim.stop();
     restart=false;
     modulator=true; //sets modulator true (used to make space fade in and out)
     blur1=blur2=blur3=blur4=0; //sets blurs to 0 (used for fading in)
@@ -436,10 +458,11 @@ void score() {
 
 void levelOne() {
   if (Initial[level]) { //if initial time running this method...
-    frameRate(45);
+    frameRate(90);
     AP[level].play(); //play song 1
     //ball.loop();
     Initial[level]=false; //no longer true
+    o1s.clear();  
   }
   background(0);
   if (blur1<255) {
@@ -531,7 +554,7 @@ void drawBumpers() {
 }
 
 PImage gImage() { //ie: glowed image
-  if (gCount!=0&&gTimer%4==0)
+  if (gCount!=0&&gTimer%8==0)
     gCount--;
   if (gTimer!=0)
     gTimer--;
@@ -564,7 +587,7 @@ PImage gImage() { //ie: glowed image
 
 void glow() {
   gCount=10;
-  gTimer=40;
+  gTimer=80;
   gcor=0;
   gcolor=0;
 }
@@ -592,6 +615,20 @@ void wave(int b) { //ie:make an obstacle one at b bumper
   Obstacle1 o = new Obstacle1(b);
   o1s.add(o);
 }
+
+void kill(){ //used in draw method, add other obstacle arrays as necessary, lives are deducted in restart()
+  int d1,d2;
+  float r1,r2;
+  d1=torment.getDistance();
+  r1=torment.getRotation();
+  for(int i=0;i<o1s.size();i++){
+    d2=o1s.get(i).getDistance();
+    r2=o1s.get(i).getRotation();
+    if(d1>=d2&&d1<=d2+5&&r1<=r2+radians(45)&&r1>=r2-radians(45)){
+      torment.die();
+    }
+  }
+}    
 
 /*class player(){
  int[] bulletX;
