@@ -206,6 +206,7 @@ void renew(){
   o1s.clear(); //removes extra obstacles
   lives--;
   torment.rise();
+  score-=(level*100)+100;
   if(lives!=0){
     first=true;
     advance=true;
@@ -288,6 +289,10 @@ void nextLevel() {
     counter++; //countdown stops here, begins to start next level
   } else {
     counter=0;
+    score+=level*100;
+    if(score<0){
+      score=0;
+    }
     level++; //make level higher
     advance=false; //set advance false
     torment.setRotation(radians(270));
@@ -476,7 +481,6 @@ void levelOne() {
     tint(10+gcolor, 216+(gcolor/10), 15+gcolor, blur1);
     drawBumpers();
     torment.draw(leftPressed, rightPressed);
-    noTint();
     tint(125, 225, 130);
     pushMatrix();
     //scale(2);
@@ -494,8 +498,6 @@ void levelOne() {
     //scale(2);
     lvlmessage();
     popMatrix();
-    noTint();
-    tint(125, 255, 130);
     image(ball, 163, 125);
     //image(testcor,295,295);
     tint(10+gcolor, 216+(gcolor/10), 15+gcolor);
@@ -503,12 +505,6 @@ void levelOne() {
     noTint();
     tint(10, 216, 15);
     torment.draw(leftPressed, rightPressed);
-    noTint();
-    tint(125, 225, 130);
-    pushMatrix();
-    //scale(2);
-    lvlmessage();
-    popMatrix();
     noTint();
   }
   tint(10, 216, 15);
