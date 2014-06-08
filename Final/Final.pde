@@ -28,7 +28,8 @@ PImage[] Bary = {bumper,bglow1,bglow2,bglow3,bglow4,bglow5};
 String[] Bname = {"bumper.png","bglow1.png","bglow2.png","bglow3.png","bglow4.png","bglow5.png"};
 ArrayList<Obstacle1> o1s = new ArrayList<Obstacle1>();
 PImage testcor; //used as a test for where the coordinates of something are
-boolean leftPressed, rightPressed;
+boolean leftPressed, rightPressed, increase,decrease;//increase and decrease just test scoring for now
+ArrayList<Gif> scores = new ArrayList<Gif>();
 int score = 0,uno = 0;
 Player torment; //torment?
 
@@ -41,7 +42,7 @@ void setup() {
   lives=5;
   counter=0;
   gO=true;//for gameOver (see method) (works better for intro across the board if just initialized to true
-  Initial[0]=true; //sets initial run for lvl 0 to true
+  I0=true; //sets initial run for lvl 0 to true
   I1=I2=I3=I4=I5=I6=false; //sets the other's initials to false
   i1=loadImage("1.png");
   i2=loadImage("2.png");
@@ -70,6 +71,19 @@ void setup() {
   s7 = new Gif(this,"s7.gif");
   s8 = new Gif(this,"s8.gif");
   s9 = new Gif(this,"s9.gif");
+  scores.add(s0);
+  scores.add(s1);
+  scores.add(s2);
+  scores.add(s3);
+  scores.add(s4);
+  scores.add(s5);
+  scores.add(s6);
+  scores.add(s7);
+  scores.add(s8);
+  scores.add(s9);
+  for(int i = 0; i < scores.size(); i ++){
+    scores.get(i).loop();
+  }
   AP[level] = minim.loadFile(trackTitle[level], 2048); //loads lvl 0 audiofile
   modulator=true; //sets modulator true (used to make space fade in and out)
   blur1=blur2=blur3=blur4=blur5=0; //sets blurs to 0 (used for fading in)
@@ -79,10 +93,6 @@ void setup() {
 }
 
 void draw(){
-    kill();
-    if(!torment.getAlive()){
-      renew();
-    }
     if(lives==0&&level!=-1){
       level=-1;
       first=true;
@@ -116,22 +126,28 @@ void draw(){
     else if(level==6){
       levelSix();
     }
+    println("x-coordinate: " + mouseX + ", y-coordinate: " + mouseY);
 }
+
 
 void keyPressed(){
   if (keyCode == LEFT){
     leftPressed = true;
-    score ++;
-    blur5 = 40;
   }
   if (keyCode == RIGHT){
     rightPressed = true;
+  }
+  if (key=='s'){
+    increase = true;
+  }
+  if (key=='d'){
+    decrease = true;
   }
 }
   
 void keyReleased() {
     if(level==0){
-        if(key == ' '&&!Initial[0]){ //!I0 is to prevent it from calling this during countdown
+        if(key == ' '&&!I0){ //!I0 is to prevent it from calling this during countdown
             advance = true;
             first = true;
         }
@@ -155,6 +171,12 @@ void keyReleased() {
     if(key=='4'){
       wave(4);
     }
+    if(key=='s'){
+      increase = false;
+    }
+    if(key=='d'){
+      decrease = false;
+    }
     if(keyCode == LEFT){ 
       leftPressed = false;
     }
@@ -169,32 +191,17 @@ void keyReleased() {
     }
 }
 
-void renew(){
-  frameRate(30);
-  level--;
-//  Initial[level]=true;
-//  minim.stop();
-//  AP[level] = minim.loadFile(trackTitle[level], 2048); //loads song file for corresponding level
-  o1s.clear(); //removes extra obstacles
-  lives--;
-  torment.rise();
-  if(lives!=0){
-    first=true;
-    advance=true;
-  }
-}
-
 void nextLevel(){
     if(first){ //if first time performing nextLevel
         minim.stop(); //stop the music!
         blur1=blur2=blur3=blur4=0; //resets blurs
-        if(level==0&&lives==5){
+        if(level==0){
           menuG.stop(); //stops main menu gifs
           title.stop();
           space.stop();
           names.stop();
           modulator=true; //resets modulator for future use
-          Initial[0]=true; //resets initial
+          I0=true; //resets initial
         }
         first=false; //no longer first occurence of advance
       } //This sets up the count down
@@ -259,10 +266,8 @@ void nextLevel(){
         }
         counter++; //countdown stops here, begins to start next level
       }else{
-        counter=0;
         level++; //make level higher
         advance=false; //set advance false
-        torment.setRotation(radians(270));
         AP[level] = minim.loadFile(trackTitle[level], 2048); //loads song file for corresponding level
         Initial[level]=true; //sets level's initial run to true
         //AP[level].play(); //**has been moved to each individual level method
@@ -271,12 +276,12 @@ void nextLevel(){
 
 void levelZero(){ //AKA: Menu
    int m = millis();
-   if(Initial[0]){
+   if(I0){
      frameRate(30);
      if(m>3600){ //after ~3 seconds initializes the background and starts song
        menuG.loop(); //loops gif
        AP[level].loop(); //loops song
-       Initial[0]=false; //sets initial to false
+       I0=false; //sets initial to false
      }
    }else{
     background(menuG); //sets background
@@ -351,14 +356,13 @@ void gameOver(){
   }else
     image(gameOver,40,160);
   if(restart){
-    minim.stop();
     restart=false;
     modulator=true; //sets modulator true (used to make space fade in and out)
     blur1=blur2=blur3=blur4=0; //sets blurs to 0 (used for fading in)
     counter=0;
     lives=5;
     level=0;
-    Initial[0]=true; //sets initial run to true
+    I0=true; //sets initial run to true
     AP[level] = minim.loadFile(trackTitle[level], 2048); //loads song file for corresponding level ie: 0
     gO=true;//gameOver t setter so that the space doesn't appear at the very start
     frameRate(30);
@@ -366,60 +370,79 @@ void gameOver(){
 }
 
 void currscore(int a){
-  if(blur5 < 225){
-    tint(225,blur5);
+  int x = 390;
+  int length = 1 + (int)Math.floor(Math.log10(Math.abs(a))) + ((a < 0)? 1 : 0);
+  if (length < 2){
+    if(blur5 < 225){
+      tint(225,blur5);
+      //Gif temp = scores[a];
+      image(scores.get(a),x,0);
+      noTint();
+      blur5 += 6;
+    }
+    else{
+      image(scores.get(a),x,0);
+    }
+  }
+  else{
+    if(length % 2 == 0){
+      x = x + 40 + 80*(length/2 - 1);
+    }
+    else{
+      x += 80*(length/2);
+    } 
+    if(blur5 < 225){
+      for(int o = 0; o < length; o ++){
+        int h = a%10;
+        tint(225,blur5);
+        image(scores.get(h),x,0);
+        noTint();
+        a = a/10;
+        x -= 80;
+      }
+      blur5 +=6;
+    }
+    else{
+      for(int o = 0; o < length; o ++){
+        int h = a%10;
+        image(scores.get(h),x,0);
+        a = a/10;
+        x -= 80;
+      }
+    }
   }
 }
 
-
 void score(){
+  if (increase){
+    score ++;
+  }
+  if (decrease && score > 0){
+    score --;
+  }
   if(uno == 0){
     blur5=0;
-    frameRate(60);
-    s0.loop();
     uno++;
   }
   else{
-    if(score == 0){
-      if (blur5 < 225){
-        tint(255,blur5);
-        image(s0,300,0);
-        noTint();
-        blur5 += 2;
-      }
-      else {
-        image(s0,300,0);
-      }
-    }
     frameRate(90);
-    if(score == 1){
-      if (blur5 < 225){
-        s1.loop();
-        tint(255,blur5);
-        image(s1,300,0);
-        noTint();
-        blur5 += 4;
-      }
-      else {
-        image(s1,300,0);
-      }
-      //blur1 = 0;
-    }
-  //if(blur1<
+    currscore(score);
   }
 }
 
 void levelOne(){
   if(Initial[level]){ //if initial time running this method...
-    frameRate(90);
+    frameRate(45);
     AP[level].play(); //play song 1
     //ball.loop();
     Initial[level]=false; //no longer true
-    o1s.clear();
   }
   background(0);
   if(blur1<255){
+    pushMatrix();
+    scale(.7);
     score();
+    popMatrix();
     tint(125,255,130,blur1);
     image(ball,163,125);
     //image(testcor,295,295);
@@ -428,8 +451,12 @@ void levelOne(){
     torment.draw(leftPressed,rightPressed);
     noTint();
     blur1=blur1+2;
-  }else{
+  }
+  else{
+    pushMatrix();
+    scale(.7);
     score();
+    popMatrix();
     tint(125,255,130);
     image(ball,163,125);
     //image(testcor,295,295);
@@ -483,7 +510,7 @@ void drawBumpers(){
 }
 
 PImage gImage(){ //ie: glowed image
-  if(gCount!=0&&gTimer%8==0)
+  if(gCount!=0&&gTimer%4==0)
     gCount--;
   if(gTimer!=0)
     gTimer--;
@@ -516,7 +543,7 @@ PImage gImage(){ //ie: glowed image
 
 void glow(){
   gCount=10;
-  gTimer=80;
+  gTimer=40;
   gcor=0;
   gcolor=0;
 }
@@ -526,22 +553,6 @@ void wave(int b){ //ie:make an obstacle one at b bumper
   o1s.add(o);
 }
 
-void kill(){ //used in draw method, add other obstacle arrays as necessary, lives are deducted in restart()
-  int d1,d2;
-  float r1,r2;
-  d1=torment.getDistance();
-  r1=torment.getRotation();
-  for(int i=0;i<o1s.size();i++){
-    d2=o1s.get(i).getDistance();
-    r2=o1s.get(i).getRotation();
-    if(d1>=d2&&d1<=d2+5&&r1<=r2+radians(45)&&r1>=r2-radians(45)){
-      torment.die();
-    }
-  }
-}
-    
-    
-    
 /*class player(){
     int[] bulletX;
 int[] bulletY;
