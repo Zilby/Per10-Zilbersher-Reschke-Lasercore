@@ -141,6 +141,7 @@ void keyPressed() {
   if (keyCode == RIGHT) {
     rightPressed = true;
   }
+  //testing
   if (key=='s') {
     increase = true;
   }
@@ -181,6 +182,11 @@ void keyReleased() {
   if (key=='d') {
     decrease = false;
   }
+  if (key=='n') {
+    advance = true;
+    first=true;
+  }
+  //Testing Stops Here
   if (keyCode == LEFT) { 
     leftPressed = false;
   }
@@ -192,7 +198,6 @@ void keyReleased() {
       keysbegan = true;
     }
   }
-  //Testing Stops Here
   if (level==-1) {
     if (key == ' ') {
       restart=true;
@@ -218,15 +223,17 @@ void renew(){
  
 void nextLevel() {
   if (first) { //if first time performing nextLevel
+    frameRate(30);
     minim.stop(); //stop the music!
     blur1=blur2=blur3=blur4=0; //resets blurs
+    Initial[level]=true;
     if (level==0&&lives==5) {
       menuG.stop(); //stops main menu gifs
       title.stop();
       space.stop();
       names.stop();
       modulator=true; //resets modulator for future use
-      Initial[0]=true; //resets initial
+      //Initial[0]=true; //resets initial
     }
     first=false; //no longer first occurence of advance
   } //This sets up the count down
