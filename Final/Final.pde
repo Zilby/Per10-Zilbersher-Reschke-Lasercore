@@ -27,12 +27,13 @@ boolean I0, I1, I2, I3, I4, I5, I6; //tells if first (initial) time running leve
 boolean modulator; //for the space gif transparency
 int blur1, blur2, blur3, blur4, blur5, blur6;//for the initial fade in of title, names, score, new level and countdown
 boolean[] Initial = {I0, I1, I2, I3, I4, I5, I6}; //array for all initials times
-Gif menuG, names, title, space, gameOver, winner, s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, lvl, lifeG; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
+Gif menuG, names, title, space, gameOver, winner, s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, lvl, lifeG, sline; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
 Gif[] Larray = {s0,s1,s2,s3,s4,s5,s6};
 PImage i1, i2, i3, igo, ball, bumper, bglow1, bglow2, bglow3, bglow4, bglow5; //creates images for countdown
 PImage[] Bary = {bumper, bglow1, bglow2, bglow3, bglow4, bglow5};
 String[] Bname = {"bumper.png", "bglow1.png", "bglow2.png", "bglow3.png", "bglow4.png", "bglow5.png"};
 ArrayList<Obstacle1> o1s = new ArrayList<Obstacle1>();
+ArrayList<Obstacle2> o2s = new ArrayList<Obstacle2>();
 PImage testcor; //used as a test for where the coordinates of something are
 boolean leftPressed, rightPressed, keysbegan = false, increase, decrease;//increase and decrease just test scoring for now
 ArrayList<Gif> scores = new ArrayList<Gif>();
@@ -68,6 +69,8 @@ void setup() {
   space= new Gif(this, "Space.gif");
   gameOver= new Gif(this, "gameOver.gif");
   winner=new Gif(this, "Winner.gif");
+  sline = new Gif(this,"scoreline.gif"); 
+  sline.loop();
   Larray[0]=s0 = new Gif(this, "s0.gif");
   Larray[1]=s1 = new Gif(this, "s1.gif");
   Larray[2]=s2 = new Gif(this, "s2.gif");
@@ -225,6 +228,7 @@ void renew(){
  //  minim.stop();
  //  AP[level] = minim.loadFile(trackTitle[level], 2048); //loads song file for corresponding level
   o1s.clear(); //removes extra obstacles
+  o2s.clear();
   lives--;
   torment.rise();
   score-=(level*100)+100;
@@ -404,9 +408,23 @@ void gameOver() {
     tint(255, blur1);
     image(gameOver, 40, 160);
     noTint();
+    tint(255,77,0,blur1);
+    pushMatrix();
+    scale(.7);
+    image(sline,220,550);
+    score();
+    popMatrix();
+    noTint();
     blur1++;
   } else
     image(gameOver, 40, 160);
+    tint(255,77,0);
+    pushMatrix();
+    scale(.7);
+    image(sline,220,550);
+    score();
+    popMatrix();
+    noTint();
   if (restart) {
     minim.stop();
     restart=false;
@@ -418,6 +436,7 @@ void gameOver() {
     Initial[0]=true; //sets initial run to true
     AP[level] = minim.loadFile(trackTitle[level], 2048); //loads song file for corresponding level ie: 0
     gO=true;//gameOver t setter so that the space doesn't appear at the very start
+    score=0;
     frameRate(30);
   }
 }
@@ -436,11 +455,24 @@ void win(){
   background(0);
   if (blur1<255) {
     tint(255, blur1);
-    image(winner, 40, 160);
+    image(winner, 50, 160);
+    tint(0,111,255,blur1);
+    pushMatrix();
+    scale(.7);
+    image(sline,220,450);
+    score();
+    popMatrix();
     noTint();
     blur1++;
   } else
-    image(winner, 40, 160);
+    image(winner, 50, 160);
+    tint(0,111,255);
+    pushMatrix();
+    scale(.7);
+    image(sline,220,450);
+    score();
+    popMatrix();
+    noTint();
   if (restart) {
     minim.stop();
     restart=false;
@@ -452,38 +484,35 @@ void win(){
     Initial[0]=true; //sets initial run to true
     AP[level] = minim.loadFile(trackTitle[level], 2048); //loads song file for corresponding level ie: 0
     gO=true;//gameOver t setter so that the space doesn't appear at the very start
+    score=0;
     frameRate(30);
   }
 }
 
-void currscore(int a) {
+void currscore(int a, int y) {
   int x = 390;
   int length = 1 + (int)Math.floor(Math.log10(Math.abs(a))) + ((a < 0)? 1 : 0);
   if (length < 2) {
     if (blur5 < 225) {
       tint(225, blur5);
-      tint(125, 225, 130);
       //Gif temp = scores[a];
-      image(scores.get(a), x, 0);
+      image(scores.get(a), x, y);
       noTint();
       blur5 += 6;
     } else {
-      tint(125, 225, 130);
-      image(scores.get(a), x, 0);
-      noTint();
+      image(scores.get(a), x, y);
     }
   } else {
     if (length % 2 == 0) {
       x = x + 40 + 80*(length/2 - 1);
     } else {
       x += 80*(length/2);
-    } 
+    }
     if (blur5 < 225) {
       for (int o = 0; o < length; o ++) {
         int h = a%10;
         tint(255, blur5);
-        tint(125, 225, 130);
-        image(scores.get(h), x, 0);
+        image(scores.get(h), x, y);
         noTint();
         a = a/10;
         x -= 80;
@@ -492,9 +521,7 @@ void currscore(int a) {
     } else {
       for (int o = 0; o < length; o ++) {
         int h = a%10;
-        tint(125, 225, 130);
-        image(scores.get(h), x, 0);
-        noTint();
+        image(scores.get(h), x, y);
         a = a/10;
         x -= 80;
       }
@@ -507,14 +534,21 @@ void score() {
     score ++;
   }
   if (decrease && score > 0) {
-    score --;
-  }
+  score --;}
   if (uno == 0) {
     blur5=0;
     uno++;
   } else {
     frameRate(90);
-    currscore(score);
+    if(level == -1){
+      currscore(score, 620);
+    }
+    else if(level==7){
+      currscore(score,520);
+    }
+    else{
+      currscore(score,0);
+    }
   }
 }
 
@@ -525,41 +559,42 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
     //ball.loop();
     Initial[level]=false; //no longer true
     o1s.clear();  
+    o2s.clear();
   }
   background(0);
   if (blur1<255) {
+    tint(r1, g1, b1, blur1);
+    image(ball, 163, 125);
+    //image(testcor,295,295);
     pushMatrix();
     scale(.7);
     score();
     popMatrix();
-    tint(r1, g1, b1, blur1);
-    image(ball, 163, 125);
-    //image(testcor,295,295);
     tint(r2+(gcolor/glowr), g2+(gcolor/glowg), b2+(gcolor/glowb), blur1);
     drawBumpers();
     torment.draw(leftPressed, rightPressed);
     tint(r1, g1, b1, blur1);
-//    pushMatrix();
-//    //scale(2);
-//    lvlmessage();
-//    popMatrix();
+    //    pushMatrix();
+    //    //scale(2);
+    //    lvlmessage();
+    //    popMatrix();
     tint(r1, g1, b1, blur1);
     drawLives();
     noTint();
     blur1=blur1+2;
   } else {
+    tint(r1, g1, b1);
+    //    pushMatrix();
+    //    //scale(2);
+    //    lvlmessage();
+    //    popMatrix();
+    drawLives();
+    image(ball, 163, 125);
+    //image(testcor,295,295);
     pushMatrix();
     scale(.7);
     score();
     popMatrix();
-    tint(r1, g1, b1);
-//    pushMatrix();
-//    //scale(2);
-//    lvlmessage();
-//    popMatrix();
-    drawLives();
-    image(ball, 163, 125);
-    //image(testcor,295,295);
     tint(r2+(gcolor/glowr), g2+(gcolor/glowg), b2+(gcolor/glowb));
     drawBumpers();
     noTint();
@@ -572,6 +607,11 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
     o1s.get(i).draw();
     if (!o1s.get(i).getAlive())
       o1s.remove(i);
+  }
+  for (int j=0; j<o2s.size (); j++) {
+    o2s.get(j).draw();
+    if (!o2s.get(j).getAlive())
+      o2s.remove(j);
   }
   noTint();
   if(!AP[level].isPlaying()){
@@ -712,6 +752,11 @@ void drawLives(){
 void wave(int b) { //ie:make an obstacle one at b bumper
   Obstacle1 o = new Obstacle1(b);
   o1s.add(o);
+}
+
+void ball(int b,boolean r,boolean l){
+  Obstacle2 o = new Obstacle2(b,r,l);
+  o2s.add(o);
 }
 
 void kill(){ //used in draw method, add other obstacle arrays as necessary, lives are deducted in restart()
