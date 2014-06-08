@@ -174,16 +174,22 @@ void keyReleased() {
     glow();
   }
   if (key=='1') {
-    wave(1);
+    ball(1,false,false);
   }
   if (key=='2') {
-    wave(2);
+    ball(2,false,false);
   }
   if (key=='3') {
-    wave(3);
+    ball(3,false,false);
   }
   if (key=='4') {
-    wave(4);
+    ball(4,false,false);
+  }
+  if (key=='5') {
+    ball(1,true,false);
+  }
+  if (key=='6') {
+    ball(1,false,true);
   }
   if (key=='s') {
     increase = false;
@@ -407,7 +413,6 @@ void gameOver() {
   if (blur1<255) {
     tint(255, blur1);
     image(gameOver, 40, 160);
-    noTint();
     tint(255,77,0,blur1);
     pushMatrix();
     scale(.7);

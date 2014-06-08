@@ -5,8 +5,8 @@ public class Obstacle2{
   int b;//b=bumper number, xshift and yshift are so that when they are drawn it is centered
   boolean left,right; //if going to be left of primary direction or right
   int distance;
-  int xshift=0;//tbd
-  int yshift=0;//tbd
+  int xshift=5;//tbd
+  int yshift=-18;//tbd
   float rotation; //amount obstacle is rotated about the origin.
   PImage c1;
   PImage test; //for testing the true coordinates
@@ -34,10 +34,10 @@ public class Obstacle2{
   void draw(){
     distance-=4; //ie: move toward center
     if(left){
-      rotation-=(radians(.1));
+      rotation-=(radians(.6));
     }
     if(right){
-      rotation+=(radians(.1));
+      rotation+=(radians(.6));
     }
     translate(300,300); //switches origin from top left to center
     rotate(rotation); //this rotates ABOUT the ORIGIN
