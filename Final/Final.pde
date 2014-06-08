@@ -185,6 +185,9 @@ void keyReleased() {
   if (key=='d') {
     decrease = false;
   }
+  if (key=='f'){
+    AP[level].skip(10000);
+  }
   if (key=='n') {
     advance = true;
     first=true;
