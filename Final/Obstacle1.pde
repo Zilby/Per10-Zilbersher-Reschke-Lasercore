@@ -21,9 +21,9 @@ public class Obstacle1{
     if(b==1){ //all these coordinates were lined up usin test
       rotation=radians(45);
     }else if(b==2){
-      rotation=radians(-45);
+      rotation=radians(315);
     }else if(b==3){
-      rotation=radians(-135);
+      rotation=radians(225);
     }else{
       rotation=radians(135);
     }
@@ -35,7 +35,7 @@ public class Obstacle1{
   }
   
   void draw(){
-    distance-=8; //ie: move toward center
+    distance-=4; //ie: move toward center
     if(distance<=260-(18*(cindex+1))&&cindex<6){ //this is just a fancy way of changing the image as it moves
       cindex++;
       xshift-=6; //used because if you don't shift the image's location the actual coordinates don't line up with the curve because the image changes. 
