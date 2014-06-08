@@ -464,7 +464,7 @@ void score() {
   }
 }
 
-void levelOne() {
+void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,int glowb){
   if (Initial[level]) { //if initial time running this method...
     frameRate(90);
     AP[level].play(); //play song 1
@@ -478,18 +478,18 @@ void levelOne() {
     scale(.7);
     score();
     popMatrix();
-    tint(125, 255, 130, blur1);
+    tint(r1, g1, b1, blur1);
     image(ball, 163, 125);
     //image(testcor,295,295);
-    tint(10+gcolor, 216+(gcolor/10), 15+gcolor, blur1);
+    tint(r2+(gcolor/glowr), g2+(gcolor/glowg), b2+(gcolor/glowb), blur1);
     drawBumpers();
     torment.draw(leftPressed, rightPressed);
-    tint(125, 225, 130, blur1);
+    tint(r1, g1, b1, blur1);
     pushMatrix();
     //scale(2);
     lvlmessage();
     popMatrix();
-    tint(125, 225, 130, blur1);
+    tint(r1, g1, b1, blur1);
     drawLives();
     noTint();
     blur1=blur1+2;
@@ -498,7 +498,7 @@ void levelOne() {
     scale(.7);
     score();
     popMatrix();
-    tint(125, 225, 130);
+    tint(r1, g1, b1);
     pushMatrix();
     //scale(2);
     lvlmessage();
@@ -506,20 +506,24 @@ void levelOne() {
     drawLives();
     image(ball, 163, 125);
     //image(testcor,295,295);
-    tint(10+gcolor, 216+(gcolor/10), 15+gcolor);
+    tint(r2+(gcolor/glowr), g2+(gcolor/glowg), b2+(gcolor/glowb));
     drawBumpers();
     noTint();
-    tint(10, 216, 15);
+    tint(r2, g2, b2);
     torment.draw(leftPressed, rightPressed);
     noTint();
   }
-  tint(10, 216, 15);
+  tint(r2, g2, b2);
   for (int i=0; i<o1s.size (); i++) {
     o1s.get(i).draw();
     if (!o1s.get(i).getAlive())
       o1s.remove(i);
   }
   noTint();
+}
+
+void levelOne() {
+  genericLevel(125,255,130,10,216,15,1,10,1);
 }
 
 void levelTwo() {
