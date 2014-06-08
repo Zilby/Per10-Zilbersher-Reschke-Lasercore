@@ -10,7 +10,7 @@ import gifAnimation.*; //imports gif processes
 //Only use regular coordinates if you want to do like horizontal writing for 'lives' or 'level' or something like that
 //or if you need to account for the change in location of an image being drawn (see xshift and yshift in obstacle1.class)
 
-AudioPlayer M0, M1, M2, M3, M4, M5, M6, gOeffect; // All these are individual song files
+AudioPlayer M0, M1, M2, M3, M4, M5, M6, gOeffect, winEffect; // All these are individual song files
 AudioPlayer[] AP = {M0, M1, M2, M3, M4, M5, M6}; //array for songs
 String[] trackTitle = {"M0.mp3", "M1.mp3", "M2.mp3", "M3.mp3", "M4.mp3", "M5.mp3", "M6.mp3"}; //arrayfor song names
 Minim minim; // Audio context (general song player)
@@ -24,7 +24,7 @@ boolean I0, I1, I2, I3, I4, I5, I6; //tells if first (initial) time running leve
 boolean modulator; //for the space gif transparency
 int blur1, blur2, blur3, blur4, blur5, blur6;//for the initial fade in of title, names, score, new level and countdown
 boolean[] Initial = {I0, I1, I2, I3, I4, I5, I6}; //array for all initials times
-Gif menuG, names, title, space, gameOver, s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, lvl, lifeG; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
+Gif menuG, names, title, space, gameOver, winner, s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, lvl, lifeG; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
 Gif[] Larray = {s0,s1,s2,s3,s4,s5};
 PImage i1, i2, i3, igo, ball, bumper, bglow1, bglow2, bglow3, bglow4, bglow5; //creates images for countdown
 PImage[] Bary = {bumper, bglow1, bglow2, bglow3, bglow4, bglow5};
@@ -64,6 +64,7 @@ void setup() {
   title= new Gif(this, "Title.gif");
   space= new Gif(this, "Space.gif");
   gameOver= new Gif(this, "gameOver.gif");
+  winner=new Gif(this, "Winner.gif");
   Larray[0]=s0 = new Gif(this, "s0.gif");
   Larray[1]=s1 = new Gif(this, "s1.gif");
   Larray[2]=s2 = new Gif(this, "s2.gif");
@@ -129,6 +130,8 @@ void draw() {
     levelFive();
   } else if (level==6) {
     levelSix();
+  } else if (level==7) {
+    win();
   }
   println("x-coordinate: " + mouseX + ", y-coordinate: " + mouseY);
 }
@@ -186,6 +189,10 @@ void keyReleased() {
     advance = true;
     first=true;
   }
+  if (key=='w') {
+    level=7;
+    first=true;
+  }
   //Testing Stops Here
   if (keyCode == LEFT) { 
     leftPressed = false;
@@ -198,7 +205,7 @@ void keyReleased() {
       keysbegan = true;
     }
   }
-  if (level==-1) {
+  if (level==-1||level==7) {
     if (key == ' ') {
       restart=true;
     }
@@ -409,6 +416,40 @@ void gameOver() {
   }
 }
 
+void win(){
+  keysbegan = false;
+  if (first) {
+    first=false;
+    frameRate(60);
+    blur1=0;
+    minim.stop();
+    winner.loop();
+    winEffect = minim.loadFile("win.mp3", 2048); 
+    winEffect.play();
+  }
+  background(0);
+  if (blur1<255) {
+    tint(255, blur1);
+    image(winner, 40, 160);
+    noTint();
+    blur1++;
+  } else
+    image(winner, 40, 160);
+  if (restart) {
+    minim.stop();
+    restart=false;
+    modulator=true; //sets modulator true (used to make space fade in and out)
+    blur1=blur2=blur3=blur4=0; //sets blurs to 0 (used for fading in)
+    counter=0;
+    lives=5;
+    level=0;
+    Initial[0]=true; //sets initial run to true
+    AP[level] = minim.loadFile(trackTitle[level], 2048); //loads song file for corresponding level ie: 0
+    gO=true;//gameOver t setter so that the space doesn't appear at the very start
+    frameRate(30);
+  }
+}
+
 void currscore(int a) {
   int x = 390;
   int length = 1 + (int)Math.floor(Math.log10(Math.abs(a))) + ((a < 0)? 1 : 0);
@@ -527,6 +568,14 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
       o1s.remove(i);
   }
   noTint();
+  if(!AP[level].isPlaying()){
+    if(level!=6){
+      advance=true;
+    }else{
+      level++;
+    }
+    first=true;
+  }
 }
 
 void levelOne() {
