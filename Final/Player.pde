@@ -24,11 +24,16 @@ public class Player{
     arrow = loadImage("arrow.png");
   }
   void draw(boolean left, boolean right){
+    if(rotation>2*PI){
+      rotation-=2*PI;
+    }else if(rotation<0){
+      rotation+=2*PI;
+    }
     if(left){
-      rotation-=radians(12);
+      rotation-=radians(6);
     }
     if(right){
-      rotation+=radians(12);
+      rotation+=radians(6);
     }
     translate(300,300);
     rotate(rotation);
@@ -79,5 +84,20 @@ public class Player{
     return rotation;
   }
   
+  void setRotation(float x){
+    rotation=x;
+  }
+  
+  int getDistance(){
+    return distance;
+  }
+  
+  void die(){
+   alive=false;
+  } 
+  
+  void rise(){
+    alive=true;
+  }
   
 }
