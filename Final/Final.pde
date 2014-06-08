@@ -20,11 +20,7 @@ int counter, gCount, gTimer, gcor, gcolor; //for countdown time before levels an
 boolean gO; //for gameOver (see method)
 boolean I0,I1,I2,I3,I4,I5,I6; //tells if first (initial) time running levelZero-Six() for level 0-6
 boolean modulator; //for the space gif transparency
-<<<<<<< HEAD
-int blur1,blur2,blur3,blur4;
-=======
 int blur1,blur2,blur3,blur4,blur5;//for the initial fade in of title, names, score and countdown
->>>>>>> 8a6801d74e38138a401a891efec55a8335dc0416
 boolean[] Initial = {I0,I1,I2,I3,I4,I5,I6}; //array for all initials times
 Gif menuG,names,title,space,gameOver,s0,s1,s2,s3,s4,s5,s6,s7,s8,s9; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
 PImage i1,i2,i3,igo,ball,bumper,bglow1,bglow2,bglow3,bglow4,bglow5; //creates images for countdown
