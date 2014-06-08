@@ -11,12 +11,8 @@ import gifAnimation.*; //imports gif processes
 //or if you need to account for the change in location of an image being drawn (see xshift and yshift in obstacle1.class)
 
 AudioPlayer M0, M1, M2, M3, M4, M5, M6, gOeffect; // All these are individual song files
-AudioPlayer[] AP = {
-  M0, M1, M2, M3, M4, M5, M6
-}; //array for songs
-String[] trackTitle = {
-  "M0.mp3", "M1.mp3", "M2.mp3", "M3.mp3", "M4.mp3", "M5.mp3", "M6.mp3"
-}; //arrayfor song names
+AudioPlayer[] AP = {M0, M1, M2, M3, M4, M5, M6}; //array for songs
+String[] trackTitle = {"M0.mp3", "M1.mp3", "M2.mp3", "M3.mp3", "M4.mp3", "M5.mp3", "M6.mp3"}; //arrayfor song names
 Minim minim; // Audio context (general song player)
 int level, lives; //keeps track of current level & lives
 boolean advance; //ie: level complete, go to next level
@@ -27,17 +23,11 @@ boolean gO; //for gameOver (see method)
 boolean I0, I1, I2, I3, I4, I5, I6; //tells if first (initial) time running levelZero-Six() for level 0-6
 boolean modulator; //for the space gif transparency
 int blur1, blur2, blur3, blur4, blur5, blur6;//for the initial fade in of title, names, score, new level and countdown
-boolean[] Initial = {
-  I0, I1, I2, I3, I4, I5, I6
-}; //array for all initials times
+boolean[] Initial = {I0, I1, I2, I3, I4, I5, I6}; //array for all initials times
 Gif menuG, names, title, space, gameOver, s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, lvl; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
 PImage i1, i2, i3, igo, ball, bumper, bglow1, bglow2, bglow3, bglow4, bglow5; //creates images for countdown
-PImage[] Bary = {
-  bumper, bglow1, bglow2, bglow3, bglow4, bglow5
-};
-String[] Bname = {
-  "bumper.png", "bglow1.png", "bglow2.png", "bglow3.png", "bglow4.png", "bglow5.png"
-};
+PImage[] Bary = {bumper, bglow1, bglow2, bglow3, bglow4, bglow5};
+String[] Bname = {"bumper.png", "bglow1.png", "bglow2.png", "bglow3.png", "bglow4.png", "bglow5.png"};
 ArrayList<Obstacle1> o1s = new ArrayList<Obstacle1>();
 PImage testcor; //used as a test for where the coordinates of something are
 boolean leftPressed, rightPressed, keysbegan = false, increase, decrease;//increase and decrease just test scoring for now
@@ -54,7 +44,7 @@ void setup() {
   lives=5;
   counter=0;
   gO=true;//for gameOver (see method) (works better for intro across the board if just initialized to true
-  I0=true; //sets initial run for lvl 0 to true
+  Initial[0]=true; //sets initial run for lvl 0 to true
   I1=I2=I3=I4=I5=I6=false; //sets the other's initials to false
   i1=loadImage("1.png");
   i2=loadImage("2.png");
@@ -154,7 +144,7 @@ void keyPressed() {
 
 void keyReleased() {
   if (level==0) {
-    if (key == ' '&&!I0) { //!I0 is to prevent it from calling this during countdown
+    if (key == ' '&&!Initial[0]) { //!Initial[0] is to prevent it from calling this during countdown
       advance = true;
       first = true;
     }
@@ -213,7 +203,7 @@ void nextLevel() {
       space.stop();
       names.stop();
       modulator=true; //resets modulator for future use
-      I0=true; //resets initial
+      Initial[0]=true; //resets initial
     }
     first=false; //no longer first occurence of advance
   } //This sets up the count down
@@ -288,12 +278,12 @@ void nextLevel() {
 
 void levelZero() { //AKA: Menu
   int m = millis();
-  if (I0) {
+  if (Initial[0]) {
     frameRate(30);
     if (m>3600) { //after ~3 seconds initializes the background and starts song
       menuG.loop(); //loops gif
       AP[level].loop(); //loops song
-      I0=false; //sets initial to false
+      Initial[0]=false; //sets initial to false
     }
   } else {
     background(menuG); //sets background
@@ -375,7 +365,7 @@ void gameOver() {
     counter=0;
     lives=5;
     level=0;
-    I0=true; //sets initial run to true
+    Initial[0]=true; //sets initial run to true
     AP[level] = minim.loadFile(trackTitle[level], 2048); //loads song file for corresponding level ie: 0
     gO=true;//gameOver t setter so that the space doesn't appear at the very start
     frameRate(30);
