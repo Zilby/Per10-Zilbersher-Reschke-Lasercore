@@ -20,15 +20,21 @@ int counter, gCount, gTimer, gcor, gcolor; //for countdown time before levels an
 boolean gO; //for gameOver (see method)
 boolean I0,I1,I2,I3,I4,I5,I6; //tells if first (initial) time running levelZero-Six() for level 0-6
 boolean modulator; //for the space gif transparency
+<<<<<<< HEAD
 int blur1,blur2,blur3,blur4;
+=======
+int blur1,blur2,blur3,blur4,blur5;//for the initial fade in of title, names, score and countdown
+>>>>>>> 8a6801d74e38138a401a891efec55a8335dc0416
 boolean[] Initial = {I0,I1,I2,I3,I4,I5,I6}; //array for all initials times
-Gif menuG,names,title,space,gameOver; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
+Gif menuG,names,title,space,gameOver,s0,s1,s2,s3,s4,s5,s6,s7,s8,s9; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
+//String[] snums = {"s0.gif","s1.gif","s2.gif"};//,"s3.gif","s4.gif","s5.gif","s6.gif","s7.gif","s8.gif","s9.gif"
 PImage i1,i2,i3,igo,ball,bumper,bglow1,bglow2,bglow3,bglow4,bglow5; //creates images for countdown
 PImage[] Bary = {bumper,bglow1,bglow2,bglow3,bglow4,bglow5};
 String[] Bname = {"bumper.png","bglow1.png","bglow2.png","bglow3.png","bglow4.png","bglow5.png"};
 ArrayList<Obstacle1> o1s = new ArrayList<Obstacle1>();
 PImage testcor; //used as a test for where the coordinates of something are
 boolean leftPressed, rightPressed;
+int score = 0,uno = 0;
 Player torment; //torment?
 
 
@@ -59,9 +65,12 @@ void setup() {
   title= new Gif(this, "Title.gif");
   space= new Gif(this, "Space.gif");
   gameOver= new Gif(this, "gameOver.gif");
+  s0 = new Gif(this, "s0.gif");
+  s1 = new Gif(this, "s1.gif");
+  s2 = new Gif(this, "s2.gif");
   AP[level] = minim.loadFile(trackTitle[level], 2048); //loads lvl 0 audiofile
   modulator=true; //sets modulator true (used to make space fade in and out)
-  blur1=blur2=blur3=blur4=0; //sets blurs to 0 (used for fading in)
+  blur1=blur2=blur3=blur4=blur5=0; //sets blurs to 0 (used for fading in)
   testcor=loadImage("Coordinate.png");
   torment = new Player(); //torment?
   leftPressed=rightPressed=false;
@@ -110,6 +119,8 @@ void draw(){
 void keyPressed(){
   if (keyCode == LEFT){
     leftPressed = true;
+    score ++;
+    blur5 = 40;
   }
   if (keyCode == RIGHT){
     rightPressed = true;
@@ -352,6 +363,53 @@ void gameOver(){
   }
 }
 
+void currscore(int a){
+  if(blur5 < 225){
+    tint(225,blur5);
+  }
+}
+
+
+void score(){
+  if(uno == 0){
+    blur5=0;
+    frameRate(60);
+    s0.loop();
+    uno++;
+  }
+  else{
+    if(score == 0){
+      if (blur5 < 225){
+        tint(255,blur5);
+        image(s0,300,0);
+        noTint();
+        blur5 += 2;
+      }
+      else {
+        image(s0,300,0);
+      }
+    }
+    else{
+      frameRate(90);
+    }
+    if(score == 1){
+      if (blur5 < 225){
+        s1.loop();
+        tint(255,blur5);
+        image(s1,300,0);
+        noTint();
+        blur5 += 4;
+      }
+      else {
+        image(s1,300,0);
+      }
+      //blur1 = 0;
+    }
+  //if(blur1<
+  }
+  frameRate(45);
+}
+
 void levelOne(){
   if(Initial[level]){ //if initial time running this method...
     frameRate(90);
@@ -362,6 +420,7 @@ void levelOne(){
   }
   background(0);
   if(blur1<255){
+    score();
     tint(125,255,130,blur1);
     image(ball,163,125);
     //image(testcor,295,295);
@@ -371,6 +430,7 @@ void levelOne(){
     noTint();
     blur1=blur1+2;
   }else{
+    score();
     tint(125,255,130);
     image(ball,163,125);
     //image(testcor,295,295);
