@@ -370,9 +370,7 @@ void score(){
         image(s0,300,0);
       }
     }
-    else{
-      frameRate(90);
-    }
+    frameRate(90);
     if(score == 1){
       if (blur5 < 225){
         s1.loop();
@@ -388,7 +386,6 @@ void score(){
     }
   //if(blur1<
   }
-  frameRate(45);
 }
 
 void levelOne(){
