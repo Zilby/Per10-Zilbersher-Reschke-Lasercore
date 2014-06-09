@@ -208,8 +208,12 @@ void keyReleased() {
     shoot(torment.getRotation());
   }
   //For Testing Only
-  if(key=='.'){
+  if(key=='.'&&!shift){
     AP[level].skip(10000);
+  }
+  if(key=='.'&&shift){
+    advance=true;
+    first=true;
   }
   if(key==';'){
     AP[level].skip(-10000);
@@ -515,7 +519,7 @@ void printIt(String s,int n){
     k=n;
   }
   Random generator = new Random(); 
-  int i = generator.nextInt(100) + 1;
+  int i = generator.nextInt(20) + 1;
   int j= AP[level].position()-i;
   println("if("+j+"<p&&event["+j+"]){ \n  "+s+"; \n  glow("+k+"); \n  event["+j+"]=false; \n}");
 }
@@ -5838,6 +5842,6872 @@ void levelOne() { //tempo 131 ie: 1beat/2183ms
 
 void levelTwo() { //tempo 92 ie: 1beat/1533ms
   genericLevel(126,159,218,12,98,212,1,1,1);
+  int p=AP[level].position();
+  if(1856<p&&event[1856]){ 
+  glow(); 
+  event[1856]=false; 
+}
+if(2224<p&&event[2224]){ 
+  glow(); 
+  event[2224]=false; 
+}
+if(2566<p&&event[2566]){ 
+  glow(); 
+  event[2566]=false; 
+}
+if(2865<p&&event[2865]){ 
+  glow(); 
+  event[2865]=false; 
+}
+if(3167<p&&event[3167]){ 
+  glow(); 
+  event[3167]=false; 
+}
+if(3608<p&&event[3608]){ 
+  glow(); 
+  event[3608]=false; 
+}
+if(3870<p&&event[3870]){ 
+  glow(); 
+  event[3870]=false; 
+}
+if(4180<p&&event[4180]){ 
+  glow(); 
+  event[4180]=false; 
+}
+if(4594<p&&event[4594]){ 
+  glow(); 
+  event[4594]=false; 
+}
+if(4890<p&&event[4890]){ 
+  glow(); 
+  event[4890]=false; 
+}
+if(5289<p&&event[5289]){ 
+  glow(); 
+  event[5289]=false; 
+}
+if(5613<p&&event[5613]){ 
+  glow(); 
+  event[5613]=false; 
+}
+if(5883<p&&event[5883]){ 
+  glow(); 
+  event[5883]=false; 
+}
+if(6208<p&&event[6208]){ 
+  glow(); 
+  event[6208]=false; 
+}
+if(6519<p&&event[6519]){ 
+  glow(); 
+  event[6519]=false; 
+}
+if(6810<p&&event[6810]){ 
+  glow(); 
+  event[6810]=false; 
+}
+if(7108<p&&event[7108]){ 
+  glow(); 
+  event[7108]=false; 
+}
+if(7566<p&&event[7566]){ 
+  glow(); 
+  event[7566]=false; 
+}
+if(7822<p&&event[7822]){ 
+  glow(); 
+  event[7822]=false; 
+}
+if(8112<p&&event[8112]){ 
+  glow(); 
+  event[8112]=false; 
+}
+if(8506<p&&event[8506]){ 
+  glow(); 
+  event[8506]=false; 
+}
+if(8772<p&&event[8772]){ 
+  glow(); 
+  event[8772]=false; 
+}
+if(9128<p&&event[9128]){ 
+  glow(); 
+  event[9128]=false; 
+}
+if(9476<p&&event[9476]){ 
+  glow(); 
+  event[9476]=false; 
+}
+if(9796<p&&event[9796]){ 
+  glow(); 
+  event[9796]=false; 
+}
+if(10167<p&&event[10167]){ 
+  glow(); 
+  event[10167]=false; 
+}
+if(10350<p&&event[10350]){ 
+  glow(); 
+  event[10350]=false; 
+}
+if(10767<p&&event[10767]){ 
+  glow(); 
+  event[10767]=false; 
+}
+if(11034<p&&event[11034]){ 
+  glow(); 
+  event[11034]=false; 
+}
+if(11437<p&&event[11437]){ 
+  glow(); 
+  event[11437]=false; 
+}
+if(11768<p&&event[11768]){ 
+  glow(); 
+  event[11768]=false; 
+}
+if(12069<p&&event[12069]){ 
+  ball(3); 
+  glow(3); 
+  event[12069]=false; 
+}
+if(12062<p&&event[12062]){ 
+  ball(1); 
+  glow(1); 
+  event[12062]=false; 
+}
+if(12037<p&&event[12037]){ 
+  ball(2); 
+  glow(4); 
+  event[12037]=false; 
+}
+if(12072<p&&event[12072]){ 
+  ball(4); 
+  glow(2); 
+  event[12072]=false; 
+}
+if(17321<p&&event[17321]){ 
+  wave(1); 
+  glow(1); 
+  event[17321]=false; 
+}
+if(17305<p&&event[17305]){ 
+  wave(2); 
+  glow(4); 
+  event[17305]=false; 
+}
+if(17358<p&&event[17358]){ 
+  wave(4); 
+  glow(2); 
+  event[17358]=false; 
+}
+if(17365<p&&event[17365]){ 
+  wave(3); 
+  glow(3); 
+  event[17365]=false; 
+}
+
+if(22582<p&&event[22582]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[22582]=false; 
+}
+if(22580<p&&event[22580]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[22580]=false; 
+}
+if(22580<p&&event[22580]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[22580]=false; 
+}
+if(22565<p&&event[22565]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[22565]=false; 
+}
+if(27824<p&&event[27824]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[27824]=false; 
+}
+if(27817<p&&event[27817]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[27817]=false; 
+}
+if(27822<p&&event[27822]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[27822]=false; 
+}
+if(27813<p&&event[27813]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[27813]=false; 
+}
+if(32939<p&&event[32939]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[32939]=false; 
+}
+if(32924<p&&event[32924]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[32924]=false; 
+}
+if(32921<p&&event[32921]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[32921]=false; 
+}
+if(32925<p&&event[32925]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[32925]=false; 
+}
+if(38275<p&&event[38275]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[38275]=false; 
+}
+if(38274<p&&event[38274]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[38274]=false; 
+}
+if(38277<p&&event[38277]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[38277]=false; 
+}
+if(38262<p&&event[38262]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[38262]=false; 
+}
+if(43342<p&&event[43342]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[43342]=false; 
+}
+if(43338<p&&event[43338]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[43338]=false; 
+}
+if(43380<p&&event[43380]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[43380]=false; 
+}
+if(43426<p&&event[43426]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[43426]=false; 
+}
+if(48710<p&&event[48710]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[48710]=false; 
+}
+if(48729<p&&event[48729]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[48729]=false; 
+}
+if(48718<p&&event[48718]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[48718]=false; 
+}
+if(48720<p&&event[48720]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[48720]=false; 
+}
+if(53926<p&&event[53926]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[53926]=false; 
+}
+if(53920<p&&event[53920]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[53920]=false; 
+}
+if(53925<p&&event[53925]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[53925]=false; 
+}
+if(53916<p&&event[53916]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[53916]=false; 
+}
+if(59066<p&&event[59066]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[59066]=false; 
+}
+if(59071<p&&event[59071]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[59071]=false; 
+}
+if(59084<p&&event[59084]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[59084]=false; 
+}
+if(59074<p&&event[59074]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[59074]=false; 
+}
+if(64315<p&&event[64315]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[64315]=false; 
+}
+if(64314<p&&event[64314]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[64314]=false; 
+}
+if(64322<p&&event[64322]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[64322]=false; 
+}
+if(64331<p&&event[64331]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[64331]=false; 
+}
+if(25222<p&&event[25222]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[25222]=false; 
+}
+if(25229<p&&event[25229]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[25229]=false; 
+}
+if(25216<p&&event[25216]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[25216]=false; 
+}
+if(25217<p&&event[25217]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[25217]=false; 
+}
+if(30369<p&&event[30369]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[30369]=false; 
+}
+if(30376<p&&event[30376]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[30376]=false; 
+}
+if(30374<p&&event[30374]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[30374]=false; 
+}
+if(30381<p&&event[30381]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[30381]=false; 
+}
+if(35622<p&&event[35622]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[35622]=false; 
+}
+if(35669<p&&event[35669]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[35669]=false; 
+}
+if(35668<p&&event[35668]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[35668]=false; 
+}
+if(35663<p&&event[35663]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[35663]=false; 
+}
+if(40863<p&&event[40863]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[40863]=false; 
+}
+if(40866<p&&event[40866]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[40866]=false; 
+}
+if(40878<p&&event[40878]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[40878]=false; 
+}
+if(40880<p&&event[40880]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[40880]=false; 
+}
+if(46076<p&&event[46076]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[46076]=false; 
+}
+if(46079<p&&event[46079]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[46079]=false; 
+}
+if(46074<p&&event[46074]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[46074]=false; 
+}
+if(46066<p&&event[46066]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[46066]=false; 
+}
+if(51328<p&&event[51328]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[51328]=false; 
+}
+if(51330<p&&event[51330]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[51330]=false; 
+}
+if(51312<p&&event[51312]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[51312]=false; 
+}
+if(51329<p&&event[51329]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[51329]=false; 
+}
+if(56530<p&&event[56530]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[56530]=false; 
+}
+if(56517<p&&event[56517]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[56517]=false; 
+}
+if(56531<p&&event[56531]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[56531]=false; 
+}
+if(56519<p&&event[56519]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[56519]=false; 
+}
+if(60378<p&&event[60378]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[60378]=false; 
+}
+if(60373<p&&event[60373]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[60373]=false; 
+}
+if(60376<p&&event[60376]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[60376]=false; 
+}
+if(60386<p&&event[60386]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[60386]=false; 
+}
+if(22584<p&&event[22584]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[22584]=false; 
+}
+if(22581<p&&event[22581]){ 
+  miniball(1,false,true,false,2); 
+  glow(1); 
+  event[22581]=false; 
+}
+if(22574<p&&event[22574]){ 
+  miniball(4,false,false,true,2); 
+  glow(2); 
+  event[22574]=false; 
+}
+if(22569<p&&event[22569]){ 
+  miniball(1,false,false,true,2); 
+  glow(1); 
+  event[22569]=false; 
+}
+if(22573<p&&event[22573]){ 
+  miniball(4,false,true,false,2); 
+  glow(2); 
+  event[22573]=false; 
+}
+if(27820<p&&event[27820]){ 
+  miniball(4,false,false,true,2); 
+  glow(2); 
+  event[27820]=false; 
+}
+if(27814<p&&event[27814]){ 
+  miniball(1,false,true,false,2); 
+  glow(1); 
+  event[27814]=false; 
+}
+if(27874<p&&event[27874]){ 
+  miniball(1,false,false,true,2); 
+  glow(1); 
+  event[27874]=false; 
+}
+if(27877<p&&event[27877]){ 
+  miniball(4,false,true,false,2); 
+  glow(2); 
+  event[27877]=false; 
+}
+if(32970<p&&event[32970]){ 
+  miniball(1,false,true,false,2); 
+  glow(1); 
+  event[32970]=false; 
+}
+if(32982<p&&event[32982]){ 
+  miniball(4,false,false,true,2); 
+  glow(2); 
+  event[32982]=false; 
+}
+if(32975<p&&event[32975]){ 
+  miniball(1,false,false,true,2); 
+  glow(1); 
+  event[32975]=false; 
+}
+if(32974<p&&event[32974]){ 
+  miniball(4,false,true,false,2); 
+  glow(2); 
+  event[32974]=false; 
+}
+if(38219<p&&event[38219]){ 
+  miniball(1,false,true,false,2); 
+  glow(1); 
+  event[38219]=false; 
+}
+if(38226<p&&event[38226]){ 
+  miniball(1,false,false,true,2); 
+  glow(1); 
+  event[38226]=false; 
+}
+if(38218<p&&event[38218]){ 
+  miniball(4,false,true,false,2); 
+  glow(2); 
+  event[38218]=false; 
+}
+if(38224<p&&event[38224]){ 
+  miniball(4,false,false,true,2); 
+  glow(2); 
+  event[38224]=false; 
+}
+if(43384<p&&event[43384]){ 
+  miniball(4,false,false,true,2); 
+  glow(2); 
+  event[43384]=false; 
+}
+if(43387<p&&event[43387]){ 
+  miniball(1,false,false,true,2); 
+  glow(1); 
+  event[43387]=false; 
+}
+if(43371<p&&event[43371]){ 
+  miniball(1,false,true,false,2); 
+  glow(1); 
+  event[43371]=false; 
+}
+if(43472<p&&event[43472]){ 
+  miniball(4,false,true,false,2); 
+  glow(2); 
+  event[43472]=false; 
+}
+if(48629<p&&event[48629]){ 
+  miniball(4,false,false,true,2); 
+  glow(2); 
+  event[48629]=false; 
+}
+if(48625<p&&event[48625]){ 
+  miniball(1,false,true,false,2); 
+  glow(1); 
+  event[48625]=false; 
+}
+if(48636<p&&event[48636]){ 
+  miniball(4,false,true,false,2); 
+  glow(2); 
+  event[48636]=false; 
+}
+if(48621<p&&event[48621]){ 
+  miniball(1,false,false,true,2); 
+  glow(1); 
+  event[48621]=false; 
+}
+if(53877<p&&event[53877]){ 
+  miniball(1,false,true,false,2); 
+  glow(1); 
+  event[53877]=false; 
+}
+if(53881<p&&event[53881]){ 
+  miniball(1,false,false,true,2); 
+  glow(1); 
+  event[53881]=false; 
+}
+if(53871<p&&event[53871]){ 
+  miniball(4,false,false,true,2); 
+  glow(2); 
+  event[53871]=false; 
+}
+if(53868<p&&event[53868]){ 
+  miniball(4,false,true,false,2); 
+  glow(2); 
+  event[53868]=false; 
+}
+if(59029<p&&event[59029]){ 
+  miniball(1,false,true,false,2); 
+  glow(1); 
+  event[59029]=false; 
+}
+if(59036<p&&event[59036]){ 
+  miniball(1,false,false,true,2); 
+  glow(1); 
+  event[59036]=false; 
+}
+if(59028<p&&event[59028]){ 
+  miniball(4,false,true,false,2); 
+  glow(2); 
+  event[59028]=false; 
+}
+if(59035<p&&event[59035]){ 
+  miniball(4,false,false,true,2); 
+  glow(2); 
+  event[59035]=false; 
+}
+if(63024<p&&event[63024]){ 
+  miniball(1,false,true,false,2); 
+  glow(1); 
+  event[63024]=false; 
+}
+if(63018<p&&event[63018]){ 
+  miniball(1,false,false,true,2); 
+  glow(1); 
+  event[63018]=false; 
+}
+if(63029<p&&event[63029]){ 
+  miniball(4,false,true,false,2); 
+  glow(2); 
+  event[63029]=false; 
+}
+if(63027<p&&event[63027]){ 
+  miniball(4,false,false,true,2); 
+  glow(2); 
+  event[63027]=false; 
+}
+if(25192<p&&event[25192]){ 
+  miniball(3,false,true,false,2); 
+  glow(3); 
+  event[25192]=false; 
+}
+if(25200<p&&event[25200]){ 
+  miniball(2,false,false,true,2); 
+  glow(4); 
+  event[25200]=false; 
+}
+if(25194<p&&event[25194]){ 
+  miniball(2,false,true,false,2); 
+  glow(4); 
+  event[25194]=false; 
+}
+if(25227<p&&event[25227]){ 
+  miniball(3,false,false,true,2); 
+  glow(3); 
+  event[25227]=false; 
+}
+if(30355<p&&event[30355]){ 
+  miniball(3,false,true,false,2); 
+  glow(3); 
+  event[30355]=false; 
+}
+if(30400<p&&event[30400]){ 
+  miniball(2,false,true,false,2); 
+  glow(4); 
+  event[30400]=false; 
+}
+if(30434<p&&event[30434]){ 
+  miniball(2,false,false,true,2); 
+  glow(4); 
+  event[30434]=false; 
+}
+if(30441<p&&event[30441]){ 
+  miniball(3,false,false,true,2); 
+  glow(3); 
+  event[30441]=false; 
+}
+if(35691<p&&event[35691]){ 
+  miniball(2,false,true,false,2); 
+  glow(4); 
+  event[35691]=false; 
+}
+if(35681<p&&event[35681]){ 
+  miniball(3,false,true,false,2); 
+  glow(3); 
+  event[35681]=false; 
+}
+if(35691<p&&event[35691]){ 
+  miniball(2,false,false,true,2); 
+  glow(4); 
+  event[35691]=false; 
+}
+if(35690<p&&event[35690]){ 
+  miniball(3,false,false,true,2); 
+  glow(3); 
+  event[35690]=false; 
+}
+if(40793<p&&event[40793]){ 
+  miniball(2,false,false,true,2); 
+  glow(4); 
+  event[40793]=false; 
+}
+if(40838<p&&event[40838]){ 
+  miniball(2,false,true,false,2); 
+  glow(4); 
+  event[40838]=false; 
+}
+if(40847<p&&event[40847]){ 
+  miniball(3,false,true,false,2); 
+  glow(3); 
+  event[40847]=false; 
+}
+if(40842<p&&event[40842]){ 
+  miniball(3,false,false,true,2); 
+  glow(3); 
+  event[40842]=false; 
+}
+if(46080<p&&event[46080]){ 
+  miniball(2,false,true,false,2); 
+  glow(4); 
+  event[46080]=false; 
+}
+if(46080<p&&event[46080]){ 
+  miniball(2,false,false,true,2); 
+  glow(4); 
+  event[46080]=false; 
+}
+if(46088<p&&event[46088]){ 
+  miniball(3,false,true,false,2); 
+  glow(3); 
+  event[46088]=false; 
+}
+if(46097<p&&event[46097]){ 
+  miniball(3,false,false,true,2); 
+  glow(3); 
+  event[46097]=false; 
+}
+if(51290<p&&event[51290]){ 
+  miniball(2,false,false,true,2); 
+  glow(4); 
+  event[51290]=false; 
+}
+if(51287<p&&event[51287]){ 
+  miniball(3,false,true,false,2); 
+  glow(3); 
+  event[51287]=false; 
+}
+if(51294<p&&event[51294]){ 
+  miniball(2,false,true,false,2); 
+  glow(4); 
+  event[51294]=false; 
+}
+if(51293<p&&event[51293]){ 
+  miniball(3,false,false,true,2); 
+  glow(3); 
+  event[51293]=false; 
+}
+if(56442<p&&event[56442]){ 
+  miniball(3,false,true,false,2); 
+  glow(3); 
+  event[56442]=false; 
+}
+if(56443<p&&event[56443]){ 
+  miniball(2,false,false,true,2); 
+  glow(4); 
+  event[56443]=false; 
+}
+if(56443<p&&event[56443]){ 
+  miniball(2,false,true,false,2); 
+  glow(4); 
+  event[56443]=false; 
+}
+if(56441<p&&event[56441]){ 
+  miniball(3,false,false,true,2); 
+  glow(3); 
+  event[56441]=false; 
+}
+if(60388<p&&event[60388]){ 
+  miniball(2,false,true,false,2); 
+  glow(4); 
+  event[60388]=false; 
+}
+if(60382<p&&event[60382]){ 
+  miniball(3,false,true,false,2); 
+  glow(3); 
+  event[60382]=false; 
+}
+if(60394<p&&event[60394]){ 
+  miniball(2,false,false,true,2); 
+  glow(4); 
+  event[60394]=false; 
+}
+if(60396<p&&event[60396]){ 
+  miniball(3,false,false,true,2); 
+  glow(3); 
+  event[60396]=false; 
+}
+if(66874<p&&event[66874]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[66874]=false; 
+}
+if(66879<p&&event[66879]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[66879]=false; 
+}
+if(66878<p&&event[66878]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[66878]=false; 
+}
+if(66873<p&&event[66873]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[66873]=false; 
+}
+if(66878<p&&event[66878]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[66878]=false; 
+}
+if(66919<p&&event[66919]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[66919]=false; 
+}
+if(67147<p&&event[67147]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[67147]=false; 
+}
+if(67159<p&&event[67159]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[67159]=false; 
+}
+if(67159<p&&event[67159]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[67159]=false; 
+}
+if(67161<p&&event[67161]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[67161]=false; 
+}
+if(67156<p&&event[67156]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[67156]=false; 
+}
+if(67156<p&&event[67156]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[67156]=false; 
+}
+if(67435<p&&event[67435]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[67435]=false; 
+}
+if(67428<p&&event[67428]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[67428]=false; 
+}
+if(67444<p&&event[67444]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[67444]=false; 
+}
+if(67433<p&&event[67433]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[67433]=false; 
+}
+if(67429<p&&event[67429]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[67429]=false; 
+}
+if(67432<p&&event[67432]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[67432]=false; 
+}
+if(67808<p&&event[67808]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[67808]=false; 
+}
+if(67801<p&&event[67801]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[67801]=false; 
+}
+if(67797<p&&event[67797]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[67797]=false; 
+}
+if(67808<p&&event[67808]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[67808]=false; 
+}
+if(67803<p&&event[67803]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[67803]=false; 
+}
+if(67809<p&&event[67809]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[67809]=false; 
+}
+if(68137<p&&event[68137]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[68137]=false; 
+}
+if(68123<p&&event[68123]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[68123]=false; 
+}
+if(68141<p&&event[68141]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[68141]=false; 
+}
+if(68127<p&&event[68127]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[68127]=false; 
+}
+if(68141<p&&event[68141]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[68141]=false; 
+}
+if(68125<p&&event[68125]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[68125]=false; 
+}
+if(68416<p&&event[68416]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[68416]=false; 
+}
+if(68407<p&&event[68407]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[68407]=false; 
+}
+if(68403<p&&event[68403]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[68403]=false; 
+}
+if(68447<p&&event[68447]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[68447]=false; 
+}
+if(68510<p&&event[68510]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[68510]=false; 
+}
+if(68505<p&&event[68505]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[68505]=false; 
+}
+if(68780<p&&event[68780]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[68780]=false; 
+}
+if(68776<p&&event[68776]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[68776]=false; 
+}
+if(68783<p&&event[68783]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[68783]=false; 
+}
+if(68779<p&&event[68779]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[68779]=false; 
+}
+if(68779<p&&event[68779]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[68779]=false; 
+}
+if(68772<p&&event[68772]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[68772]=false; 
+}
+if(69115<p&&event[69115]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[69115]=false; 
+}
+if(69106<p&&event[69106]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[69106]=false; 
+}
+if(69100<p&&event[69100]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[69100]=false; 
+}
+if(69107<p&&event[69107]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[69107]=false; 
+}
+if(69111<p&&event[69111]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[69111]=false; 
+}
+if(69107<p&&event[69107]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[69107]=false; 
+}
+if(69430<p&&event[69430]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[69430]=false; 
+}
+if(69429<p&&event[69429]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[69429]=false; 
+}
+if(69432<p&&event[69432]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[69432]=false; 
+}
+if(69486<p&&event[69486]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[69486]=false; 
+}
+if(69472<p&&event[69472]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[69472]=false; 
+}
+if(69473<p&&event[69473]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[69473]=false; 
+}
+if(69756<p&&event[69756]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[69756]=false; 
+}
+if(69762<p&&event[69762]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[69762]=false; 
+}
+if(69755<p&&event[69755]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[69755]=false; 
+}
+if(69765<p&&event[69765]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[69765]=false; 
+}
+if(69764<p&&event[69764]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[69764]=false; 
+}
+if(69757<p&&event[69757]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[69757]=false; 
+}
+if(70039<p&&event[70039]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[70039]=false; 
+}
+if(70085<p&&event[70085]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[70085]=false; 
+}
+if(70120<p&&event[70120]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[70120]=false; 
+}
+if(70126<p&&event[70126]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[70126]=false; 
+}
+if(70124<p&&event[70124]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[70124]=false; 
+}
+if(70125<p&&event[70125]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[70125]=false; 
+}
+if(70398<p&&event[70398]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[70398]=false; 
+}
+if(70399<p&&event[70399]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[70399]=false; 
+}
+if(70415<p&&event[70415]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[70415]=false; 
+}
+if(70412<p&&event[70412]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[70412]=false; 
+}
+if(70416<p&&event[70416]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[70416]=false; 
+}
+if(70453<p&&event[70453]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[70453]=false; 
+}
+if(70733<p&&event[70733]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[70733]=false; 
+}
+if(70724<p&&event[70724]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[70724]=false; 
+}
+if(70725<p&&event[70725]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[70725]=false; 
+}
+if(70785<p&&event[70785]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[70785]=false; 
+}
+if(70773<p&&event[70773]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[70773]=false; 
+}
+if(70777<p&&event[70777]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[70777]=false; 
+}
+if(71099<p&&event[71099]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[71099]=false; 
+}
+if(71102<p&&event[71102]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[71102]=false; 
+}
+if(71109<p&&event[71109]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[71109]=false; 
+}
+if(71112<p&&event[71112]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[71112]=false; 
+}
+if(71108<p&&event[71108]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[71108]=false; 
+}
+if(71108<p&&event[71108]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[71108]=false; 
+}
+if(71386<p&&event[71386]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[71386]=false; 
+}
+if(71374<p&&event[71374]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[71374]=false; 
+}
+if(71377<p&&event[71377]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[71377]=false; 
+}
+if(71428<p&&event[71428]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[71428]=false; 
+}
+if(71469<p&&event[71469]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[71469]=false; 
+}
+if(71475<p&&event[71475]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[71475]=false; 
+}
+if(71753<p&&event[71753]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[71753]=false; 
+}
+if(71744<p&&event[71744]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[71744]=false; 
+}
+if(71761<p&&event[71761]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[71761]=false; 
+}
+if(71795<p&&event[71795]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[71795]=false; 
+}
+if(71803<p&&event[71803]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[71803]=false; 
+}
+if(71810<p&&event[71810]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[71810]=false; 
+}
+if(72126<p&&event[72126]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[72126]=false; 
+}
+if(72128<p&&event[72128]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[72128]=false; 
+}
+if(72121<p&&event[72121]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[72121]=false; 
+}
+if(72119<p&&event[72119]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[72119]=false; 
+}
+if(72135<p&&event[72135]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[72135]=false; 
+}
+if(72120<p&&event[72120]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[72120]=false; 
+}
+if(72413<p&&event[72413]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[72413]=false; 
+}
+if(72403<p&&event[72403]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[72403]=false; 
+}
+if(72403<p&&event[72403]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[72403]=false; 
+}
+if(72407<p&&event[72407]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[72407]=false; 
+}
+if(72400<p&&event[72400]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[72400]=false; 
+}
+if(72402<p&&event[72402]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[72402]=false; 
+}
+if(72776<p&&event[72776]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[72776]=false; 
+}
+if(72774<p&&event[72774]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[72774]=false; 
+}
+if(72772<p&&event[72772]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[72772]=false; 
+}
+if(72778<p&&event[72778]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[72778]=false; 
+}
+if(72768<p&&event[72768]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[72768]=false; 
+}
+if(72766<p&&event[72766]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[72766]=false; 
+}
+if(73055<p&&event[73055]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[73055]=false; 
+}
+if(73102<p&&event[73102]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[73102]=false; 
+}
+if(73103<p&&event[73103]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[73103]=false; 
+}
+if(73107<p&&event[73107]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[73107]=false; 
+}
+if(73109<p&&event[73109]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[73109]=false; 
+}
+if(73098<p&&event[73098]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[73098]=false; 
+}
+if(73382<p&&event[73382]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[73382]=false; 
+}
+if(73386<p&&event[73386]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[73386]=false; 
+}
+if(73389<p&&event[73389]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[73389]=false; 
+}
+if(73371<p&&event[73371]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[73371]=false; 
+}
+if(73376<p&&event[73376]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[73376]=false; 
+}
+if(73378<p&&event[73378]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[73378]=false; 
+}
+if(73707<p&&event[73707]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[73707]=false; 
+}
+if(73699<p&&event[73699]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[73699]=false; 
+}
+if(73707<p&&event[73707]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[73707]=false; 
+}
+if(73710<p&&event[73710]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[73710]=false; 
+}
+if(73707<p&&event[73707]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[73707]=false; 
+}
+if(73698<p&&event[73698]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[73698]=false; 
+}
+if(73991<p&&event[73991]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[73991]=false; 
+}
+if(73992<p&&event[73992]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[73992]=false; 
+}
+if(73993<p&&event[73993]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[73993]=false; 
+}
+if(73976<p&&event[73976]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[73976]=false; 
+}
+if(73977<p&&event[73977]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[73977]=false; 
+}
+if(73986<p&&event[73986]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[73986]=false; 
+}
+if(74314<p&&event[74314]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[74314]=false; 
+}
+if(74309<p&&event[74309]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[74309]=false; 
+}
+if(74310<p&&event[74310]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[74310]=false; 
+}
+if(74352<p&&event[74352]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[74352]=false; 
+}
+if(74346<p&&event[74346]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[74346]=false; 
+}
+if(74533<p&&event[74533]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[74533]=false; 
+}
+if(74670<p&&event[74670]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[74670]=false; 
+}
+if(74674<p&&event[74674]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[74674]=false; 
+}
+if(74689<p&&event[74689]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[74689]=false; 
+}
+if(74689<p&&event[74689]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[74689]=false; 
+}
+if(74678<p&&event[74678]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[74678]=false; 
+}
+if(74686<p&&event[74686]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[74686]=false; 
+}
+if(74999<p&&event[74999]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[74999]=false; 
+}
+if(75001<p&&event[75001]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[75001]=false; 
+}
+if(74995<p&&event[74995]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[74995]=false; 
+}
+if(74995<p&&event[74995]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[74995]=false; 
+}
+if(75007<p&&event[75007]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[75007]=false; 
+}
+if(75005<p&&event[75005]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[75005]=false; 
+}
+if(75277<p&&event[75277]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[75277]=false; 
+}
+if(75282<p&&event[75282]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[75282]=false; 
+}
+if(75279<p&&event[75279]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[75279]=false; 
+}
+if(75287<p&&event[75287]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[75287]=false; 
+}
+if(75275<p&&event[75275]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[75275]=false; 
+}
+if(75288<p&&event[75288]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[75288]=false; 
+}
+if(75650<p&&event[75650]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[75650]=false; 
+}
+if(75662<p&&event[75662]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[75662]=false; 
+}
+if(75649<p&&event[75649]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[75649]=false; 
+}
+if(75655<p&&event[75655]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[75655]=false; 
+}
+if(75649<p&&event[75649]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[75649]=false; 
+}
+if(75664<p&&event[75664]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[75664]=false; 
+}
+if(75934<p&&event[75934]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[75934]=false; 
+}
+if(75931<p&&event[75931]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[75931]=false; 
+}
+if(75985<p&&event[75985]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[75985]=false; 
+}
+if(75979<p&&event[75979]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[75979]=false; 
+}
+if(75973<p&&event[75973]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[75973]=false; 
+}
+if(76309<p&&event[76309]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[76309]=false; 
+}
+if(76310<p&&event[76310]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[76310]=false; 
+}
+if(76307<p&&event[76307]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[76307]=false; 
+}
+if(76303<p&&event[76303]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[76303]=false; 
+}
+if(76313<p&&event[76313]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[76313]=false; 
+}
+if(76315<p&&event[76315]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[76315]=false; 
+}
+if(76623<p&&event[76623]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[76623]=false; 
+}
+if(76629<p&&event[76629]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[76629]=false; 
+}
+if(76636<p&&event[76636]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[76636]=false; 
+}
+if(76635<p&&event[76635]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[76635]=false; 
+}
+if(76633<p&&event[76633]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[76633]=false; 
+}
+if(76629<p&&event[76629]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[76629]=false; 
+}
+if(76954<p&&event[76954]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[76954]=false; 
+}
+if(76956<p&&event[76956]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[76956]=false; 
+}
+if(76964<p&&event[76964]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[76964]=false; 
+}
+if(76955<p&&event[76955]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[76955]=false; 
+}
+if(76947<p&&event[76947]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[76947]=false; 
+}
+if(76946<p&&event[76946]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[76946]=false; 
+}
+if(77334<p&&event[77334]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[77334]=false; 
+}
+if(77330<p&&event[77330]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[77330]=false; 
+}
+if(77329<p&&event[77329]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[77329]=false; 
+}
+if(77323<p&&event[77323]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[77323]=false; 
+}
+if(77322<p&&event[77322]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[77322]=false; 
+}
+if(77323<p&&event[77323]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[77323]=false; 
+}
+if(77549<p&&event[77549]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[77549]=false; 
+}
+if(77568<p&&event[77568]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[77568]=false; 
+}
+if(77567<p&&event[77567]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[77567]=false; 
+}
+if(77554<p&&event[77554]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[77554]=false; 
+}
+if(77611<p&&event[77611]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[77611]=false; 
+}
+if(77599<p&&event[77599]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[77599]=false; 
+}
+if(77934<p&&event[77934]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[77934]=false; 
+}
+if(77936<p&&event[77936]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[77936]=false; 
+}
+if(77985<p&&event[77985]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[77985]=false; 
+}
+if(77982<p&&event[77982]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[77982]=false; 
+}
+if(77981<p&&event[77981]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[77981]=false; 
+}
+if(77972<p&&event[77972]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[77972]=false; 
+}
+if(78263<p&&event[78263]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[78263]=false; 
+}
+if(78258<p&&event[78258]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[78258]=false; 
+}
+if(78252<p&&event[78252]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[78252]=false; 
+}
+if(78255<p&&event[78255]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[78255]=false; 
+}
+if(78249<p&&event[78249]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[78249]=false; 
+}
+if(78252<p&&event[78252]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[78252]=false; 
+}
+if(78532<p&&event[78532]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[78532]=false; 
+}
+if(78535<p&&event[78535]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[78535]=false; 
+}
+if(78574<p&&event[78574]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[78574]=false; 
+}
+if(78574<p&&event[78574]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[78574]=false; 
+}
+if(78590<p&&event[78590]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[78590]=false; 
+}
+if(78581<p&&event[78581]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[78581]=false; 
+}
+if(78859<p&&event[78859]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[78859]=false; 
+}
+if(78850<p&&event[78850]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[78850]=false; 
+}
+if(78909<p&&event[78909]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[78909]=false; 
+}
+if(78909<p&&event[78909]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[78909]=false; 
+}
+if(78913<p&&event[78913]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[78913]=false; 
+}
+if(78911<p&&event[78911]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[78911]=false; 
+}
+if(79224<p&&event[79224]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[79224]=false; 
+}
+if(79229<p&&event[79229]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[79229]=false; 
+}
+if(79224<p&&event[79224]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[79224]=false; 
+}
+if(79222<p&&event[79222]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[79222]=false; 
+}
+if(79224<p&&event[79224]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[79224]=false; 
+}
+if(79237<p&&event[79237]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[79237]=false; 
+}
+if(79553<p&&event[79553]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[79553]=false; 
+}
+if(79559<p&&event[79559]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[79559]=false; 
+}
+if(79552<p&&event[79552]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[79552]=false; 
+}
+if(79548<p&&event[79548]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[79548]=false; 
+}
+if(79560<p&&event[79560]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[79560]=false; 
+}
+if(79610<p&&event[79610]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[79610]=false; 
+}
+if(79934<p&&event[79934]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[79934]=false; 
+}
+if(79925<p&&event[79925]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[79925]=false; 
+}
+if(79932<p&&event[79932]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[79932]=false; 
+}
+if(79933<p&&event[79933]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[79933]=false; 
+}
+if(79930<p&&event[79930]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[79930]=false; 
+}
+if(80202<p&&event[80202]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[80202]=false; 
+}
+if(80208<p&&event[80208]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[80208]=false; 
+}
+if(80214<p&&event[80214]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[80214]=false; 
+}
+if(80207<p&&event[80207]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[80207]=false; 
+}
+if(80196<p&&event[80196]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[80196]=false; 
+}
+if(80204<p&&event[80204]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[80204]=false; 
+}
+if(80493<p&&event[80493]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[80493]=false; 
+}
+if(80570<p&&event[80570]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[80570]=false; 
+}
+if(80583<p&&event[80583]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[80583]=false; 
+}
+if(80579<p&&event[80579]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[80579]=false; 
+}
+if(80585<p&&event[80585]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[80585]=false; 
+}
+if(80581<p&&event[80581]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[80581]=false; 
+}
+if(80862<p&&event[80862]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[80862]=false; 
+}
+if(80858<p&&event[80858]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[80858]=false; 
+}
+if(80911<p&&event[80911]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[80911]=false; 
+}
+if(80909<p&&event[80909]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[80909]=false; 
+}
+if(80912<p&&event[80912]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[80912]=false; 
+}
+if(80907<p&&event[80907]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[80907]=false; 
+}
+if(81179<p&&event[81179]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[81179]=false; 
+}
+if(81188<p&&event[81188]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[81188]=false; 
+}
+if(81179<p&&event[81179]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[81179]=false; 
+}
+if(81174<p&&event[81174]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[81174]=false; 
+}
+if(81175<p&&event[81175]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[81175]=false; 
+}
+if(81189<p&&event[81189]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[81189]=false; 
+}
+if(81460<p&&event[81460]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[81460]=false; 
+}
+if(81462<p&&event[81462]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[81462]=false; 
+}
+if(81452<p&&event[81452]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[81452]=false; 
+}
+if(81545<p&&event[81545]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[81545]=false; 
+}
+if(81561<p&&event[81561]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[81561]=false; 
+}
+if(81558<p&&event[81558]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[81558]=false; 
+}
+if(81833<p&&event[81833]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[81833]=false; 
+}
+if(81829<p&&event[81829]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[81829]=false; 
+}
+if(81833<p&&event[81833]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[81833]=false; 
+}
+if(81831<p&&event[81831]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[81831]=false; 
+}
+if(81838<p&&event[81838]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[81838]=false; 
+}
+if(81839<p&&event[81839]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[81839]=false; 
+}
+if(82154<p&&event[82154]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[82154]=false; 
+}
+if(82148<p&&event[82148]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[82148]=false; 
+}
+if(82149<p&&event[82149]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[82149]=false; 
+}
+if(82158<p&&event[82158]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[82158]=false; 
+}
+if(82149<p&&event[82149]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[82149]=false; 
+}
+if(82160<p&&event[82160]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[82160]=false; 
+}
+if(82520<p&&event[82520]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[82520]=false; 
+}
+if(82536<p&&event[82536]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[82536]=false; 
+}
+if(82525<p&&event[82525]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[82525]=false; 
+}
+if(82519<p&&event[82519]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[82519]=false; 
+}
+if(82518<p&&event[82518]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[82518]=false; 
+}
+if(82533<p&&event[82533]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[82533]=false; 
+}
+if(82797<p&&event[82797]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[82797]=false; 
+}
+if(82808<p&&event[82808]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[82808]=false; 
+}
+if(82798<p&&event[82798]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[82798]=false; 
+}
+if(82815<p&&event[82815]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[82815]=false; 
+}
+if(82803<p&&event[82803]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[82803]=false; 
+}
+if(82816<p&&event[82816]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[82816]=false; 
+}
+if(83135<p&&event[83135]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[83135]=false; 
+}
+if(83138<p&&event[83138]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[83138]=false; 
+}
+if(83125<p&&event[83125]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[83125]=false; 
+}
+if(83124<p&&event[83124]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[83124]=false; 
+}
+if(83130<p&&event[83130]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[83130]=false; 
+}
+if(83134<p&&event[83134]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[83134]=false; 
+}
+if(83501<p&&event[83501]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[83501]=false; 
+}
+if(83509<p&&event[83509]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[83509]=false; 
+}
+if(83511<p&&event[83511]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[83511]=false; 
+}
+if(83547<p&&event[83547]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[83547]=false; 
+}
+if(83555<p&&event[83555]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[83555]=false; 
+}
+if(83540<p&&event[83540]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[83540]=false; 
+}
+if(83834<p&&event[83834]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[83834]=false; 
+}
+if(83838<p&&event[83838]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[83838]=false; 
+}
+if(83825<p&&event[83825]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[83825]=false; 
+}
+if(83836<p&&event[83836]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[83836]=false; 
+}
+if(83826<p&&event[83826]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[83826]=false; 
+}
+if(83828<p&&event[83828]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[83828]=false; 
+}
+if(84154<p&&event[84154]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[84154]=false; 
+}
+if(84163<p&&event[84163]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[84163]=false; 
+}
+if(84156<p&&event[84156]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[84156]=false; 
+}
+if(84155<p&&event[84155]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[84155]=false; 
+}
+if(84145<p&&event[84145]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[84145]=false; 
+}
+if(84146<p&&event[84146]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[84146]=false; 
+}
+if(84483<p&&event[84483]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[84483]=false; 
+}
+if(84478<p&&event[84478]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[84478]=false; 
+}
+if(84483<p&&event[84483]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[84483]=false; 
+}
+if(84476<p&&event[84476]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[84476]=false; 
+}
+if(84479<p&&event[84479]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[84479]=false; 
+}
+if(84486<p&&event[84486]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[84486]=false; 
+}
+if(84764<p&&event[84764]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[84764]=false; 
+}
+if(84803<p&&event[84803]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[84803]=false; 
+}
+if(84801<p&&event[84801]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[84801]=false; 
+}
+if(84810<p&&event[84810]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[84810]=false; 
+}
+if(84796<p&&event[84796]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[84796]=false; 
+}
+if(84808<p&&event[84808]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[84808]=false; 
+}
+if(85032<p&&event[85032]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[85032]=false; 
+}
+if(85075<p&&event[85075]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[85075]=false; 
+}
+if(85086<p&&event[85086]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[85086]=false; 
+}
+if(85128<p&&event[85128]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[85128]=false; 
+}
+if(85128<p&&event[85128]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[85128]=false; 
+}
+if(85126<p&&event[85126]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[85126]=false; 
+}
+if(85127<p&&event[85127]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[85127]=false; 
+}
+if(85457<p&&event[85457]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[85457]=false; 
+}
+if(85457<p&&event[85457]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[85457]=false; 
+}
+if(85459<p&&event[85459]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[85459]=false; 
+}
+if(85449<p&&event[85449]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[85449]=false; 
+}
+if(85454<p&&event[85454]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[85454]=false; 
+}
+if(85458<p&&event[85458]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[85458]=false; 
+}
+if(85772<p&&event[85772]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[85772]=false; 
+}
+if(85783<p&&event[85783]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[85783]=false; 
+}
+if(85775<p&&event[85775]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[85775]=false; 
+}
+if(85787<p&&event[85787]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[85787]=false; 
+}
+if(85771<p&&event[85771]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[85771]=false; 
+}
+if(85776<p&&event[85776]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[85776]=false; 
+}
+if(86109<p&&event[86109]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[86109]=false; 
+}
+if(86098<p&&event[86098]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[86098]=false; 
+}
+if(86109<p&&event[86109]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[86109]=false; 
+}
+if(86111<p&&event[86111]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[86111]=false; 
+}
+if(86095<p&&event[86095]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[86095]=false; 
+}
+if(86112<p&&event[86112]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[86112]=false; 
+}
+if(86423<p&&event[86423]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[86423]=false; 
+}
+if(86422<p&&event[86422]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[86422]=false; 
+}
+if(86436<p&&event[86436]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[86436]=false; 
+}
+if(86436<p&&event[86436]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[86436]=false; 
+}
+if(86429<p&&event[86429]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[86429]=false; 
+}
+if(86425<p&&event[86425]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[86425]=false; 
+}
+if(86706<p&&event[86706]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[86706]=false; 
+}
+if(86698<p&&event[86698]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[86698]=false; 
+}
+if(86712<p&&event[86712]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[86712]=false; 
+}
+if(86698<p&&event[86698]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[86698]=false; 
+}
+if(86707<p&&event[86707]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[86707]=false; 
+}
+if(86700<p&&event[86700]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[86700]=false; 
+}
+if(87077<p&&event[87077]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[87077]=false; 
+}
+if(87089<p&&event[87089]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[87089]=false; 
+}
+if(87079<p&&event[87079]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[87079]=false; 
+}
+if(87075<p&&event[87075]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[87075]=false; 
+}
+if(87071<p&&event[87071]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[87071]=false; 
+}
+if(87080<p&&event[87080]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[87080]=false; 
+}
+if(87409<p&&event[87409]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[87409]=false; 
+}
+if(87404<p&&event[87404]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[87404]=false; 
+}
+if(87399<p&&event[87399]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[87399]=false; 
+}
+if(87408<p&&event[87408]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[87408]=false; 
+}
+if(87398<p&&event[87398]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[87398]=false; 
+}
+if(87405<p&&event[87405]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[87405]=false; 
+}
+if(87735<p&&event[87735]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[87735]=false; 
+}
+if(87731<p&&event[87731]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[87731]=false; 
+}
+if(87720<p&&event[87720]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[87720]=false; 
+}
+if(87733<p&&event[87733]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[87733]=false; 
+}
+if(87738<p&&event[87738]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[87738]=false; 
+}
+if(87724<p&&event[87724]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[87724]=false; 
+}
+if(87998<p&&event[87998]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[87998]=false; 
+}
+if(88013<p&&event[88013]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[88013]=false; 
+}
+if(88005<p&&event[88005]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[88005]=false; 
+}
+if(88011<p&&event[88011]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[88011]=false; 
+}
+if(88013<p&&event[88013]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[88013]=false; 
+}
+if(88046<p&&event[88046]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[88046]=false; 
+}
+if(88380<p&&event[88380]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[88380]=false; 
+}
+if(88375<p&&event[88375]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[88375]=false; 
+}
+if(88374<p&&event[88374]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[88374]=false; 
+}
+if(88387<p&&event[88387]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[88387]=false; 
+}
+if(88370<p&&event[88370]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[88370]=false; 
+}
+if(88378<p&&event[88378]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[88378]=false; 
+}
+if(88701<p&&event[88701]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[88701]=false; 
+}
+if(88709<p&&event[88709]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[88709]=false; 
+}
+if(88705<p&&event[88705]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[88705]=false; 
+}
+if(88705<p&&event[88705]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[88705]=false; 
+}
+if(88707<p&&event[88707]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[88707]=false; 
+}
+if(88707<p&&event[88707]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[88707]=false; 
+}
+if(89037<p&&event[89037]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[89037]=false; 
+}
+if(89020<p&&event[89020]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[89020]=false; 
+}
+if(89023<p&&event[89023]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[89023]=false; 
+}
+if(89036<p&&event[89036]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[89036]=false; 
+}
+if(89026<p&&event[89026]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[89026]=false; 
+}
+if(89031<p&&event[89031]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[89031]=false; 
+}
+if(89409<p&&event[89409]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[89409]=false; 
+}
+if(89408<p&&event[89408]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[89408]=false; 
+}
+if(89406<p&&event[89406]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[89406]=false; 
+}
+if(89411<p&&event[89411]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[89411]=false; 
+}
+if(89406<p&&event[89406]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[89406]=false; 
+}
+if(89397<p&&event[89397]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[89397]=false; 
+}
+if(89678<p&&event[89678]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[89678]=false; 
+}
+if(89683<p&&event[89683]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[89683]=false; 
+}
+if(89688<p&&event[89688]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[89688]=false; 
+}
+if(89686<p&&event[89686]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[89686]=false; 
+}
+if(89683<p&&event[89683]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[89683]=false; 
+}
+if(89677<p&&event[89677]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[89677]=false; 
+}
+if(89951<p&&event[89951]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[89951]=false; 
+}
+if(90013<p&&event[90013]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[90013]=false; 
+}
+if(90000<p&&event[90000]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[90000]=false; 
+}
+if(90009<p&&event[90009]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[90009]=false; 
+}
+if(90013<p&&event[90013]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[90013]=false; 
+}
+if(90008<p&&event[90008]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[90008]=false; 
+}
+if(90331<p&&event[90331]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[90331]=false; 
+}
+if(90336<p&&event[90336]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[90336]=false; 
+}
+if(90334<p&&event[90334]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[90334]=false; 
+}
+if(90337<p&&event[90337]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[90337]=false; 
+}
+if(90332<p&&event[90332]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[90332]=false; 
+}
+if(90386<p&&event[90386]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[90386]=false; 
+}
+if(90609<p&&event[90609]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[90609]=false; 
+}
+if(90602<p&&event[90602]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[90602]=false; 
+}
+if(90600<p&&event[90600]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[90600]=false; 
+}
+if(90616<p&&event[90616]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[90616]=false; 
+}
+if(90663<p&&event[90663]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[90663]=false; 
+}
+if(90664<p&&event[90664]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[90664]=false; 
+}
+if(90974<p&&event[90974]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[90974]=false; 
+}
+if(90973<p&&event[90973]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[90973]=false; 
+}
+if(90980<p&&event[90980]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[90980]=false; 
+}
+if(90974<p&&event[90974]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[90974]=false; 
+}
+if(91018<p&&event[91018]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[91018]=false; 
+}
+if(91031<p&&event[91031]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[91031]=false; 
+}
+if(91315<p&&event[91315]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[91315]=false; 
+}
+if(91315<p&&event[91315]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[91315]=false; 
+}
+if(91296<p&&event[91296]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[91296]=false; 
+}
+if(91302<p&&event[91302]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[91302]=false; 
+}
+if(91348<p&&event[91348]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[91348]=false; 
+}
+if(91346<p&&event[91346]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[91346]=false; 
+}
+if(91622<p&&event[91622]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[91622]=false; 
+}
+if(91622<p&&event[91622]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[91622]=false; 
+}
+if(91623<p&&event[91623]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[91623]=false; 
+}
+if(91621<p&&event[91621]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[91621]=false; 
+}
+if(91679<p&&event[91679]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[91679]=false; 
+}
+if(91682<p&&event[91682]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[91682]=false; 
+}
+if(91950<p&&event[91950]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[91950]=false; 
+}
+if(91949<p&&event[91949]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[91949]=false; 
+}
+if(91950<p&&event[91950]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[91950]=false; 
+}
+if(91956<p&&event[91956]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[91956]=false; 
+}
+if(91960<p&&event[91960]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[91960]=false; 
+}
+if(91956<p&&event[91956]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[91956]=false; 
+}
+if(92282<p&&event[92282]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[92282]=false; 
+}
+if(92271<p&&event[92271]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[92271]=false; 
+}
+if(92285<p&&event[92285]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[92285]=false; 
+}
+if(92278<p&&event[92278]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[92278]=false; 
+}
+if(92271<p&&event[92271]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[92271]=false; 
+}
+if(92278<p&&event[92278]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[92278]=false; 
+}
+if(92612<p&&event[92612]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[92612]=false; 
+}
+if(92603<p&&event[92603]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[92603]=false; 
+}
+if(92614<p&&event[92614]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[92614]=false; 
+}
+if(92613<p&&event[92613]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[92613]=false; 
+}
+if(92608<p&&event[92608]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[92608]=false; 
+}
+if(92615<p&&event[92615]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[92615]=false; 
+}
+if(92922<p&&event[92922]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[92922]=false; 
+}
+if(92922<p&&event[92922]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[92922]=false; 
+}
+if(92924<p&&event[92924]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[92924]=false; 
+}
+if(92921<p&&event[92921]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[92921]=false; 
+}
+if(92934<p&&event[92934]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[92934]=false; 
+}
+if(92933<p&&event[92933]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[92933]=false; 
+}
+if(93264<p&&event[93264]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[93264]=false; 
+}
+if(93260<p&&event[93260]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[93260]=false; 
+}
+if(93246<p&&event[93246]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[93246]=false; 
+}
+if(93264<p&&event[93264]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[93264]=false; 
+}
+if(93260<p&&event[93260]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[93260]=false; 
+}
+if(93252<p&&event[93252]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[93252]=false; 
+}
+if(93627<p&&event[93627]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[93627]=false; 
+}
+if(93634<p&&event[93634]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[93634]=false; 
+}
+if(93628<p&&event[93628]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[93628]=false; 
+}
+if(93623<p&&event[93623]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[93623]=false; 
+}
+if(93620<p&&event[93620]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[93620]=false; 
+}
+if(93627<p&&event[93627]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[93627]=false; 
+}
+if(93896<p&&event[93896]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[93896]=false; 
+}
+if(93901<p&&event[93901]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[93901]=false; 
+}
+if(93908<p&&event[93908]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[93908]=false; 
+}
+if(93909<p&&event[93909]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[93909]=false; 
+}
+if(93911<p&&event[93911]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[93911]=false; 
+}
+if(93898<p&&event[93898]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[93898]=false; 
+}
+if(94236<p&&event[94236]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[94236]=false; 
+}
+if(94229<p&&event[94229]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[94229]=false; 
+}
+if(94221<p&&event[94221]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[94221]=false; 
+}
+if(94229<p&&event[94229]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[94229]=false; 
+}
+if(94240<p&&event[94240]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[94240]=false; 
+}
+if(94231<p&&event[94231]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[94231]=false; 
+}
+if(94565<p&&event[94565]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[94565]=false; 
+}
+if(94565<p&&event[94565]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[94565]=false; 
+}
+if(94547<p&&event[94547]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[94547]=false; 
+}
+if(94551<p&&event[94551]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[94551]=false; 
+}
+if(94548<p&&event[94548]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[94548]=false; 
+}
+if(94552<p&&event[94552]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[94552]=false; 
+}
+if(94837<p&&event[94837]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[94837]=false; 
+}
+if(94840<p&&event[94840]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[94840]=false; 
+}
+if(94836<p&&event[94836]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[94836]=false; 
+}
+if(94831<p&&event[94831]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[94831]=false; 
+}
+if(94929<p&&event[94929]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[94929]=false; 
+}
+if(94934<p&&event[94934]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[94934]=false; 
+}
+if(95243<p&&event[95243]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[95243]=false; 
+}
+if(95257<p&&event[95257]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[95257]=false; 
+}
+if(95257<p&&event[95257]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[95257]=false; 
+}
+if(95244<p&&event[95244]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[95244]=false; 
+}
+if(95248<p&&event[95248]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[95248]=false; 
+}
+if(95250<p&&event[95250]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[95250]=false; 
+}
+if(95575<p&&event[95575]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[95575]=false; 
+}
+if(95568<p&&event[95568]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[95568]=false; 
+}
+if(95587<p&&event[95587]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[95587]=false; 
+}
+if(95583<p&&event[95583]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[95583]=false; 
+}
+if(95585<p&&event[95585]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[95585]=false; 
+}
+if(95577<p&&event[95577]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[95577]=false; 
+}
+if(95909<p&&event[95909]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[95909]=false; 
+}
+if(95909<p&&event[95909]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[95909]=false; 
+}
+if(95910<p&&event[95910]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[95910]=false; 
+}
+if(95897<p&&event[95897]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[95897]=false; 
+}
+if(95909<p&&event[95909]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[95909]=false; 
+}
+if(95895<p&&event[95895]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[95895]=false; 
+}
+if(96185<p&&event[96185]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[96185]=false; 
+}
+if(96179<p&&event[96179]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[96179]=false; 
+}
+if(96181<p&&event[96181]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[96181]=false; 
+}
+if(96174<p&&event[96174]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[96174]=false; 
+}
+if(96180<p&&event[96180]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[96180]=false; 
+}
+if(96186<p&&event[96186]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[96186]=false; 
+}
+if(96558<p&&event[96558]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[96558]=false; 
+}
+if(96543<p&&event[96543]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[96543]=false; 
+}
+if(96554<p&&event[96554]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[96554]=false; 
+}
+if(96552<p&&event[96552]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[96552]=false; 
+}
+if(96558<p&&event[96558]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[96558]=false; 
+}
+if(96544<p&&event[96544]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[96544]=false; 
+}
+if(96831<p&&event[96831]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[96831]=false; 
+}
+if(96835<p&&event[96835]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[96835]=false; 
+}
+if(96834<p&&event[96834]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[96834]=false; 
+}
+if(96838<p&&event[96838]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[96838]=false; 
+}
+if(96871<p&&event[96871]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[96871]=false; 
+}
+if(96879<p&&event[96879]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[96879]=false; 
+}
+if(97162<p&&event[97162]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[97162]=false; 
+}
+if(97164<p&&event[97164]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[97164]=false; 
+}
+if(97150<p&&event[97150]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[97150]=false; 
+}
+if(97155<p&&event[97155]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[97155]=false; 
+}
+if(97166<p&&event[97166]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[97166]=false; 
+}
+if(97149<p&&event[97149]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[97149]=false; 
+}
+if(97490<p&&event[97490]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[97490]=false; 
+}
+if(97472<p&&event[97472]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[97472]=false; 
+}
+if(97480<p&&event[97480]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[97480]=false; 
+}
+if(97479<p&&event[97479]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[97479]=false; 
+}
+if(97482<p&&event[97482]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[97482]=false; 
+}
+if(97488<p&&event[97488]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[97488]=false; 
+}
+if(97813<p&&event[97813]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[97813]=false; 
+}
+if(97809<p&&event[97809]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[97809]=false; 
+}
+if(97813<p&&event[97813]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[97813]=false; 
+}
+if(97813<p&&event[97813]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[97813]=false; 
+}
+if(97812<p&&event[97812]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[97812]=false; 
+}
+if(97802<p&&event[97802]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[97802]=false; 
+}
+if(98139<p&&event[98139]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[98139]=false; 
+}
+if(98124<p&&event[98124]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[98124]=false; 
+}
+if(98169<p&&event[98169]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[98169]=false; 
+}
+if(98170<p&&event[98170]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[98170]=false; 
+}
+if(98183<p&&event[98183]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[98183]=false; 
+}
+if(98188<p&&event[98188]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[98188]=false; 
+}
+if(98461<p&&event[98461]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[98461]=false; 
+}
+if(98448<p&&event[98448]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[98448]=false; 
+}
+if(98449<p&&event[98449]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[98449]=false; 
+}
+if(98452<p&&event[98452]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[98452]=false; 
+}
+if(98453<p&&event[98453]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[98453]=false; 
+}
+if(98457<p&&event[98457]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[98457]=false; 
+}
+if(98821<p&&event[98821]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[98821]=false; 
+}
+if(98821<p&&event[98821]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[98821]=false; 
+}
+if(98823<p&&event[98823]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[98823]=false; 
+}
+if(98831<p&&event[98831]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[98831]=false; 
+}
+if(98830<p&&event[98830]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[98830]=false; 
+}
+if(98833<p&&event[98833]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[98833]=false; 
+}
+if(99101<p&&event[99101]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[99101]=false; 
+}
+if(99110<p&&event[99110]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[99110]=false; 
+}
+if(99100<p&&event[99100]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[99100]=false; 
+}
+if(99105<p&&event[99105]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[99105]=false; 
+}
+if(99111<p&&event[99111]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[99111]=false; 
+}
+if(99102<p&&event[99102]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[99102]=false; 
+}
+if(99431<p&&event[99431]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[99431]=false; 
+}
+if(99434<p&&event[99434]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[99434]=false; 
+}
+if(99431<p&&event[99431]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[99431]=false; 
+}
+if(99429<p&&event[99429]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[99429]=false; 
+}
+if(99480<p&&event[99480]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[99480]=false; 
+}
+if(99483<p&&event[99483]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[99483]=false; 
+}
+if(99750<p&&event[99750]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[99750]=false; 
+}
+if(99749<p&&event[99749]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[99749]=false; 
+}
+if(99748<p&&event[99748]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[99748]=false; 
+}
+if(99766<p&&event[99766]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[99766]=false; 
+}
+if(99764<p&&event[99764]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[99764]=false; 
+}
+if(99766<p&&event[99766]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[99766]=false; 
+}
+if(100040<p&&event[100040]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[100040]=false; 
+}
+if(100036<p&&event[100036]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[100036]=false; 
+}
+if(100038<p&&event[100038]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[100038]=false; 
+}
+if(100041<p&&event[100041]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[100041]=false; 
+}
+if(100127<p&&event[100127]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[100127]=false; 
+}
+if(100137<p&&event[100137]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[100137]=false; 
+}
+if(100415<p&&event[100415]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[100415]=false; 
+}
+if(100408<p&&event[100408]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[100408]=false; 
+}
+if(100403<p&&event[100403]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[100403]=false; 
+}
+if(100415<p&&event[100415]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[100415]=false; 
+}
+if(100401<p&&event[100401]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[100401]=false; 
+}
+if(100413<p&&event[100413]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[100413]=false; 
+}
+if(100772<p&&event[100772]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[100772]=false; 
+}
+if(100788<p&&event[100788]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[100788]=false; 
+}
+if(100774<p&&event[100774]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[100774]=false; 
+}
+if(100778<p&&event[100778]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[100778]=false; 
+}
+if(100788<p&&event[100788]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[100788]=false; 
+}
+if(100770<p&&event[100770]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[100770]=false; 
+}
+if(101062<p&&event[101062]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[101062]=false; 
+}
+if(101055<p&&event[101055]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[101055]=false; 
+}
+if(101059<p&&event[101059]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[101059]=false; 
+}
+if(101055<p&&event[101055]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[101055]=false; 
+}
+if(101108<p&&event[101108]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[101108]=false; 
+}
+if(101106<p&&event[101106]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[101106]=false; 
+}
+if(101437<p&&event[101437]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[101437]=false; 
+}
+if(101438<p&&event[101438]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[101438]=false; 
+}
+if(101439<p&&event[101439]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[101439]=false; 
+}
+if(101427<p&&event[101427]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[101427]=false; 
+}
+if(101426<p&&event[101426]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[101426]=false; 
+}
+if(101423<p&&event[101423]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[101423]=false; 
+}
+if(101698<p&&event[101698]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[101698]=false; 
+}
+if(101711<p&&event[101711]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[101711]=false; 
+}
+if(101700<p&&event[101700]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[101700]=false; 
+}
+if(101709<p&&event[101709]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[101709]=false; 
+}
+if(101707<p&&event[101707]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[101707]=false; 
+}
+if(101707<p&&event[101707]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[101707]=false; 
+}
+if(102028<p&&event[102028]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[102028]=false; 
+}
+if(102039<p&&event[102039]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[102039]=false; 
+}
+if(102042<p&&event[102042]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[102042]=false; 
+}
+if(102035<p&&event[102035]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[102035]=false; 
+}
+if(102029<p&&event[102029]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[102029]=false; 
+}
+if(102077<p&&event[102077]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[102077]=false; 
+}
+if(102349<p&&event[102349]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[102349]=false; 
+}
+if(102365<p&&event[102365]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[102365]=false; 
+}
+if(102360<p&&event[102360]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[102360]=false; 
+}
+if(102352<p&&event[102352]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[102352]=false; 
+}
+if(102351<p&&event[102351]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[102351]=false; 
+}
+if(102413<p&&event[102413]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[102413]=false; 
+}
+if(102689<p&&event[102689]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[102689]=false; 
+}
+if(102692<p&&event[102692]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[102692]=false; 
+}
+if(102683<p&&event[102683]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[102683]=false; 
+}
+if(102681<p&&event[102681]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[102681]=false; 
+}
+if(102683<p&&event[102683]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[102683]=false; 
+}
+if(102678<p&&event[102678]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[102678]=false; 
+}
+if(103062<p&&event[103062]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[103062]=false; 
+}
+if(103056<p&&event[103056]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[103056]=false; 
+}
+if(103053<p&&event[103053]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[103053]=false; 
+}
+if(103056<p&&event[103056]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[103056]=false; 
+}
+if(103061<p&&event[103061]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[103061]=false; 
+}
+if(103051<p&&event[103051]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[103051]=false; 
+}
+if(103425<p&&event[103425]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[103425]=false; 
+}
+if(103429<p&&event[103429]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[103429]=false; 
+}
+if(103431<p&&event[103431]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[103431]=false; 
+}
+if(103421<p&&event[103421]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[103421]=false; 
+}
+if(103427<p&&event[103427]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[103427]=false; 
+}
+if(103427<p&&event[103427]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[103427]=false; 
+}
+if(103705<p&&event[103705]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[103705]=false; 
+}
+if(103705<p&&event[103705]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[103705]=false; 
+}
+if(103700<p&&event[103700]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[103700]=false; 
+}
+if(103704<p&&event[103704]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[103704]=false; 
+}
+if(103714<p&&event[103714]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[103714]=false; 
+}
+if(103697<p&&event[103697]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[103697]=false; 
+}
+if(103981<p&&event[103981]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[103981]=false; 
+}
+if(103987<p&&event[103987]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[103987]=false; 
+}
+if(104028<p&&event[104028]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[104028]=false; 
+}
+if(104031<p&&event[104031]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[104031]=false; 
+}
+if(104033<p&&event[104033]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[104033]=false; 
+}
+if(104024<p&&event[104024]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[104024]=false; 
+}
+if(104396<p&&event[104396]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[104396]=false; 
+}
+if(104411<p&&event[104411]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[104411]=false; 
+}
+if(104404<p&&event[104404]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[104404]=false; 
+}
+if(104407<p&&event[104407]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[104407]=false; 
+}
+if(104397<p&&event[104397]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[104397]=false; 
+}
+if(104409<p&&event[104409]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[104409]=false; 
+}
+if(104687<p&&event[104687]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[104687]=false; 
+}
+if(104686<p&&event[104686]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[104686]=false; 
+}
+if(104672<p&&event[104672]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[104672]=false; 
+}
+if(104685<p&&event[104685]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[104685]=false; 
+}
+if(104678<p&&event[104678]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[104678]=false; 
+}
+if(104676<p&&event[104676]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[104676]=false; 
+}
+if(104962<p&&event[104962]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[104962]=false; 
+}
+if(104956<p&&event[104956]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[104956]=false; 
+}
+if(104954<p&&event[104954]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[104954]=false; 
+}
+if(104949<p&&event[104949]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[104949]=false; 
+}
+if(104961<p&&event[104961]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[104961]=false; 
+}
+if(104995<p&&event[104995]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[104995]=false; 
+}
+if(105284<p&&event[105284]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[105284]=false; 
+}
+if(105288<p&&event[105288]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[105288]=false; 
+}
+if(105293<p&&event[105293]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[105293]=false; 
+}
+if(105289<p&&event[105289]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[105289]=false; 
+}
+if(105275<p&&event[105275]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[105275]=false; 
+}
+if(105287<p&&event[105287]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[105287]=false; 
+}
+if(105559<p&&event[105559]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[105559]=false; 
+}
+if(105558<p&&event[105558]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[105558]=false; 
+}
+if(105616<p&&event[105616]){ 
+  miniball(4,false,true,false,1); 
+  glow(2); 
+  event[105616]=false; 
+}
+if(105615<p&&event[105615]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[105615]=false; 
+}
+if(105650<p&&event[105650]){ 
+  miniball(4,false,false,true,1); 
+  glow(2); 
+  event[105650]=false; 
+}
+if(105648<p&&event[105648]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[105648]=false; 
+}
+if(105974<p&&event[105974]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[105974]=false; 
+}
+if(105982<p&&event[105982]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[105982]=false; 
+}
+if(105982<p&&event[105982]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[105982]=false; 
+}
+if(105974<p&&event[105974]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[105974]=false; 
+}
+if(105977<p&&event[105977]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[105977]=false; 
+}
+if(105984<p&&event[105984]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[105984]=false; 
+}
+if(106249<p&&event[106249]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[106249]=false; 
+}
+if(106250<p&&event[106250]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[106250]=false; 
+}
+if(106252<p&&event[106252]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[106252]=false; 
+}
+if(106257<p&&event[106257]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[106257]=false; 
+}
+if(106310<p&&event[106310]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[106310]=false; 
+}
+if(106315<p&&event[106315]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[106315]=false; 
+}
+if(106585<p&&event[106585]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[106585]=false; 
+}
+if(106577<p&&event[106577]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[106577]=false; 
+}
+if(106591<p&&event[106591]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[106591]=false; 
+}
+if(106591<p&&event[106591]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[106591]=false; 
+}
+if(106587<p&&event[106587]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[106587]=false; 
+}
+if(106585<p&&event[106585]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[106585]=false; 
+}
+if(106946<p&&event[106946]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[106946]=false; 
+}
+if(106949<p&&event[106949]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[106949]=false; 
+}
+if(106952<p&&event[106952]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[106952]=false; 
+}
+if(106948<p&&event[106948]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[106948]=false; 
+}
+if(106964<p&&event[106964]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[106964]=false; 
+}
+if(106957<p&&event[106957]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[106957]=false; 
+}
+if(107241<p&&event[107241]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[107241]=false; 
+}
+if(107228<p&&event[107228]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[107228]=false; 
+}
+if(107228<p&&event[107228]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[107228]=false; 
+}
+if(107283<p&&event[107283]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[107283]=false; 
+}
+if(107290<p&&event[107290]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[107290]=false; 
+}
+if(107290<p&&event[107290]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[107290]=false; 
+}
+if(107561<p&&event[107561]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[107561]=false; 
+}
+if(107566<p&&event[107566]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[107566]=false; 
+}
+if(107567<p&&event[107567]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[107567]=false; 
+}
+if(107569<p&&event[107569]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[107569]=false; 
+}
+if(107554<p&&event[107554]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[107554]=false; 
+}
+if(107568<p&&event[107568]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[107568]=false; 
+}
+if(107878<p&&event[107878]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[107878]=false; 
+}
+if(107890<p&&event[107890]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[107890]=false; 
+}
+if(107894<p&&event[107894]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[107894]=false; 
+}
+if(107880<p&&event[107880]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[107880]=false; 
+}
+if(107891<p&&event[107891]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[107891]=false; 
+}
+if(107879<p&&event[107879]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[107879]=false; 
+}
+if(108164<p&&event[108164]){ 
+  miniball(3,false,true,false,1); 
+  glow(3); 
+  event[108164]=false; 
+}
+if(108160<p&&event[108160]){ 
+  miniball(3,false,false,true,1); 
+  glow(3); 
+  event[108160]=false; 
+}
+if(108161<p&&event[108161]){ 
+  miniball(2,false,true,false,1); 
+  glow(4); 
+  event[108161]=false; 
+}
+if(108164<p&&event[108164]){ 
+  miniball(2,false,false,true,1); 
+  glow(4); 
+  event[108164]=false; 
+}
+if(108163<p&&event[108163]){ 
+  miniball(1,false,false,true,1); 
+  glow(1); 
+  event[108163]=false; 
+}
+if(108170<p&&event[108170]){ 
+  miniball(1,false,true,false,1); 
+  glow(1); 
+  event[108170]=false; 
+}
+if(66946<p&&event[66946]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[66946]=false; 
+}
+if(66944<p&&event[66944]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[66944]=false; 
+}
+if(66939<p&&event[66939]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[66939]=false; 
+}
+if(67223<p&&event[67223]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[67223]=false; 
+}
+if(67216<p&&event[67216]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[67216]=false; 
+}
+if(67228<p&&event[67228]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[67228]=false; 
+}
+if(67598<p&&event[67598]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[67598]=false; 
+}
+if(67592<p&&event[67592]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[67592]=false; 
+}
+if(67599<p&&event[67599]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[67599]=false; 
+}
+if(67905<p&&event[67905]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[67905]=false; 
+}
+if(67907<p&&event[67907]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[67907]=false; 
+}
+if(67919<p&&event[67919]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[67919]=false; 
+}
+if(68231<p&&event[68231]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[68231]=false; 
+}
+if(68236<p&&event[68236]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[68236]=false; 
+}
+if(68236<p&&event[68236]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[68236]=false; 
+}
+if(68514<p&&event[68514]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[68514]=false; 
+}
+if(68523<p&&event[68523]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[68523]=false; 
+}
+if(68518<p&&event[68518]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[68518]=false; 
+}
+if(68841<p&&event[68841]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[68841]=false; 
+}
+if(68835<p&&event[68835]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[68835]=false; 
+}
+if(68883<p&&event[68883]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[68883]=false; 
+}
+if(69121<p&&event[69121]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[69121]=false; 
+}
+if(69114<p&&event[69114]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[69114]=false; 
+}
+if(69123<p&&event[69123]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[69123]=false; 
+}
+if(69502<p&&event[69502]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[69502]=false; 
+}
+if(69503<p&&event[69503]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[69503]=false; 
+}
+if(69493<p&&event[69493]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[69493]=false; 
+}
+if(69811<p&&event[69811]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[69811]=false; 
+}
+if(69812<p&&event[69812]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[69812]=false; 
+}
+if(69817<p&&event[69817]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[69817]=false; 
+}
+if(70190<p&&event[70190]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[70190]=false; 
+}
+if(70192<p&&event[70192]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[70192]=false; 
+}
+if(70181<p&&event[70181]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[70181]=false; 
+}
+if(70525<p&&event[70525]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[70525]=false; 
+}
+if(70523<p&&event[70523]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[70523]=false; 
+}
+if(70518<p&&event[70518]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[70518]=false; 
+}
+if(70795<p&&event[70795]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[70795]=false; 
+}
+if(70787<p&&event[70787]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[70787]=false; 
+}
+if(70849<p&&event[70849]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[70849]=false; 
+}
+if(71119<p&&event[71119]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[71119]=false; 
+}
+if(71123<p&&event[71123]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[71123]=false; 
+}
+if(71113<p&&event[71113]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[71113]=false; 
+}
+if(71454<p&&event[71454]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[71454]=false; 
+}
+if(71445<p&&event[71445]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[71445]=false; 
+}
+if(71441<p&&event[71441]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[71441]=false; 
+}
+if(71812<p&&event[71812]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[71812]=false; 
+}
+if(71808<p&&event[71808]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[71808]=false; 
+}
+if(71816<p&&event[71816]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[71816]=false; 
+}
+if(72140<p&&event[72140]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[72140]=false; 
+}
+if(72137<p&&event[72137]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[72137]=false; 
+}
+if(72192<p&&event[72192]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[72192]=false; 
+}
+if(72466<p&&event[72466]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[72466]=false; 
+}
+if(72473<p&&event[72473]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[72473]=false; 
+}
+if(72459<p&&event[72459]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[72459]=false; 
+}
+if(72740<p&&event[72740]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[72740]=false; 
+}
+if(72735<p&&event[72735]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[72735]=false; 
+}
+if(72792<p&&event[72792]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[72792]=false; 
+}
+if(73111<p&&event[73111]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[73111]=false; 
+}
+if(73113<p&&event[73113]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[73113]=false; 
+}
+if(73120<p&&event[73120]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[73120]=false; 
+}
+if(73388<p&&event[73388]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[73388]=false; 
+}
+if(73403<p&&event[73403]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[73403]=false; 
+}
+if(73395<p&&event[73395]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[73395]=false; 
+}
+if(73725<p&&event[73725]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[73725]=false; 
+}
+if(73725<p&&event[73725]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[73725]=false; 
+}
+if(73768<p&&event[73768]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[73768]=false; 
+}
+if(74040<p&&event[74040]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[74040]=false; 
+}
+if(74043<p&&event[74043]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[74043]=false; 
+}
+if(74098<p&&event[74098]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[74098]=false; 
+}
+if(74421<p&&event[74421]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[74421]=false; 
+}
+if(74462<p&&event[74462]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[74462]=false; 
+}
+if(74455<p&&event[74455]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[74455]=false; 
+}
+if(74745<p&&event[74745]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[74745]=false; 
+}
+if(74743<p&&event[74743]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[74743]=false; 
+}
+if(74745<p&&event[74745]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[74745]=false; 
+}
+if(75059<p&&event[75059]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[75059]=false; 
+}
+if(75057<p&&event[75057]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[75057]=false; 
+}
+if(75069<p&&event[75069]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[75069]=false; 
+}
+if(75341<p&&event[75341]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[75341]=false; 
+}
+if(75388<p&&event[75388]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[75388]=false; 
+}
+if(75393<p&&event[75393]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[75393]=false; 
+}
+if(75661<p&&event[75661]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[75661]=false; 
+}
+if(75667<p&&event[75667]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[75667]=false; 
+}
+if(75772<p&&event[75772]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[75772]=false; 
+}
+if(76045<p&&event[76045]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[76045]=false; 
+}
+if(76032<p&&event[76032]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[76032]=false; 
+}
+if(76039<p&&event[76039]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[76039]=false; 
+}
+if(76360<p&&event[76360]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[76360]=false; 
+}
+if(76364<p&&event[76364]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[76364]=false; 
+}
+if(76357<p&&event[76357]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[76357]=false; 
+}
+if(76682<p&&event[76682]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[76682]=false; 
+}
+if(76688<p&&event[76688]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[76688]=false; 
+}
+if(76692<p&&event[76692]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[76692]=false; 
+}
+if(76961<p&&event[76961]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[76961]=false; 
+}
+if(76967<p&&event[76967]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[76967]=false; 
+}
+if(76962<p&&event[76962]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[76962]=false; 
+}
+if(77337<p&&event[77337]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[77337]=false; 
+}
+if(77380<p&&event[77380]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[77380]=false; 
+}
+if(77395<p&&event[77395]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[77395]=false; 
+}
+if(77659<p&&event[77659]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[77659]=false; 
+}
+if(77661<p&&event[77661]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[77661]=false; 
+}
+if(77669<p&&event[77669]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[77669]=false; 
+}
+if(77999<p&&event[77999]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[77999]=false; 
+}
+if(77987<p&&event[77987]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[77987]=false; 
+}
+if(77988<p&&event[77988]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[77988]=false; 
+}
+if(78319<p&&event[78319]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[78319]=false; 
+}
+if(78309<p&&event[78309]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[78309]=false; 
+}
+if(78311<p&&event[78311]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[78311]=false; 
+}
+if(78587<p&&event[78587]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[78587]=false; 
+}
+if(78592<p&&event[78592]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[78592]=false; 
+}
+if(78594<p&&event[78594]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[78594]=false; 
+}
+if(78961<p&&event[78961]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[78961]=false; 
+}
+if(78977<p&&event[78977]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[78977]=false; 
+}
+if(78970<p&&event[78970]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[78970]=false; 
+}
+if(79299<p&&event[79299]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[79299]=false; 
+}
+if(79288<p&&event[79288]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[79288]=false; 
+}
+if(79284<p&&event[79284]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[79284]=false; 
+}
+if(79660<p&&event[79660]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[79660]=false; 
+}
+if(79664<p&&event[79664]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[79664]=false; 
+}
+if(79673<p&&event[79673]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[79673]=false; 
+}
+if(79941<p&&event[79941]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[79941]=false; 
+}
+if(79951<p&&event[79951]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[79951]=false; 
+}
+if(79940<p&&event[79940]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[79940]=false; 
+}
+if(80258<p&&event[80258]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[80258]=false; 
+}
+if(80266<p&&event[80266]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[80266]=false; 
+}
+if(80263<p&&event[80263]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[80263]=false; 
+}
+if(80550<p&&event[80550]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[80550]=false; 
+}
+if(80544<p&&event[80544]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[80544]=false; 
+}
+if(80593<p&&event[80593]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[80593]=false; 
+}
+if(80873<p&&event[80873]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[80873]=false; 
+}
+if(80877<p&&event[80877]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[80877]=false; 
+}
+if(80866<p&&event[80866]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[80866]=false; 
+}
+if(81248<p&&event[81248]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[81248]=false; 
+}
+if(81245<p&&event[81245]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[81245]=false; 
+}
+if(81238<p&&event[81238]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[81238]=false; 
+}
+if(81515<p&&event[81515]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[81515]=false; 
+}
+if(81530<p&&event[81530]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[81530]=false; 
+}
+if(81527<p&&event[81527]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[81527]=false; 
+}
+if(81886<p&&event[81886]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[81886]=false; 
+}
+if(81895<p&&event[81895]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[81895]=false; 
+}
+if(81886<p&&event[81886]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[81886]=false; 
+}
+if(82218<p&&event[82218]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[82218]=false; 
+}
+if(82220<p&&event[82220]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[82220]=false; 
+}
+if(82211<p&&event[82211]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[82211]=false; 
+}
+if(82552<p&&event[82552]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[82552]=false; 
+}
+if(82581<p&&event[82581]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[82581]=false; 
+}
+if(82586<p&&event[82586]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[82586]=false; 
+}
+if(82870<p&&event[82870]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[82870]=false; 
+}
+if(82870<p&&event[82870]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[82870]=false; 
+}
+if(82915<p&&event[82915]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[82915]=false; 
+}
+if(83203<p&&event[83203]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[83203]=false; 
+}
+if(83198<p&&event[83198]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[83198]=false; 
+}
+if(83241<p&&event[83241]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[83241]=false; 
+}
+if(83509<p&&event[83509]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[83509]=false; 
+}
+if(83520<p&&event[83520]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[83520]=false; 
+}
+if(83516<p&&event[83516]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[83516]=false; 
+}
+if(83841<p&&event[83841]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[83841]=false; 
+}
+if(83845<p&&event[83845]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[83845]=false; 
+}
+if(83850<p&&event[83850]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[83850]=false; 
+}
+if(84166<p&&event[84166]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[84166]=false; 
+}
+if(84171<p&&event[84171]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[84171]=false; 
+}
+if(84218<p&&event[84218]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[84218]=false; 
+}
+if(84498<p&&event[84498]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[84498]=false; 
+}
+if(84500<p&&event[84500]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[84500]=false; 
+}
+if(84531<p&&event[84531]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[84531]=false; 
+}
+if(84817<p&&event[84817]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[84817]=false; 
+}
+if(84809<p&&event[84809]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[84809]=false; 
+}
+if(84821<p&&event[84821]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[84821]=false; 
+}
+if(85138<p&&event[85138]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[85138]=false; 
+}
+if(85150<p&&event[85150]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[85150]=false; 
+}
+if(85143<p&&event[85143]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[85143]=false; 
+}
+if(85477<p&&event[85477]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[85477]=false; 
+}
+if(85519<p&&event[85519]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[85519]=false; 
+}
+if(85512<p&&event[85512]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[85512]=false; 
+}
+if(85803<p&&event[85803]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[85803]=false; 
+}
+if(85786<p&&event[85786]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[85786]=false; 
+}
+if(85834<p&&event[85834]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[85834]=false; 
+}
+if(86115<p&&event[86115]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[86115]=false; 
+}
+if(86115<p&&event[86115]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[86115]=false; 
+}
+if(86118<p&&event[86118]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[86118]=false; 
+}
+if(86438<p&&event[86438]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[86438]=false; 
+}
+if(86444<p&&event[86444]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[86444]=false; 
+}
+if(86440<p&&event[86440]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[86440]=false; 
+}
+if(86820<p&&event[86820]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[86820]=false; 
+}
+if(86818<p&&event[86818]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[86818]=false; 
+}
+if(86811<p&&event[86811]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[86811]=false; 
+}
+if(87101<p&&event[87101]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[87101]=false; 
+}
+if(87087<p&&event[87087]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[87087]=false; 
+}
+if(87093<p&&event[87093]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[87093]=false; 
+}
+if(87425<p&&event[87425]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[87425]=false; 
+}
+if(87420<p&&event[87420]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[87420]=false; 
+}
+if(87474<p&&event[87474]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[87474]=false; 
+}
+if(87751<p&&event[87751]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[87751]=false; 
+}
+if(87737<p&&event[87737]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[87737]=false; 
+}
+if(87744<p&&event[87744]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[87744]=false; 
+}
+if(88015<p&&event[88015]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[88015]=false; 
+}
+if(88113<p&&event[88113]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[88113]=false; 
+}
+if(88115<p&&event[88115]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[88115]=false; 
+}
+if(88390<p&&event[88390]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[88390]=false; 
+}
+if(88388<p&&event[88388]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[88388]=false; 
+}
+if(88404<p&&event[88404]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[88404]=false; 
+}
+if(88683<p&&event[88683]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[88683]=false; 
+}
+if(88729<p&&event[88729]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[88729]=false; 
+}
+if(88720<p&&event[88720]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[88720]=false; 
+}
+if(89040<p&&event[89040]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[89040]=false; 
+}
+if(89039<p&&event[89039]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[89039]=false; 
+}
+if(89051<p&&event[89051]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[89051]=false; 
+}
+if(89329<p&&event[89329]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[89329]=false; 
+}
+if(89325<p&&event[89325]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[89325]=false; 
+}
+if(89421<p&&event[89421]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[89421]=false; 
+}
+if(89705<p&&event[89705]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[89705]=false; 
+}
+if(89696<p&&event[89696]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[89696]=false; 
+}
+if(89693<p&&event[89693]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[89693]=false; 
+}
+if(90013<p&&event[90013]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[90013]=false; 
+}
+if(90021<p&&event[90021]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[90021]=false; 
+}
+if(90019<p&&event[90019]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[90019]=false; 
+}
+if(90348<p&&event[90348]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[90348]=false; 
+}
+if(90347<p&&event[90347]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[90347]=false; 
+}
+if(90340<p&&event[90340]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[90340]=false; 
+}
+if(90711<p&&event[90711]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[90711]=false; 
+}
+if(90721<p&&event[90721]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[90721]=false; 
+}
+if(90723<p&&event[90723]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[90723]=false; 
+}
+if(90997<p&&event[90997]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[90997]=false; 
+}
+if(91002<p&&event[91002]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[91002]=false; 
+}
+if(90997<p&&event[90997]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[90997]=false; 
+}
+if(91316<p&&event[91316]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[91316]=false; 
+}
+if(91314<p&&event[91314]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[91314]=false; 
+}
+if(91325<p&&event[91325]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[91325]=false; 
+}
+if(91686<p&&event[91686]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[91686]=false; 
+}
+if(91695<p&&event[91695]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[91695]=false; 
+}
+if(91691<p&&event[91691]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[91691]=false; 
+}
+if(91977<p&&event[91977]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[91977]=false; 
+}
+if(91968<p&&event[91968]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[91968]=false; 
+}
+if(91963<p&&event[91963]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[91963]=false; 
+}
+if(92291<p&&event[92291]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[92291]=false; 
+}
+if(92300<p&&event[92300]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[92300]=false; 
+}
+if(92304<p&&event[92304]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[92304]=false; 
+}
+if(92611<p&&event[92611]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[92611]=false; 
+}
+if(92616<p&&event[92616]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[92616]=false; 
+}
+if(92668<p&&event[92668]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[92668]=false; 
+}
+if(92985<p&&event[92985]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[92985]=false; 
+}
+if(93001<p&&event[93001]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[93001]=false; 
+}
+if(92995<p&&event[92995]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[92995]=false; 
+}
+if(93274<p&&event[93274]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[93274]=false; 
+}
+if(93273<p&&event[93273]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[93273]=false; 
+}
+if(93355<p&&event[93355]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[93355]=false; 
+}
+if(93635<p&&event[93635]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[93635]=false; 
+}
+if(93649<p&&event[93649]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[93649]=false; 
+}
+if(93639<p&&event[93639]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[93639]=false; 
+}
+if(93976<p&&event[93976]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[93976]=false; 
+}
+if(93963<p&&event[93963]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[93963]=false; 
+}
+if(93972<p&&event[93972]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[93972]=false; 
+}
+if(94292<p&&event[94292]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[94292]=false; 
+}
+if(94284<p&&event[94284]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[94284]=false; 
+}
+if(94300<p&&event[94300]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[94300]=false; 
+}
+if(94576<p&&event[94576]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[94576]=false; 
+}
+if(94578<p&&event[94578]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[94578]=false; 
+}
+if(94674<p&&event[94674]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[94674]=false; 
+}
+if(94942<p&&event[94942]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[94942]=false; 
+}
+if(94938<p&&event[94938]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[94938]=false; 
+}
+if(94939<p&&event[94939]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[94939]=false; 
+}
+if(95271<p&&event[95271]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[95271]=false; 
+}
+if(95269<p&&event[95269]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[95269]=false; 
+}
+if(95262<p&&event[95262]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[95262]=false; 
+}
+if(95553<p&&event[95553]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[95553]=false; 
+}
+if(95543<p&&event[95543]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[95543]=false; 
+}
+if(95593<p&&event[95593]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[95593]=false; 
+}
+if(95880<p&&event[95880]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[95880]=false; 
+}
+if(95865<p&&event[95865]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[95865]=false; 
+}
+if(95869<p&&event[95869]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[95869]=false; 
+}
+if(96144<p&&event[96144]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[96144]=false; 
+}
+if(96244<p&&event[96244]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[96244]=false; 
+}
+if(96250<p&&event[96250]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[96250]=false; 
+}
+if(96563<p&&event[96563]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[96563]=false; 
+}
+if(96573<p&&event[96573]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[96573]=false; 
+}
+if(96576<p&&event[96576]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[96576]=false; 
+}
+if(96845<p&&event[96845]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[96845]=false; 
+}
+if(96856<p&&event[96856]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[96856]=false; 
+}
+if(96896<p&&event[96896]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[96896]=false; 
+}
+if(97223<p&&event[97223]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[97223]=false; 
+}
+if(97211<p&&event[97211]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[97211]=false; 
+}
+if(97213<p&&event[97213]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[97213]=false; 
+}
+if(97494<p&&event[97494]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[97494]=false; 
+}
+if(97490<p&&event[97490]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[97490]=false; 
+}
+if(97498<p&&event[97498]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[97498]=false; 
+}
+if(97872<p&&event[97872]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[97872]=false; 
+}
+if(97905<p&&event[97905]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[97905]=false; 
+}
+if(97922<p&&event[97922]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[97922]=false; 
+}
+if(98249<p&&event[98249]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[98249]=false; 
+}
+if(98236<p&&event[98236]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[98236]=false; 
+}
+if(98247<p&&event[98247]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[98247]=false; 
+}
+if(98518<p&&event[98518]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[98518]=false; 
+}
+if(98517<p&&event[98517]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[98517]=false; 
+}
+if(98511<p&&event[98511]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[98511]=false; 
+}
+if(98897<p&&event[98897]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[98897]=false; 
+}
+if(98881<p&&event[98881]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[98881]=false; 
+}
+if(98893<p&&event[98893]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[98893]=false; 
+}
+if(99160<p&&event[99160]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[99160]=false; 
+}
+if(99210<p&&event[99210]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[99210]=false; 
+}
+if(99214<p&&event[99214]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[99214]=false; 
+}
+if(99489<p&&event[99489]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[99489]=false; 
+}
+if(99492<p&&event[99492]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[99492]=false; 
+}
+if(99542<p&&event[99542]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[99542]=false; 
+}
+if(99823<p&&event[99823]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[99823]=false; 
+}
+if(99812<p&&event[99812]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[99812]=false; 
+}
+if(99817<p&&event[99817]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[99817]=false; 
+}
+if(100181<p&&event[100181]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[100181]=false; 
+}
+if(100197<p&&event[100197]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[100197]=false; 
+}
+if(100189<p&&event[100189]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[100189]=false; 
+}
+if(100521<p&&event[100521]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[100521]=false; 
+}
+if(100517<p&&event[100517]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[100517]=false; 
+}
+if(100514<p&&event[100514]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[100514]=false; 
+}
+if(100850<p&&event[100850]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[100850]=false; 
+}
+if(100832<p&&event[100832]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[100832]=false; 
+}
+if(100848<p&&event[100848]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[100848]=false; 
+}
+if(101112<p&&event[101112]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[101112]=false; 
+}
+if(101122<p&&event[101122]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[101122]=false; 
+}
+if(101120<p&&event[101120]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[101120]=false; 
+}
+if(101497<p&&event[101497]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[101497]=false; 
+}
+if(101482<p&&event[101482]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[101482]=false; 
+}
+if(101492<p&&event[101492]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[101492]=false; 
+}
+if(101813<p&&event[101813]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[101813]=false; 
+}
+if(101821<p&&event[101821]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[101821]=false; 
+}
+if(101807<p&&event[101807]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[101807]=false; 
+}
+if(102134<p&&event[102134]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[102134]=false; 
+}
+if(102133<p&&event[102133]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[102133]=false; 
+}
+if(102145<p&&event[102145]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[102145]=false; 
+}
+if(102410<p&&event[102410]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[102410]=false; 
+}
+if(102422<p&&event[102422]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[102422]=false; 
+}
+if(102424<p&&event[102424]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[102424]=false; 
+}
+if(102702<p&&event[102702]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[102702]=false; 
+}
+if(102694<p&&event[102694]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[102694]=false; 
+}
+if(102695<p&&event[102695]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[102695]=false; 
+}
+if(103070<p&&event[103070]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[103070]=false; 
+}
+if(103073<p&&event[103073]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[103073]=false; 
+}
+if(103061<p&&event[103061]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[103061]=false; 
+}
+if(103389<p&&event[103389]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[103389]=false; 
+}
+if(103398<p&&event[103398]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[103398]=false; 
+}
+if(103435<p&&event[103435]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[103435]=false; 
+}
+if(103723<p&&event[103723]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[103723]=false; 
+}
+if(103712<p&&event[103712]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[103712]=false; 
+}
+if(103726<p&&event[103726]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[103726]=false; 
+}
+if(104055<p&&event[104055]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[104055]=false; 
+}
+if(104039<p&&event[104039]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[104039]=false; 
+}
+if(104052<p&&event[104052]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[104052]=false; 
+}
+if(104412<p&&event[104412]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[104412]=false; 
+}
+if(104413<p&&event[104413]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[104413]=false; 
+}
+if(104423<p&&event[104423]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[104423]=false; 
+}
+if(104746<p&&event[104746]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[104746]=false; 
+}
+if(104750<p&&event[104750]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[104750]=false; 
+}
+if(104734<p&&event[104734]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[104734]=false; 
+}
+if(105017<p&&event[105017]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[105017]=false; 
+}
+if(105060<p&&event[105060]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[105060]=false; 
+}
+if(105071<p&&event[105071]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[105071]=false; 
+}
+if(105394<p&&event[105394]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[105394]=false; 
+}
+if(105433<p&&event[105433]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[105433]=false; 
+}
+if(105433<p&&event[105433]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[105433]=false; 
+}
+if(105677<p&&event[105677]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[105677]=false; 
+}
+if(105676<p&&event[105676]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[105676]=false; 
+}
+if(105672<p&&event[105672]){ 
+  miniball(4,false); 
+  glow(2); 
+  event[105672]=false; 
+}
+if(105990<p&&event[105990]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[105990]=false; 
+}
+if(106004<p&&event[106004]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[106004]=false; 
+}
+if(106004<p&&event[106004]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[106004]=false; 
+}
+if(106266<p&&event[106266]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[106266]=false; 
+}
+if(106276<p&&event[106276]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[106276]=false; 
+}
+if(106319<p&&event[106319]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[106319]=false; 
+}
+if(106600<p&&event[106600]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[106600]=false; 
+}
+if(106639<p&&event[106639]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[106639]=false; 
+}
+if(106654<p&&event[106654]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[106654]=false; 
+}
+if(106932<p&&event[106932]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[106932]=false; 
+}
+if(107014<p&&event[107014]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[107014]=false; 
+}
+if(107018<p&&event[107018]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[107018]=false; 
+}
+if(107352<p&&event[107352]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[107352]=false; 
+}
+if(107344<p&&event[107344]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[107344]=false; 
+}
+if(107343<p&&event[107343]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[107343]=false; 
+}
+if(107629<p&&event[107629]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[107629]=false; 
+}
+if(107611<p&&event[107611]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[107611]=false; 
+}
+if(107626<p&&event[107626]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[107626]=false; 
+}
+if(107948<p&&event[107948]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[107948]=false; 
+}
+if(107952<p&&event[107952]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[107952]=false; 
+}
+if(107954<p&&event[107954]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[107954]=false; 
+}
+if(108217<p&&event[108217]){ 
+  miniball(1,false); 
+  glow(1); 
+  event[108217]=false; 
+}
+if(108234<p&&event[108234]){ 
+  miniball(2,false); 
+  glow(4); 
+  event[108234]=false; 
+}
+if(108228<p&&event[108228]){ 
+  miniball(3,false); 
+  glow(3); 
+  event[108228]=false; 
+}
+if(119017<p&&event[119017]){ 
+  wave(2); 
+  glow(4); 
+  event[119017]=false; 
+}
+if(119022<p&&event[119022]){ 
+  wave(4); 
+  glow(2); 
+  event[119022]=false; 
+}
+if(119010<p&&event[119010]){ 
+  wave(1); 
+  glow(1); 
+  event[119010]=false; 
+}
+if(119060<p&&event[119060]){ 
+  wave(3); 
+  glow(3); 
+  event[119060]=false; 
+}
+if(121694<p&&event[121694]){ 
+  wave(2); 
+  glow(4); 
+  event[121694]=false; 
+}
+if(121744<p&&event[121744]){ 
+  wave(1); 
+  glow(1); 
+  event[121744]=false; 
+}
+if(121741<p&&event[121741]){ 
+  wave(4); 
+  glow(2); 
+  event[121741]=false; 
+}
+if(124289<p&&event[124289]){ 
+  wave(3); 
+  glow(3); 
+  event[124289]=false; 
+}
+if(124286<p&&event[124286]){ 
+  wave(1); 
+  glow(1); 
+  event[124286]=false; 
+}
+if(124287<p&&event[124287]){ 
+  wave(4); 
+  glow(2); 
+  event[124287]=false; 
+}
+if(126850<p&&event[126850]){ 
+  wave(2); 
+  glow(4); 
+  event[126850]=false; 
+}
+if(126840<p&&event[126840]){ 
+  wave(3); 
+  glow(3); 
+  event[126840]=false; 
+}
+if(126845<p&&event[126845]){ 
+  wave(4); 
+  glow(2); 
+  event[126845]=false; 
+}
+if(129397<p&&event[129397]){ 
+  wave(2); 
+  glow(4); 
+  event[129397]=false; 
+}
+if(129456<p&&event[129456]){ 
+  wave(3); 
+  glow(3); 
+  event[129456]=false; 
+}
+if(129443<p&&event[129443]){ 
+  wave(1); 
+  glow(1); 
+  event[129443]=false; 
+}
+if(132142<p&&event[132142]){ 
+  wave(2); 
+  glow(4); 
+  event[132142]=false; 
+}
+if(132141<p&&event[132141]){ 
+  wave(1); 
+  glow(1); 
+  event[132141]=false; 
+}
+if(132143<p&&event[132143]){ 
+  wave(4); 
+  glow(2); 
+  event[132143]=false; 
+}
+if(134640<p&&event[134640]){ 
+  wave(1); 
+  glow(1); 
+  event[134640]=false; 
+}
+if(134693<p&&event[134693]){ 
+  wave(3); 
+  glow(3); 
+  event[134693]=false; 
+}
+if(134703<p&&event[134703]){ 
+  wave(4); 
+  glow(2); 
+  event[134703]=false; 
+}
+if(137287<p&&event[137287]){ 
+  wave(2); 
+  glow(4); 
+  event[137287]=false; 
+}
+if(137286<p&&event[137286]){ 
+  wave(3); 
+  glow(3); 
+  event[137286]=false; 
+}
+if(137347<p&&event[137347]){ 
+  wave(4); 
+  glow(2); 
+  event[137347]=false; 
+}
+if(139850<p&&event[139850]){ 
+  wave(2); 
+  glow(4); 
+  event[139850]=false; 
+}
+if(139848<p&&event[139848]){ 
+  wave(3); 
+  glow(3); 
+  event[139848]=false; 
+}
+if(139904<p&&event[139904]){ 
+  wave(1); 
+  glow(1); 
+  event[139904]=false; 
+}
+if(142550<p&&event[142550]){ 
+  wave(2); 
+  glow(4); 
+  event[142550]=false; 
+}
+if(142534<p&&event[142534]){ 
+  wave(1); 
+  glow(1); 
+  event[142534]=false; 
+}
+if(142598<p&&event[142598]){ 
+  wave(4); 
+  glow(2); 
+  event[142598]=false; 
+}
+if(145153<p&&event[145153]){ 
+  wave(3); 
+  glow(3); 
+  event[145153]=false; 
+}
+if(145150<p&&event[145150]){ 
+  wave(1); 
+  glow(1); 
+  event[145150]=false; 
+}
+if(145200<p&&event[145200]){ 
+  wave(4); 
+  glow(2); 
+  event[145200]=false; 
+}
+if(147842<p&&event[147842]){ 
+  wave(2); 
+  glow(4); 
+  event[147842]=false; 
+}
+if(147834<p&&event[147834]){ 
+  wave(3); 
+  glow(3); 
+  event[147834]=false; 
+}
+if(147832<p&&event[147832]){ 
+  wave(4); 
+  glow(2); 
+  event[147832]=false; 
+}
+if(150351<p&&event[150351]){ 
+  wave(2); 
+  glow(4); 
+  event[150351]=false; 
+}
+if(150340<p&&event[150340]){ 
+  wave(3); 
+  glow(3); 
+  event[150340]=false; 
+}
+if(150353<p&&event[150353]){ 
+  wave(1); 
+  glow(1); 
+  event[150353]=false; 
+}
+if(152997<p&&event[152997]){ 
+  wave(2); 
+  glow(4); 
+  event[152997]=false; 
+}
+if(153029<p&&event[153029]){ 
+  wave(1); 
+  glow(1); 
+  event[153029]=false; 
+}
+if(153035<p&&event[153035]){ 
+  wave(4); 
+  glow(2); 
+  event[153035]=false; 
+}
+if(155541<p&&event[155541]){ 
+  wave(3); 
+  glow(3); 
+  event[155541]=false; 
+}
+if(155547<p&&event[155547]){ 
+  wave(1); 
+  glow(1); 
+  event[155547]=false; 
+}
+if(155598<p&&event[155598]){ 
+  wave(4); 
+  glow(2); 
+  event[155598]=false; 
+}
+if(158202<p&&event[158202]){ 
+  wave(2); 
+  glow(4); 
+  event[158202]=false; 
+}
+if(158193<p&&event[158193]){ 
+  wave(3); 
+  glow(3); 
+  event[158193]=false; 
+}
+if(158186<p&&event[158186]){ 
+  wave(4); 
+  glow(2); 
+  event[158186]=false; 
+}
+if(159578<p&&event[159578]){ 
+  wave(3); 
+  glow(3); 
+  event[159578]=false; 
+}
+if(159584<p&&event[159584]){ 
+  wave(2); 
+  glow(4); 
+  event[159584]=false; 
+}
+if(159630<p&&event[159630]){ 
+  wave(1); 
+  glow(1); 
+  event[159630]=false; 
+}
 }
 
 void levelThree() { //tempo 130 ie: 1beat/2167ms
