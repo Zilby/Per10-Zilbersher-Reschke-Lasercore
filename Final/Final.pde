@@ -533,6 +533,7 @@ void renew(){
   o4s.clear();
   o5s.clear();
   lives--;
+  lasers=0;
   torment.rise();
   score-=(level*100)+100;
   if(lives!=0){
@@ -626,6 +627,7 @@ void nextLevel() {
     if(score<0){
       score=0;
     }
+    score+=lasers*100;
     level++; //make level higher
     advance=false; //set advance false
     torment.setRotation(radians(270));
