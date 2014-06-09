@@ -36,6 +36,7 @@ Gif[] Larray = {s0,s1,s2,s3,s4,s5,s6};
 PImage i1, i2, i3, igo, ball, bumper, bglow1, bglow2, bglow3, bglow4, bglow5; //creates images for countdown
 PImage[] Bary = {bumper, bglow1, bglow2, bglow3, bglow4, bglow5};
 String[] Bname = {"bumper.png", "bglow1.png", "bglow2.png", "bglow3.png", "bglow4.png", "bglow5.png"};
+ArrayList<Bullet> bullets=new ArrayList<Bullet>();
 ArrayList<Obstacle1> o1s = new ArrayList<Obstacle1>();
 ArrayList<Obstacle2> o2s = new ArrayList<Obstacle2>();
 ArrayList<Obstacle3> o3s = new ArrayList<Obstacle3>();
@@ -178,6 +179,8 @@ void keyReleased() {
       advance = true;
       first = true;
     }
+  }else if(key==' '){
+    shoot(torment.getRotation());
   }
   //For Testing Only
   if (key=='g') {
@@ -203,9 +206,6 @@ void keyReleased() {
   }
   if (key=='6') {
     bStreamOff(3);
-  }
-  if (key=='7') {
-    temporary();
   }
   if (key=='s') {
     increase = false;
@@ -249,6 +249,7 @@ void renew(){
  //  Initial[level]=true;
  //  minim.stop();
  //  AP[level] = minim.loadFile(trackTitle[level], 2048); //loads song file for corresponding level
+  bullets.clear();
   o1s.clear(); //removes extra obstacles
   o2s.clear();
   o3s.clear();
@@ -590,6 +591,7 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
     AP[level].play(); //play song 1
     //ball.loop();
     Initial[level]=false; //no longer true
+    bullets.clear();
     o1s.clear();  
     o2s.clear();
     o3s.clear();
@@ -638,6 +640,11 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
     noTint();
   }
   tint(r2, g2, b2);
+  for (int p=0; p<bullets.size (); p++) {
+    bullets.get(p).draw();
+    if (!bullets.get(p).getAlive())
+      bullets.remove(p);
+  }
   for (int i=0; i<o1s.size (); i++) {
     o1s.get(i).draw();
     if (!o1s.get(i).getAlive())
@@ -800,6 +807,11 @@ void drawLives(){
 }
 
 
+void shoot(float r){
+  Bullet b = new Bullet(r);
+  bullets.add(b);
+}
+
 void wave(int b) { //ie:make an obstacle one at b bumper
   Obstacle1 o = new Obstacle1(b);
   o1s.add(o);
@@ -833,10 +845,6 @@ void miniball(int b,boolean r,boolean l,float c){
   }
   Obstacle3 o = new Obstacle3(b,r,l,c);
   o3s.add(o);
-}
-
-void temporary(){
-  Obstacle5 o=new Obstacle5(1,false,0);
 }
 
 void bStreamOn(int b){
