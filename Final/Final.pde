@@ -53,6 +53,7 @@ PImage testcor; //used as a test for where the coordinates of something are
 boolean leftPressed, rightPressed, keysbegan = false, increase, decrease;//increase and decrease just test scoring for now
 ArrayList<Gif> scores = new ArrayList<Gif>();
 int score = 0, uno = 0;
+boolean[] event = new boolean[1000];
 Player torment; //torment?
 
 
@@ -112,7 +113,9 @@ void setup() {
   s7 = new Gif(this, "s7.gif");
   s8 = new Gif(this, "s8.gif");
   s9 = new Gif(this, "s9.gif");
-  
+  for(int e=0;e<event.length;e++){
+    event[e]=true;
+  }
   lvl = new Gif(this, "level.gif");
   lifeG= new Gif(this, "lives.gif");
   scores.add(s0);
@@ -378,6 +381,9 @@ void nextLevel() {
     level++; //make level higher
     advance=false; //set advance false
     torment.setRotation(radians(270));
+    for(int e=0;e<event.length;e++){
+      event[e]=true;
+    }
     AP[level] = minim.loadFile(trackTitle[level], 2048); //loads song file for corresponding level
     Initial[level]=true; //sets level's initial run to true
     //AP[level].play(); //**has been moved to each individual level method
@@ -635,6 +641,7 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
     score();
     popMatrix();
     noTint();
+    tint(255,blur1);
     laserleft();
     tint(r2+(gAll[12]/glowr), g2+(gAll[12]/glowg), b2+(gAll[12]/glowb), blur1);
     drawBumpers(1);
@@ -728,6 +735,11 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
 
 void levelOne() {
   genericLevel(125,255,130,10,216,15,1,10,1);
+  int p=AP[level].position();
+  if(5000<p&&event[1]){
+    glow(1);
+    event[1]=false;
+  }
 }
 
 void levelTwo() {
@@ -833,6 +845,21 @@ void glow(int b) {
 //    blur6 = 0;
 //  }
 //}
+
+void laserleft(){
+  pushMatrix();
+  scale(.5);
+  if(lasers < 10){
+    image(las[lasers], 560, 560);
+  }
+  else{
+    image(las[lasers%10], 598,560);
+    int a = lasers/10;
+    image(las[a], 524,560);
+  }
+  popMatrix();
+}
+
 
 void drawLives(){
   if(!lifeG.isPlaying()) { 
