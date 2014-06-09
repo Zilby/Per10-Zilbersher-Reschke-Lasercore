@@ -38,8 +38,11 @@ boolean[] Initial = {I0, I1, I2, I3, I4, I5, I6}; //array for all initials times
 Gif menuG, names, title, space, gameOver, winner, s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, lvl, lifeG, sline; //ie: background(menuG or gif), alex&cole(names), Lasercore(title), Press space to begin(space)
 Gif[] Larray = {s0,s1,s2,s3,s4,s5,s6};
 PImage i1, i2, i3, igo, ball, bumper, bglow1, bglow2, bglow3, bglow4, bglow5; //creates images for countdown
+PImage las0, las1, las2, las3, las4, las5, las6, las7, las8, las9;
 PImage[] Bary = {bumper, bglow1, bglow2, bglow3, bglow4, bglow5};
 String[] Bname = {"bumper.png", "bglow1.png", "bglow2.png", "bglow3.png", "bglow4.png", "bglow5.png"};
+PImage[] las = {las0, las1, las2, las3, las4, las5, las6, las7, las8, las9};
+String[] lasname = {"las0.png", "las1.png", "las2.png", "las3.png", "las4.png", "las5.png", "las6.png", "las7.png", "las8.png", "las9.png"};
 ArrayList<Bullet> bullets=new ArrayList<Bullet>();
 ArrayList<Obstacle1> o1s = new ArrayList<Obstacle1>();
 ArrayList<Obstacle2> o2s = new ArrayList<Obstacle2>();
@@ -80,6 +83,9 @@ void setup() {
   ball=loadImage("Ball.png");
   for (int i=0; i<Bary.length; i++) { //just used to initialize all the bumper names
     Bary[i]=loadImage(Bname[i]);
+  }
+  for (int i = 0; i < las.length; i++){
+    las[i]=loadImage(lasname[i]);
   }
   for (int u=0; u<gAll.length; u++) { //just used to initialize all the bumper names
     gAll[u]=0;
@@ -609,7 +615,7 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
   if (Initial[level]) { //if initial time running this method...
     frameRate(90);
     AP[level].play(); //play song 1
-    lasers=9;
+    lasers=13-level;
     //ball.loop();
     Initial[level]=false; //no longer true
     bullets.clear();
@@ -628,6 +634,8 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
     scale(.7);
     score();
     popMatrix();
+    noTint();
+    laserleft();
     tint(r2+(gAll[12]/glowr), g2+(gAll[12]/glowg), b2+(gAll[12]/glowb), blur1);
     drawBumpers(1);
     tint(r2+(gAll[13]/glowr), g2+(gAll[13]/glowg), b2+(gAll[13]/glowb), blur1);
@@ -660,6 +668,8 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
     scale(.7);
     score();
     popMatrix();
+    noTint();
+    laserleft();
     tint(r2+(gAll[12]/glowr), g2+(gAll[12]/glowg), b2+(gAll[12]/glowb), blur1);
     drawBumpers(1);
     tint(r2+(gAll[13]/glowr), g2+(gAll[13]/glowg), b2+(gAll[13]/glowb), blur1);
