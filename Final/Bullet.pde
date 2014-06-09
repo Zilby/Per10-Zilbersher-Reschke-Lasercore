@@ -35,6 +35,10 @@ public class Bullet{
     return alive;
   }
   
+  void die(){
+   alive=false;
+  } 
+  
   float getRotation(){
     return rotation;
   } 

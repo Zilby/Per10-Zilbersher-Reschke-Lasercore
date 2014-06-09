@@ -76,6 +76,10 @@ public class Obstacle3{
     return alive;
   }
   
+  void die(){
+   alive=false;
+  } 
+  
   float getRotation(){
     return rotation;
   } 

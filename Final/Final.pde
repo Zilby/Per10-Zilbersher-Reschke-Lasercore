@@ -21,7 +21,7 @@ int level, lives; //keeps track of current level & lives
 boolean advance; //ie: level complete, go to next level
 boolean first; //if first time going through the nextLevel()
 boolean restart; //for gameover restart
-int counter, gCount, gTimer, gcor, gcolor, lvltimer = 0; //for countdown time before levels and glow counter, timer for glow, gx/y-coordinate
+int lasers, counter, gCount, gTimer, gcor, gcolor, lvltimer = 0; //for countdown time before levels and glow counter, timer for glow, gx/y-coordinate
 boolean gO; //for gameOver (see method)
 boolean st1,st2,st3,st4,sFirst,sInverse,sRising;
 boolean[] stream={st1,st2,st3,st4}; //for bulletstream
@@ -55,6 +55,7 @@ void setup() {
   minim = new Minim(this); //creates the new audio context
   level=0; //sets level to 0 or home
   lives=5;
+  lasers=0;
   counter=0;
   gO=true;//for gameOver (see method) (works better for intro across the board if just initialized to true
   Initial[0]=true; //sets initial run for lvl 0 to true
@@ -190,10 +191,10 @@ void keyReleased() {
     glow();
   }
   if (key=='1') {
-    bStreamOn(1);
+    wave(1);
   }
   if (key=='2') {
-    bStreamOff(1);
+    wave(2);
   }
   if (key=='3') {
     bStreamOn(2);
@@ -589,6 +590,7 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
   if (Initial[level]) { //if initial time running this method...
     frameRate(90);
     AP[level].play(); //play song 1
+    lasers=9;
     //ball.loop();
     Initial[level]=false; //no longer true
     bullets.clear();
@@ -808,8 +810,11 @@ void drawLives(){
 
 
 void shoot(float r){
-  Bullet b = new Bullet(r);
-  bullets.add(b);
+  if(lasers!=0){
+    Bullet b = new Bullet(r);
+    bullets.add(b);
+    lasers--;
+  }
 }
 
 void wave(int b) { //ie:make an obstacle one at b bumper
@@ -888,8 +893,8 @@ void bulletStream(){
 
 
 void kill(){ //used in draw method, add other obstacle arrays as necessary, lives are deducted in restart()
-  int d1,d2;
-  float r1,r2;
+  int d1,d2,d3;
+  float r1,r2,r3;
   d1=torment.getDistance();
   r1=torment.getRotation();
   for(int i=0;i<o1s.size();i++){
@@ -898,12 +903,28 @@ void kill(){ //used in draw method, add other obstacle arrays as necessary, live
     if(d1>=d2&&d1<=d2+5&&r1<=r2+radians(45)&&r1>=r2-radians(45)){
       torment.die();
     }
+    for(int h=0;h<bullets.size();h++){
+      d3=bullets.get(h).getDistance();
+      r3=bullets.get(h).getRotation();
+      if(d3>=d2&&d3<=d2+20&&r3<=r2+radians(45)&&r3>=r2-radians(45)){
+        o1s.get(i).die();
+        bullets.get(h).die();
+      }
+    }
   }
   for(int j=0;j<o2s.size();j++){
     d2=o2s.get(j).getDistance();
     r2=o2s.get(j).getRotation();
     if(d1>=d2+2/*&&d1<=d2+80*/&&r1<=r2+radians(15)&&r1>=r2-radians(15)){
       torment.die();
+    }
+    for(int h=0;h<bullets.size();h++){
+      d3=bullets.get(h).getDistance();
+      r3=bullets.get(h).getRotation();
+      if(d3>=d2+2&&r3<=r2+radians(15)&&r3>=r2-radians(15)){
+        o2s.get(j).die();
+        bullets.get(h).die();
+      }
     }
   }
   for(int k=0;k<o3s.size();k++){
@@ -912,12 +933,28 @@ void kill(){ //used in draw method, add other obstacle arrays as necessary, live
     if(d1>=d2/*&&d1<=d2+80*/&&r1<=r2+radians(5.7)&&r1>=r2-radians(5.7)){
       torment.die();
     }
+    for(int h=0;h<bullets.size();h++){
+      d3=bullets.get(h).getDistance();
+      r3=bullets.get(h).getRotation();
+      if(d3>=d2&&r3<=r2+radians(5.7)&&r3>=r2-radians(5.7)){
+        o3s.get(k).die();
+        bullets.get(h).die();
+      }
+    }
   }
   for(int n=0;n<o4s.size();n++){
     d2=o4s.get(n).getDistance();
     r2=o4s.get(n).getRotation();
     if(d1>=d2&&d1<=d2+3&&r1<=r2+radians(22)&&r1>=r2-radians(22)){
       torment.die();
+    }
+    for(int h=0;h<bullets.size();h++){
+      d3=bullets.get(h).getDistance();
+      r3=bullets.get(h).getRotation();
+      if(d3>=d2&&d3<=d2+3&&r3<=r2+radians(22)&&r3>=r2-radians(22)){
+        o4s.get(n).die();
+        bullets.get(h).die();
+      }
     }
   }
   for(int u=0;u<o5s.size();u++){
