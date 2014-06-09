@@ -421,7 +421,7 @@ void gameOver() {
     popMatrix();
     noTint();
     blur1++;
-  } else
+  } else {
     image(gameOver, 40, 160);
     tint(255,77,0);
     pushMatrix();
@@ -430,6 +430,7 @@ void gameOver() {
     score();
     popMatrix();
     noTint();
+  }
   if (restart) {
     minim.stop();
     restart=false;
@@ -469,7 +470,7 @@ void win(){
     popMatrix();
     noTint();
     blur1++;
-  } else
+  } else {
     image(winner, 50, 160);
     tint(0,111,255);
     pushMatrix();
@@ -478,6 +479,7 @@ void win(){
     score();
     popMatrix();
     noTint();
+  }
   if (restart) {
     minim.stop();
     restart=false;
