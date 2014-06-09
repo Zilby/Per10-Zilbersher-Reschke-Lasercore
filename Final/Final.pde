@@ -733,7 +733,7 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
   }
 }
 
-void levelOne() {
+void levelOne() { //tempo 131 ie: 1beat/2183ms
   genericLevel(125,255,130,10,216,15,1,10,1);
   int p=AP[level].position();
   if(5000<p&&event[1]){
@@ -742,23 +742,23 @@ void levelOne() {
   }
 }
 
-void levelTwo() {
+void levelTwo() { //tempo 92 ie: 1beat/1533ms
   genericLevel(126,159,218,12,98,212,1,1,1);
 }
 
-void levelThree() {
+void levelThree() { //tempo 130 ie: 1beat/2167ms
   genericLevel(235,239,122,233,247,36,1,1,1);
 }
 
-void levelFour() {
+void levelFour() { //tempo 128 ie: 1beat/2133ms
   genericLevel(239,200,122,255,154,0,1,1,1);
 }
 
-void levelFive() {
+void levelFive() { //tempo 180 ie: 1beat/3000ms
   genericLevel(239,138,122,247,64,36,1,1,1);
 }
 
-void levelSix() {
+void levelSix() { //tempo 177 ie: 1beat/2950ms
   genericLevel(181,122,239,156,36,247,1,1,1);
 }
 
@@ -818,6 +818,13 @@ PImage gImage(int b) { //ie: glowed image
     gAll[b+11]=0;
     return Bary[0];
   }
+}
+
+void glow(){
+  glow(1);
+  glow(2);
+  glow(3);
+  glow(4);
 }
 
 void glow(int b) {
