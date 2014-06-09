@@ -203,10 +203,10 @@ void keyReleased() {
     bStreamOff(2);
   }
   if (key=='5') {
-    bStreamOn(3);
+    miniball(3,false);
   }
   if (key=='6') {
-    bStreamOff(3);
+    miniball(4,true,false,true,1);
   }
   if (key=='s') {
     increase = false;
@@ -837,18 +837,18 @@ void ball(int b,boolean r,boolean l){
   o2s.add(o);
 }
 
-void miniball(int b){
-  Obstacle3 o = new Obstacle3(b);
+void miniball(int b,boolean f){
+  Obstacle3 o = new Obstacle3(b,f);
   o3s.add(o);
 }
 
-void miniball(int b,boolean r,boolean l,float c){
+void miniball(int b,boolean f,boolean r,boolean l,float c){
   if(c==1){
     c=.5;
   }else{
     c=.9;
   }
-  Obstacle3 o = new Obstacle3(b,r,l,c);
+  Obstacle3 o = new Obstacle3(b,f,r,l,c);
   o3s.add(o);
 }
 
