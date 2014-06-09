@@ -35,6 +35,7 @@ String[] Bname = {"bumper.png", "bglow1.png", "bglow2.png", "bglow3.png", "bglow
 ArrayList<Obstacle1> o1s = new ArrayList<Obstacle1>();
 ArrayList<Obstacle2> o2s = new ArrayList<Obstacle2>();
 ArrayList<Obstacle3> o3s = new ArrayList<Obstacle3>();
+ArrayList<Obstacle4> o4s = new ArrayList<Obstacle4>();
 PImage testcor; //used as a test for where the coordinates of something are
 boolean leftPressed, rightPressed, keysbegan = false, increase, decrease;//increase and decrease just test scoring for now
 ArrayList<Gif> scores = new ArrayList<Gif>();
@@ -175,22 +176,22 @@ void keyReleased() {
     glow();
   }
   if (key=='1') {
-    miniball(1);
+    wave(1,true,false);
   }
   if (key=='2') {
-    miniball(2);
+    wave(1,false,true);
   }
   if (key=='3') {
-    miniball(3);
+    wave(2,true,false);
   }
   if (key=='4') {
-    miniball(4);
+    wave(2,false,true);
   }
   if (key=='5') {
-    miniball(1,true,false,1);
+    wave(3,true,false);
   }
   if (key=='6') {
-    miniball(1,false,true,2);
+    wave(4,false,true);
   }
   if (key=='s') {
     increase = false;
@@ -237,6 +238,7 @@ void renew(){
   o1s.clear(); //removes extra obstacles
   o2s.clear();
   o3s.clear();
+  o4s.clear();
   lives--;
   torment.rise();
   score-=(level*100)+100;
@@ -573,6 +575,7 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
     o1s.clear();  
     o2s.clear();
     o3s.clear();
+    o4s.clear();
   }
   background(0);
   if (blur1<255) {
@@ -630,6 +633,11 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
     o3s.get(k).draw();
     if (!o3s.get(k).getAlive())
       o3s.remove(k);
+  }
+  for (int n=0; n<o4s.size (); n++) {
+    o4s.get(n).draw();
+    if (!o4s.get(n).getAlive())
+      o4s.remove(n);
   }
   noTint();
   if(!AP[level].isPlaying()){
@@ -772,6 +780,11 @@ void wave(int b) { //ie:make an obstacle one at b bumper
   o1s.add(o);
 }
 
+void wave(int b,boolean r,boolean l) { //ie:make an obstacle one at b bumper
+  Obstacle4 o = new Obstacle4(b,r,l);
+  o4s.add(o);
+}
+
 void ball(int b){
   Obstacle2 o = new Obstacle2(b);
   o2s.add(o);
@@ -823,6 +836,13 @@ void kill(){ //used in draw method, add other obstacle arrays as necessary, live
       torment.die();
     }
   }
+  for(int n=0;n<o4s.size();n++){
+    d2=o4s.get(n).getDistance();
+    r2=o4s.get(n).getRotation();
+    if(d1>=d2&&d1<=d2+3&&r1<=r2+radians(22)&&r1>=r2-radians(22)){
+      torment.die();
+    }
+  }
 }    
 
 /*class player(){
@@ -863,9 +883,6 @@ void kill(){ //used in draw method, add other obstacle arrays as necessary, live
  }
  void enemy6(){
  *same as above
- }
- 
- class obstacle(){
  }
  
  -for way to draw, make arraylist of class objects
