@@ -21,10 +21,14 @@ int level, lives; //keeps track of current level & lives
 boolean advance; //ie: level complete, go to next level
 boolean first; //if first time going through the nextLevel()
 boolean restart; //for gameover restart
-int lasers, counter, gCount, gTimer, gcor, gcolor, lvltimer = 0; //for countdown time before levels and glow counter, timer for glow, gx/y-coordinate
+int lasers, counter, lvltimer = 0; //for countdown time before levels and glow counter, timer for glow, gx/y-coordinate
+int gCount1,gCount2,gCount3,gCount4, gTimer1,gTimer2,gTimer3,gTimer4, gcor1,gcor2,gcor3,gcor4, gcolor1,gcolor2, gcolor3, gcolor4;
+int[] gAll={gCount1,gCount2,gCount3,gCount4, gTimer1,gTimer2,gTimer3,gTimer4, gcor1,gcor2,gcor3,gcor4, gcolor1,gcolor2, gcolor3, gcolor4};
 boolean gO; //for gameOver (see method)
 boolean st1,st2,st3,st4,sFirst,sInverse,sRising;
 boolean[] stream={st1,st2,st3,st4}; //for bulletstream
+boolean g1,g2,g3,g4; //for glow
+boolean[] gbumper={g1,g2,g3,g4};
 int sCount;
 float sRotation;
 boolean I0, I1, I2, I3, I4, I5, I6; //tells if first (initial) time running levelZero-Six() for level 0-6
@@ -63,6 +67,9 @@ void setup() {
   for(int k=0;k<stream.length;k++){
     stream[k]=false;
   }
+  for(int g=0;g<gbumper.length;g++){
+    gbumper[g]=false;
+  }
   sFirst=sInverse=sRising=false;
   sCount=0;
   sRotation=0.0;
@@ -74,7 +81,10 @@ void setup() {
   for (int i=0; i<Bary.length; i++) { //just used to initialize all the bumper names
     Bary[i]=loadImage(Bname[i]);
   }
-  gCount=gTimer=gcor=gcolor=0;
+  for (int u=0; u<gAll.length; u++) { //just used to initialize all the bumper names
+    gAll[u]=0;
+  }
+  //gCount=gTimer=gcor=gcolor=0;
   advance = false; //sets advance to its default: false
   first = false; //sets first run through advance to false
   restart = false; //sets the gameover restart to false
@@ -187,8 +197,17 @@ void keyReleased() {
   if (key=='g') {
     lives=0;
   }
+  if (key=='x') {
+    glow(1);
+  }
+  if (key=='c') {
+    glow(2);
+  }
+  if (key=='v') {
+    glow(3);
+  }
   if (key=='b') {
-    glow();
+    glow(4);
   }
   if (key=='1') {
     wave(1);
@@ -609,8 +628,15 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
     scale(.7);
     score();
     popMatrix();
-    tint(r2+(gcolor/glowr), g2+(gcolor/glowg), b2+(gcolor/glowb), blur1);
-    drawBumpers();
+    tint(r2+(gAll[12]/glowr), g2+(gAll[12]/glowg), b2+(gAll[12]/glowb), blur1);
+    drawBumpers(1);
+    tint(r2+(gAll[13]/glowr), g2+(gAll[13]/glowg), b2+(gAll[13]/glowb), blur1);
+    drawBumpers(2);
+    tint(r2+(gAll[14]/glowr), g2+(gAll[14]/glowg), b2+(gAll[14]/glowb), blur1);
+    drawBumpers(3);
+    tint(r2+(gAll[15]/glowr), g2+(gAll[15]/glowg), b2+(gAll[15]/glowb), blur1);
+    drawBumpers(4);
+    tint(r2,g2,b2);
     torment.draw(leftPressed, rightPressed);
     tint(r1, g1, b1, blur1);
     //    pushMatrix();
@@ -634,8 +660,14 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
     scale(.7);
     score();
     popMatrix();
-    tint(r2+(gcolor/glowr), g2+(gcolor/glowg), b2+(gcolor/glowb));
-    drawBumpers();
+    tint(r2+(gAll[12]/glowr), g2+(gAll[12]/glowg), b2+(gAll[12]/glowb), blur1);
+    drawBumpers(1);
+    tint(r2+(gAll[13]/glowr), g2+(gAll[13]/glowg), b2+(gAll[13]/glowb), blur1);
+    drawBumpers(2);
+    tint(r2+(gAll[14]/glowr), g2+(gAll[14]/glowg), b2+(gAll[14]/glowb), blur1);
+    drawBumpers(3);
+    tint(r2+(gAll[15]/glowr), g2+(gAll[15]/glowg), b2+(gAll[15]/glowb), blur1);
+    drawBumpers(4);
     noTint();
     tint(r2, g2, b2);
     torment.draw(leftPressed, rightPressed);
@@ -708,16 +740,24 @@ void levelSix() {
   genericLevel(181,122,239,156,36,247,1,1,1);
 }
 
-void drawBumpers() {
+void drawBumpers(int b) {
   translate(300, 300);
   rotate(radians(45));
-  image(gImage(), 270-gcor, -165-(gcor/2));
+  if(b==1){
+    image(gImage(1), 270-gAll[8], -165-(gAll[8]/2));
+  }
   rotate(radians(90));
-  image(gImage(), 270-gcor, -165-(gcor/2));
+  if(b==2){
+    image(gImage(2), 270-gAll[9], -165-(gAll[9]/2));
+  }
   rotate(radians(90));
-  image(gImage(), 270-gcor, -165-(gcor/2));
+  if(b==3){
+    image(gImage(3), 270-gAll[10], -165-(gAll[10]/2));
+  }
   rotate(radians(90));
-  image(gImage(), 270-gcor, -165-(gcor/2));
+  if(b==4){
+    image(gImage(4), 270-gAll[11], -165-(gAll[11]/2));
+  }
   rotate(radians(45));
   translate(-300, -300);
   //  image(gImage(),-170,450-gcor);
@@ -726,43 +766,44 @@ void drawBumpers() {
   //  image(gImage(),430-gcor,-180);
 }
 
-PImage gImage() { //ie: glowed image
-  if (gCount!=0&&gTimer%8==0)
-    gCount--;
-  if (gTimer!=0)
-    gTimer--;
-  if (gCount==9||gCount==1) {
-    gcor=5;
-    gcolor=50;
+PImage gImage(int b) { //ie: glowed image
+  if (gAll[b-1]!=0&&gAll[b+3]%2==0)
+    gAll[b-1]--;
+  if (gAll[b+3]!=0)
+    gAll[b+3]--;
+  if (gAll[b-1]==9||gAll[b-1]==1) {
+    gAll[b+7]=5;
+    gAll[b+11]=50;
     return Bary[1];
-  } else if (gCount==8||gCount==2) {
-    gcor=10;
-    gcolor=100;
+  } else if (gAll[b-1]==8||gAll[b-1]==2) {
+    gAll[b+7]=10;
+    gAll[b+11]=100;
     return Bary[2];
-  } else if (gCount==7||gCount==3) {
-    gcor=15;
-    gcolor=150;
+  } else if (gAll[b-1]==7||gAll[b-1]==3) {
+    gAll[b+7]=15;
+    gAll[b+11]=150;
     return Bary[3];
-  } else if (gCount==6||gCount==4) {
-    gcor=20;
-    gcolor=200;
+  } else if (gAll[b-1]==6||gAll[b-1]==4) {
+    gAll[b+7]=20;
+    gAll[b+11]=200;
     return Bary[4];
-  } else if (gCount==5) {
-    gcor=25;
-    gcolor=250;
+  } else if (gAll[b-1]==5) {
+    gAll[b+7]=25;
+    gAll[b+11]=250;
     return Bary[5];
   } else {
-    gcor=0;
-    gcolor=0;
+    gAll[b+7]=0;
+    gAll[b+11]=0;
     return Bary[0];
   }
 }
 
-void glow() {
-  gCount=10;
-  gTimer=80;
-  gcor=0;
-  gcolor=0;
+void glow(int b) {
+  gbumper[b-1]=true;
+  gAll[b-1]=10;//gcount
+  gAll[b+3]=80;//gtimer
+  gAll[b+7]=0;//gcor
+  gAll[b+11]=0;//gcolor
 }
 
 //void lvlmessage() {
