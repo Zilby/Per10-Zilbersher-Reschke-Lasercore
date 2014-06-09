@@ -403,6 +403,9 @@ void gameOver() {
   if (first) {
     first=false;
     frameRate(60);
+    if(score<0){
+      score=0;
+    }
     blur1=0;
     minim.stop();
     gameOver.loop();
@@ -775,6 +778,13 @@ void kill(){ //used in draw method, add other obstacle arrays as necessary, live
     d2=o1s.get(i).getDistance();
     r2=o1s.get(i).getRotation();
     if(d1>=d2&&d1<=d2+5&&r1<=r2+radians(45)&&r1>=r2-radians(45)){
+      torment.die();
+    }
+  }
+  for(int j=0;j<o2s.size();j++){
+    d2=o2s.get(j).getDistance();
+    r2=o2s.get(j).getRotation();
+    if(d1>=d2+2/*&&d1<=d2+80*/&&r1<=r2+radians(15)&&r1>=r2-radians(15)){
       torment.die();
     }
   }

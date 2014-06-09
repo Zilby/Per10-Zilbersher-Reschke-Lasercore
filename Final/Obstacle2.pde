@@ -61,4 +61,13 @@ public class Obstacle2{
   int getDistance(){
     return distance;
   }
+  
+  boolean getRight(){
+    return right;
+  }
+  
+  boolean getLeft(){
+    return left;
+  }
+  
 }
