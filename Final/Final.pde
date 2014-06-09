@@ -53,7 +53,8 @@ PImage testcor; //used as a test for where the coordinates of something are
 boolean leftPressed, rightPressed, keysbegan = false, increase, decrease;//increase and decrease just test scoring for now
 ArrayList<Gif> scores = new ArrayList<Gif>();
 int score = 0, uno = 0;
-boolean[] event = new boolean[1000];
+boolean[] event = new boolean[1000000];
+boolean shift=false;
 Player torment; //torment?
 
 
@@ -173,7 +174,7 @@ void draw() {
   } else if (level==7) {
     win();
   }
-  println("x-coordinate: " + mouseX + ", y-coordinate: " + mouseY);
+  //println("x-coordinate: " + mouseX + ", y-coordinate: " + mouseY);
 }
 
 
@@ -191,6 +192,10 @@ void keyPressed() {
   if (key=='d') {
     decrease = true;
   }
+  if (key=='/'){
+    shift=true;
+  }
+  //
 }
 
 void keyReleased() {
@@ -203,56 +208,271 @@ void keyReleased() {
     shoot(torment.getRotation());
   }
   //For Testing Only
-  if (key=='g') {
-    lives=0;
+  if(key=='/'){
+    shift=false;
   }
-  if (key=='x') {
-    glow(1);
+  if (key=='1'){
+    wave(3);
+    printIt("wave(3)");
   }
-  if (key=='c') {
-    glow(2);
-  }
-  if (key=='v') {
-    glow(3);
-  }
-  if (key=='b') {
-    glow(4);
-  }
-  if (key=='1') {
-    wave(1);
-  }
-  if (key=='2') {
+  if (key=='3'){
     wave(2);
+    printIt("wave(2)");
   }
-  if (key=='3') {
-    bStreamOn(2);
+  if (key=='5'){
+    wave(1);
+    printIt("wave(1)");
   }
-  if (key=='4') {
-    bStreamOff(2);
+  if (key=='7'){
+    wave(4);
+    printIt("wave(4)");
   }
-  if (key=='5') {
+  if (key=='q'){
+    wave(3,false,true);
+    printIt("wave(3,false,true)");
+  }
+  if (key=='e'){
+    wave(2,false,true);
+    printIt("wave(2,false,true)");
+  }
+  if (key=='t'){
+    wave(1,false,true);
+    printIt("wave(1,false,true)");
+  }
+  if (key=='u'){
+    wave(4,false,true);
+    printIt("wave(4,false,true)");
+  }
+  if (key=='w'){
+    wave(3,true,false);
+    printIt("wave(3,true,false)");
+  }
+  if (key=='r'){
+    wave(2,true,false);
+    printIt("wave(2,true,false)");
+  }
+  if (key=='y'){
+    wave(1,true,false);
+    printIt("wave(1,true,false)");
+  }
+  if (key=='i'){
+    wave(4,true,false);
+    printIt("wave(4,true,false)");
+  }
+  if (key=='2'){
+    ball(3);
+    printIt("ball(3)");
+  }
+  if (key=='4'){
+    ball(2);
+    printIt("ball(2)");
+  }
+  if (key=='6'){
+    ball(1);
+    printIt("ball(1)");
+  }
+  if (key=='8'){
+    ball(4);
+    printIt("ball(4)");
+  }
+  if (key=='a'){
     miniball(3,false);
+    printIt("miniball(3,false)");
   }
-  if (key=='6') {
-    miniball(4,true,false,true,1);
+  if (key=='d'){
+    miniball(2,false);
+    printIt("miniball(2,false)");
   }
-  if (key=='s') {
-    increase = false;
+  if (key=='g'){
+    miniball(1,false);
+    printIt("miniball(1,false)");
   }
-  if (key=='d') {
-    decrease = false;
+  if (key=='j'){
+    miniball(4,false);
+    printIt("miniball(4,false)");
+  }
+  if (key=='s'){
+    miniball(3,true);
+    printIt("miniball(3,true)");
   }
   if (key=='f'){
-    AP[level].skip(10000);
+    miniball(2,true);
+    printIt("miniball(2,true)");
   }
-  if (key=='n') {
-    advance = true;
-    first=true;
+  if (key=='h'){
+    miniball(1,true);
+    printIt("miniball(1,true)");
   }
-  if (key=='w') {
-    level=7;
-    first=true;
+  if (key=='k'){
+    miniball(4,true);
+    printIt("miniball(4,true)");
   }
+//  if (key=='z'){
+//    miniball(3,false);
+//    println("miniball(3,false) "+AP[level].position());
+//  }
+//  if (key=='c'){
+//    miniball(2,false);
+//    println("miniball(2,false) "+AP[level].position());
+//  }
+//  if (key=='b'){
+//    miniball(1,false);
+//    println("miniball(1,false) "+AP[level].position());
+//  }
+//  if (key=='m'){
+//    miniball(4,false);
+//    println("miniball(4,false) "+AP[level].position());
+//  }
+  if (key=='z'&&!shift){
+    miniball(3,false,false,true,1);
+    printIt("miniball(3,false,false,true,1)");
+  }
+  if (key=='c'&&!shift){
+    miniball(2,false,false,true,1);
+    printIt("miniball(2,false,false,true,1)");
+  }
+  if (key=='b'&&!shift){
+    miniball(1,false,false,true,1);
+    printIt("miniball(1,false,false,true,1)");
+  }
+  if (key=='m'&&!shift){
+    miniball(4,false,false,true,1);
+    printIt("miniball(4,false,false,true,1)");
+  }
+  if (key=='x'&&!shift){
+    miniball(3,false,true,false,1);
+    printIt("miniball(3,false,true,false,1)");
+  }
+  if (key=='v'&&!shift){
+    miniball(2,false,true,false,1);
+    printIt("miniball(2,false,true,false,1)");
+  }
+  if (key=='n'&&!shift){
+    miniball(1,false,true,false,1);
+    printIt("miniball(1,false,true,false,1)");
+  }
+  if (key==','&&!shift){
+    miniball(4,false,true,false,1);
+    printIt("miniball(4,false,true,false,1)");
+  }
+  if (key=='z'&&shift){
+    miniball(3,false,false,true,2);
+    printIt("miniball(3,false,false,true,2)");
+  }
+  if (key=='c'&&shift){
+    miniball(2,false,false,true,2);
+    printIt("miniball(2,false,false,true,2)");
+  }
+  if (key=='b'&&shift){
+    miniball(1,false,false,true,2);
+    printIt("miniball(1,false,false,true,2)");
+  }
+  if (key=='m'&&shift){
+    miniball(4,false,false,true,2);
+    printIt("miniball(4,false,false,true,2)");
+  }
+  if (key=='x'&&shift){
+    miniball(3,false,true,false,2);
+    printIt("miniball(3,false,true,false,2)");
+  }
+  if (key=='v'&&shift){
+    miniball(2,false,true,false,2);
+    printIt("miniball(2,false,true,false,2)");
+  }
+  if (key=='n'&&shift){
+    miniball(1,false,true,false,2);
+    printIt("miniball(1,false,true,false,2)");
+  }
+  if (key==','&&shift){
+    miniball(4,false,true,false,2);
+    printIt("miniball(4,false,true,false,2)");
+  }
+  if (key=='o'){
+    bStreamOn(3);
+    printIt("bStreamOn(3)");
+  }
+  if (key=='p'){
+    bStreamOn(2);
+    printIt("bStreamOn(2)");
+  }
+  if (key=='['){
+    bStreamOn(1);
+    printIt("bStreamOn(1)");
+  }
+  if (key==']'){
+    bStreamOn(4);
+    printIt("bStreamOn(4)");
+  }
+  if (key=='9'){
+    glow(3);
+    printIt("glow(3)");
+  }
+  if (key=='0'){
+    glow(4);
+    printIt("glow(4)");
+  }
+  if (key=='-'){
+    glow(1);
+    printIt("glow(1)");
+  }
+  if (key=='='){
+    glow(2);
+    printIt("glow(2)");
+  }
+  if (key=='`'){
+    glow();
+    printIt("glow()");
+  }
+//  if (key=='g') {
+//    lives=0;
+//  }
+//  if (key=='x') {
+//    glow(1);
+//  }
+//  if (key=='c') {
+//    glow(2);
+//  }
+//  if (key=='v') {
+//    glow(3);
+//  }
+//  if (key=='b') {
+//    glow(4);
+//  }
+//  if (key=='1') {
+//    wave(1);
+//  }
+//  if (key=='2') {
+//    wave(2);
+//  }
+//  if (key=='3') {
+//    bStreamOn(2);
+//  }
+//  if (key=='4') {
+//    bStreamOff(2);
+//  }
+//  if (key=='5') {
+//    miniball(3,false);
+//  }
+//  if (key=='6') {
+//    miniball(4,true,false,true,1);
+//  }
+//  if (key=='s') {
+//    increase = false;
+//  }
+//  if (key=='d') {
+//    decrease = false;
+//  }
+//  if (key=='f'){
+//    AP[level].skip(10000);
+//  }
+//  if (key=='n') {
+//    advance = true;
+//    first=true;
+//  }
+//  if (key=='w') {
+//    level=7;
+//    first=true;
+//  }
   //Testing Stops Here
   if (keyCode == LEFT) { 
     leftPressed = false;
@@ -272,6 +492,9 @@ void keyReleased() {
   }
 }
 
+void printIt(String s){
+  println("if("+AP[level].position()+"<p&&event["+AP[level].position()+"]){ \n  "+s+"; \n  event["+AP[level].position()+"]=false; \n}");
+}
 void renew(){
   frameRate(30);
   level--;
@@ -736,9 +959,121 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
 void levelOne() { //tempo 131 ie: 1beat/2183ms
   genericLevel(125,255,130,10,216,15,1,10,1);
   int p=AP[level].position();
-  if(5000<p&&event[1]){
-    glow(1);
+//  if(x<p&&event[x]){
+//    
+//    event[x]=false;
+//  }
+  if(789<p&&event[1]){
+    glow(3);
     event[1]=false;
+  }
+  if(1300<p&&event[2]){
+    glow(4);
+    event[2]=false;
+  }
+  if(1718<p&&event[3]){
+    glow(1);
+    event[3]=false;
+  }
+  if(2182<p&&event[4]){
+    glow(2);
+    event[4]=false;
+  }
+  if(2600<p&&event[5]){
+    glow(3);
+    event[5]=false;
+  }
+  if(3018<p&&event[6]){
+    glow(4);
+    event[6]=false;
+  }
+  if(3482<p&&event[7]){
+    glow(1);
+    event[7]=false;
+  }
+  if(3947<p&&event[8]){
+    glow(2);
+    event[8]=false;
+  }
+  if(4458<p&&event[9]){
+    glow(3);
+    event[9]=false;
+  }
+  if(4922<p&&event[10]){
+    glow(4);
+    event[10]=false;
+  }
+  if(5387<p&&event[11]){
+    glow(1);
+    event[11]=false;
+  }
+  if(5804<p&&event[12]){
+    glow(2);
+    event[12]=false;
+  }
+  if(6315<p&&event[13]){
+    glow(3);
+    event[13]=false;
+  }
+  if(6826<p&&event[14]){
+    glow(4);
+    event[14]=false;
+  }
+  if(7244<p&&event[15]){
+    glow(1);
+    event[15]=false;
+  }
+  if(7709<p&&event[16]){
+    glow(2);
+    event[16]=false;
+  }
+  if(8126<p&&event[17]){
+    glow(3);
+    event[17]=false;
+  }
+  if(8544<p&&event[18]){
+    glow(4);
+    event[18]=false;
+  }
+  if(9055<p&&event[19]){
+    glow(1);
+    event[19]=false;
+  }
+  if(9473<p&&event[20]){
+    glow(2);
+    event[20]=false;
+  }
+  if(9984<p&&event[21]){
+    glow(3);
+    event[21]=false;
+  }
+  if(10402<p&&event[22]){
+    glow(4);
+    event[22]=false;
+  }
+  if(10820<p&&event[23]){
+    glow(1);
+    event[23]=false;
+  }
+  if(11284<p&&event[24]){
+    glow(2);
+    event[24]=false;
+  }
+  if(11795<p&&event[25]){
+    glow(3);
+    event[25]=false;
+  }
+  if(12260<p&&event[26]){
+    glow(4);
+    event[26]=false;
+  }
+  if(12678<p&&event[27]){
+    glow(1);
+    event[27]=false;
+  }
+  if(13142<p&&event[28]){
+    glow(2);
+    event[28]=false;
   }
 }
 
@@ -938,7 +1273,7 @@ void miniball(int b,boolean f,boolean r,boolean l,float c){
 }
 
 void bStreamOn(int b){
-  stream[b-1]=true;
+  stream[b-1]=!stream[b-1];
   sFirst=true;
 }
 
