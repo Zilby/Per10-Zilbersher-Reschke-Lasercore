@@ -175,22 +175,22 @@ void keyReleased() {
     glow();
   }
   if (key=='1') {
-    miniball(1,false,false);
+    miniball(1);
   }
   if (key=='2') {
-    miniball(2,false,false);
+    miniball(2);
   }
   if (key=='3') {
-    miniball(3,false,false);
+    miniball(3);
   }
   if (key=='4') {
-    miniball(4,false,false);
+    miniball(4);
   }
   if (key=='5') {
-    miniball(1,true,false);
+    miniball(1,true,false,1);
   }
   if (key=='6') {
-    miniball(1,false,true);
+    miniball(1,false,true,2);
   }
   if (key=='s') {
     increase = false;
@@ -777,8 +777,18 @@ void ball(int b,boolean r,boolean l){
   o2s.add(o);
 }
 
-void miniball(int b,boolean r,boolean l){
-  Obstacle3 o = new Obstacle3(b,r,l);
+void miniball(int b){
+  Obstacle3 o = new Obstacle3(b);
+  o3s.add(o);
+}
+
+void miniball(int b,boolean r,boolean l,float c){
+  if(c==1){
+    c=.5;
+  }else{
+    c=.9;
+  }
+  Obstacle3 o = new Obstacle3(b,r,l,c);
   o3s.add(o);
 }
 
