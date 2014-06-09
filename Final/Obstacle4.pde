@@ -43,10 +43,10 @@ public class Obstacle4{
       xshift-=3; //used because if you don't shift the image's location the actual coordinates don't line up with the curve because the image changes. 
     }
     if(left){
-      rotation-=radians(.9);
+      rotation-=radians(.5);
     }
     if(right){
-      rotation+=radians(.9);
+      rotation+=radians(.5);
     }
     translate(300,300); //switches origin from top left to center
     rotate(rotation); //this rotates ABOUT the ORIGIN
@@ -55,7 +55,7 @@ public class Obstacle4{
     rotate(rotation*(-1.0)); //undoes rotation
     //image(test,0,0);
     translate(-300,-300); //undoes translation
-    if(distance<40){ //if too close to ball, die
+    if(distance<50){ //if too close to ball, die
       alive=false;
     }
   }

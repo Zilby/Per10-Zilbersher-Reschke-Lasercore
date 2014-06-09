@@ -23,6 +23,10 @@ boolean first; //if first time going through the nextLevel()
 boolean restart; //for gameover restart
 int counter, gCount, gTimer, gcor, gcolor, lvltimer = 0; //for countdown time before levels and glow counter, timer for glow, gx/y-coordinate
 boolean gO; //for gameOver (see method)
+boolean st1,st2,st3,st4,sFirst,sInverse,sRising;
+boolean[] stream={st1,st2,st3,st4}; //for bulletstream
+int sCount;
+float sRotation;
 boolean I0, I1, I2, I3, I4, I5, I6; //tells if first (initial) time running levelZero-Six() for level 0-6
 boolean modulator; //for the space gif transparency
 int blur1, blur2, blur3, blur4, blur5, blur6;//for the initial fade in of title, names, score, new level and countdown
@@ -36,6 +40,7 @@ ArrayList<Obstacle1> o1s = new ArrayList<Obstacle1>();
 ArrayList<Obstacle2> o2s = new ArrayList<Obstacle2>();
 ArrayList<Obstacle3> o3s = new ArrayList<Obstacle3>();
 ArrayList<Obstacle4> o4s = new ArrayList<Obstacle4>();
+ArrayList<Obstacle5> o5s = new ArrayList<Obstacle5>();
 PImage testcor; //used as a test for where the coordinates of something are
 boolean leftPressed, rightPressed, keysbegan = false, increase, decrease;//increase and decrease just test scoring for now
 ArrayList<Gif> scores = new ArrayList<Gif>();
@@ -53,6 +58,12 @@ void setup() {
   gO=true;//for gameOver (see method) (works better for intro across the board if just initialized to true
   Initial[0]=true; //sets initial run for lvl 0 to true
   I1=I2=I3=I4=I5=I6=false; //sets the other's initials to false
+  for(int k=0;k<stream.length;k++){
+    stream[k]=false;
+  }
+  sFirst=sInverse=sRising=false;
+  sCount=0;
+  sRotation=0.0;
   i1=loadImage("1.png");
   i2=loadImage("2.png");
   i3=loadImage("3.png");
@@ -176,22 +187,25 @@ void keyReleased() {
     glow();
   }
   if (key=='1') {
-    wave(1,true,false);
+    bStreamOn(1);
   }
   if (key=='2') {
-    wave(1,false,true);
+    bStreamOff(1);
   }
   if (key=='3') {
-    wave(2,true,false);
+    bStreamOn(2);
   }
   if (key=='4') {
-    wave(2,false,true);
+    bStreamOff(2);
   }
   if (key=='5') {
-    wave(3,true,false);
+    bStreamOn(3);
   }
   if (key=='6') {
-    wave(4,false,true);
+    bStreamOff(3);
+  }
+  if (key=='7') {
+    temporary();
   }
   if (key=='s') {
     increase = false;
@@ -239,12 +253,16 @@ void renew(){
   o2s.clear();
   o3s.clear();
   o4s.clear();
+  o5s.clear();
   lives--;
   torment.rise();
   score-=(level*100)+100;
   if(lives!=0){
     first=true;
     advance=true;
+  }
+  for(int i=0;i<stream.length;i++){
+    stream[i]=false;
   }
 }
  
@@ -576,6 +594,7 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
     o2s.clear();
     o3s.clear();
     o4s.clear();
+    o5s.clear();
   }
   background(0);
   if (blur1<255) {
@@ -639,6 +658,12 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
     if (!o4s.get(n).getAlive())
       o4s.remove(n);
   }
+  for (int m=0; m<o5s.size (); m++) {
+    o5s.get(m).draw();
+    if (!o5s.get(m).getAlive())
+      o5s.remove(m);
+  }
+  bulletStream();
   noTint();
   if(!AP[level].isPlaying()){
     if(level!=6){
@@ -810,6 +835,50 @@ void miniball(int b,boolean r,boolean l,float c){
   o3s.add(o);
 }
 
+void temporary(){
+  Obstacle5 o=new Obstacle5(1,false,0);
+}
+
+void bStreamOn(int b){
+  stream[b-1]=true;
+  sFirst=true;
+}
+
+void bStreamOff(int b){
+  stream[b-1]=false;
+}
+
+void bulletStream(){
+  for(int i=0;i<stream.length;i++){
+    if(stream[i]){
+      if(sFirst){
+        sFirst=false;
+        sRotation=0;
+        sCount=0;
+        sRising=sInverse=false;
+      }
+      if(sCount%2==0){
+        Obstacle5 o=new Obstacle5(i+1,sInverse,sRotation);
+        o5s.add(o);
+      }
+      
+    }
+  }
+  sCount++;
+  if(sRising){
+    sRotation-=.04;
+  }else{
+    sRotation+=.04;
+  }
+  if(sRotation>2.4||sRotation<-2.4||sRotation==0){
+    sRising=!sRising;
+  }
+  if(sRotation==0){
+    sInverse=!sInverse;
+  }
+}
+
+
 void kill(){ //used in draw method, add other obstacle arrays as necessary, lives are deducted in restart()
   int d1,d2;
   float r1,r2;
@@ -840,6 +909,13 @@ void kill(){ //used in draw method, add other obstacle arrays as necessary, live
     d2=o4s.get(n).getDistance();
     r2=o4s.get(n).getRotation();
     if(d1>=d2&&d1<=d2+3&&r1<=r2+radians(22)&&r1>=r2-radians(22)){
+      torment.die();
+    }
+  }
+  for(int u=0;u<o5s.size();u++){
+    d2=o5s.get(u).getDistance();
+    r2=o5s.get(u).getRotation();
+    if(d1>=d2&&r1<=r2+radians(2.9)&&r1>=r2-radians(2.9)){
       torment.die();
     }
   }
