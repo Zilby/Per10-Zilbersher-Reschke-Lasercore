@@ -34,6 +34,7 @@ PImage[] Bary = {bumper, bglow1, bglow2, bglow3, bglow4, bglow5};
 String[] Bname = {"bumper.png", "bglow1.png", "bglow2.png", "bglow3.png", "bglow4.png", "bglow5.png"};
 ArrayList<Obstacle1> o1s = new ArrayList<Obstacle1>();
 ArrayList<Obstacle2> o2s = new ArrayList<Obstacle2>();
+ArrayList<Obstacle3> o3s = new ArrayList<Obstacle3>();
 PImage testcor; //used as a test for where the coordinates of something are
 boolean leftPressed, rightPressed, keysbegan = false, increase, decrease;//increase and decrease just test scoring for now
 ArrayList<Gif> scores = new ArrayList<Gif>();
@@ -174,22 +175,22 @@ void keyReleased() {
     glow();
   }
   if (key=='1') {
-    ball(1,false,false);
+    miniball(1,false,false);
   }
   if (key=='2') {
-    ball(2,false,false);
+    miniball(2,false,false);
   }
   if (key=='3') {
-    ball(3,false,false);
+    miniball(3,false,false);
   }
   if (key=='4') {
-    ball(4,false,false);
+    miniball(4,false,false);
   }
   if (key=='5') {
-    ball(1,true,false);
+    miniball(1,true,false);
   }
   if (key=='6') {
-    ball(1,false,true);
+    miniball(1,false,true);
   }
   if (key=='s') {
     increase = false;
@@ -235,6 +236,7 @@ void renew(){
  //  AP[level] = minim.loadFile(trackTitle[level], 2048); //loads song file for corresponding level
   o1s.clear(); //removes extra obstacles
   o2s.clear();
+  o3s.clear();
   lives--;
   torment.rise();
   score-=(level*100)+100;
@@ -570,6 +572,7 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
     Initial[level]=false; //no longer true
     o1s.clear();  
     o2s.clear();
+    o3s.clear();
   }
   background(0);
   if (blur1<255) {
@@ -622,6 +625,11 @@ void genericLevel(int r1,int g1,int b1,int r2,int g2,int b2,int glowr,int glowg,
     o2s.get(j).draw();
     if (!o2s.get(j).getAlive())
       o2s.remove(j);
+  }
+  for (int k=0; k<o3s.size (); k++) {
+    o3s.get(k).draw();
+    if (!o3s.get(k).getAlive())
+      o3s.remove(k);
   }
   noTint();
   if(!AP[level].isPlaying()){
@@ -769,6 +777,11 @@ void ball(int b,boolean r,boolean l){
   o2s.add(o);
 }
 
+void miniball(int b,boolean r,boolean l){
+  Obstacle3 o = new Obstacle3(b,r,l);
+  o3s.add(o);
+}
+
 void kill(){ //used in draw method, add other obstacle arrays as necessary, lives are deducted in restart()
   int d1,d2;
   float r1,r2;
@@ -785,6 +798,13 @@ void kill(){ //used in draw method, add other obstacle arrays as necessary, live
     d2=o2s.get(j).getDistance();
     r2=o2s.get(j).getRotation();
     if(d1>=d2+2/*&&d1<=d2+80*/&&r1<=r2+radians(15)&&r1>=r2-radians(15)){
+      torment.die();
+    }
+  }
+  for(int k=0;k<o3s.size();k++){
+    d2=o3s.get(k).getDistance();
+    r2=o3s.get(k).getRotation();
+    if(d1>=d2/*&&d1<=d2+80*/&&r1<=r2+radians(5.7)&&r1>=r2-radians(5.7)){
       torment.die();
     }
   }
