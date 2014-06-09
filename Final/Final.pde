@@ -772,6 +772,11 @@ void wave(int b) { //ie:make an obstacle one at b bumper
   o1s.add(o);
 }
 
+void ball(int b){
+  Obstacle2 o = new Obstacle2(b);
+  o2s.add(o);
+}
+
 void ball(int b,boolean r,boolean l){
   Obstacle2 o = new Obstacle2(b,r,l);
   o2s.add(o);

@@ -24,3 +24,18 @@ So far:
 -bumper glow function done
 
 -gameover finished (more or less)
+
+-score added to appropriate places
+
+-levels generified so that they all work with one method
+
+-win screen complete
+
+-obstacle 1 complete
+
+-obstacle 2 complete
+
+-obstacle 3 complete
+
+-player movement complete, using polar coordinates for all player and obstacle movement
+

@@ -12,6 +12,25 @@ public class Obstacle2{
   PImage test; //for testing the true coordinates
   boolean alive;
   
+  Obstacle2(int n){
+    b=n;//sets bumper number
+    left=false;
+    right=false;
+    alive = true;
+    distance=280;//sets initial distance from center
+    if(b==1){ //all these coordinates were lined up usin test
+      rotation=radians(45);
+    }else if(b==2){
+      rotation=radians(315);
+    }else if(b==3){
+      rotation=radians(225);
+    }else{
+      rotation=radians(135);
+    }
+    c1=loadImage("obstacle2.png");
+    test=loadImage("Coordinate.png");
+  }
+  
   Obstacle2(int n,boolean r,boolean l){
     b=n;//sets bumper number
     left=l;
